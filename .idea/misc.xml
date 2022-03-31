@@ -3,8 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable-v24/me_darwable.xml" value="0.191" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/activity_login.xml" value="0.14130434782608695" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/fragment_Publishtask.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/fragment_dashboard.xml" value="0.14130434782608695" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/fragment_publishtask.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/main_activity.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/me.xml" value="0.1644021739130435" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/relese_task.xml" value="0.1644021739130435" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_task.xml" value="0.1644021739130435" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_task_detailed_info.xml" value="0.1644021739130435" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_task_item_info.xml" value="0.1644021739130435" />
       </map>
     </option>
   </component>
