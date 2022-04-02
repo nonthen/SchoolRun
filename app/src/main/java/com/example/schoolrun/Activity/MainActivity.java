@@ -36,14 +36,13 @@ public class MainActivity extends AppCompatActivity {
         //初始化控件
         mViewPager=findViewById(R.id.viewpager);
         mRadioGroup=findViewById(R.id.rg_tab);
-        tab1=findViewById(R.id.rb_task);
+        tab1=findViewById(R.id.rb_task);//发布任务
         tab2=findViewById(R.id.rb_home);
         tab3=findViewById(R.id.rb_me);
 
         mViews=new ArrayList<View>();//加载，添加视图view_task
         mViews.add(LayoutInflater.from(this).inflate(R.layout.view_task,null));
         mViews.add(LayoutInflater.from(this).inflate(R.layout.relese_task,null));
-//        mViews.add(LayoutInflater.from(this).inflate(R.layout.find,null));
         mViews.add(LayoutInflater.from(this).inflate(R.layout.me,null));
 
         mViewPager.setAdapter(new MyViewPagerAdapter());//设置一个适配器
@@ -119,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         Bmob.initialize(this, "ceb483ffe9b2098bc90776ca5d0415b4");//初始化BmobSDk功能
-//这里获取了任务主页
+        //这里获取了任务主页
         BmobQuery<MyTask> bmobQuery=new BmobQuery<MyTask>();
         bmobQuery.findObjects(new FindListener<MyTask>() {
             @Override
@@ -148,8 +147,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.rb_home://首页
                         mViewPager.setCurrentItem(0);
                         break;
-
-
                     case R.id.rb_me://个人信息
                         mViewPager.setCurrentItem(2);
                         break;

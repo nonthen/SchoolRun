@@ -20,6 +20,95 @@ public class MyTask extends BmobObject {
     private int tfinish;//任务是否已经完成
     private int tappraise;//评分
 
+    public int getTid() {
+        return tid;
+    }
+
+    public void setTid(int tid) {
+        this.tid = tid;
+    }
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getTkind() {
+        return tkind;
+    }
+
+    public void setTkind(int tkind) {
+        this.tkind = tkind;
+    }
+
+    public String getTdetail() {
+        return tdetail;
+    }
+
+    public void setTdetail(String tdetail) {
+        this.tdetail = tdetail;
+    }
+
+    public String getMyaddress() {
+        return myaddress;
+    }
+
+    public void setMyaddress(String myaddress) {
+        this.myaddress = myaddress;
+    }
+
+    public int getTphone() {
+        return tphone;
+    }
+
+    public void setTphone(int tphone) {
+        this.tphone = tphone;
+    }
+
+    public int getTcheck() {
+        return tcheck;
+    }
+
+    public void setTcheck(int tcheck) {
+        this.tcheck = tcheck;
+    }
+
+    public int getTorder() {
+        return torder;
+    }
+
+    public void setTorder(int torder) {
+        this.torder = torder;
+    }
+
+    public int getTfinish() {
+        return tfinish;
+    }
+
+    public void setTfinish(int tfinish) {
+        this.tfinish = tfinish;
+    }
+
+    public int getTappraise() {
+        return tappraise;
+    }
+
+    public void setTappraise(int tappraise) {
+        this.tappraise = tappraise;
+    }
+
+
     public String getTname() {
         return tname;
     }
