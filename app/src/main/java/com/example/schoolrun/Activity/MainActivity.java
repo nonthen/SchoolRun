@@ -1,5 +1,6 @@
 package com.example.schoolrun.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,92 +26,12 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private ViewPager mViewPager;
+
     private RadioGroup mRadioGroup;
     private RadioButton tab1,tab2,tab3;  //3个单选按钮
-    private List<View> mViews;   //存放视图
 
-    private void initView() {
-        //初始化控件
-        mViewPager=findViewById(R.id.viewpager);
-        mRadioGroup=findViewById(R.id.rg_tab);
-        tab1=findViewById(R.id.rb_task);//发布任务
-        tab2=findViewById(R.id.rb_home);
-        tab3=findViewById(R.id.rb_me);
-
-        mViews=new ArrayList<View>();//加载，添加视图view_task
-        mViews.add(LayoutInflater.from(this).inflate(R.layout.view_task,null));
-        mViews.add(LayoutInflater.from(this).inflate(R.layout.relese_task,null));
-        mViews.add(LayoutInflater.from(this).inflate(R.layout.me,null));
-
-        mViewPager.setAdapter(new MyViewPagerAdapter());//设置一个适配器
-        //对viewpager监听，让分页和底部图标保持一起滑动
-        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override   //让viewpager滑动的时候，下面的图标跟着变动
-            public void onPageSelected(int position) {
-                switch (position) {
-                    case 0:
-                        tab1.setChecked(false);
-                        tab2.setChecked(true);
-                        tab3.setChecked(false);
-
-                        break;
-                    case 1:
-                        tab1.setChecked(true);
-                        tab2.setChecked(false);
-                        tab3.setChecked(false);
-
-                        break;
-
-                    case 2:
-                        tab1.setChecked(false);
-                        tab2.setChecked(false);
-                        tab3.setChecked(true);
-
-                        break;
-
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-    }
-
-    //ViewPager适配器
-    private class MyViewPagerAdapter extends PagerAdapter {
-        @Override
-        public int getCount() {
-            return mViews.size();
-        }
-
-
-        @Override
-        public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-            return view==object;
-        }
-
-        @Override
-        public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-            container.removeView(mViews.get(position));
-        }
-
-        @NonNull
-        @Override
-        public Object instantiateItem(@NonNull ViewGroup container, int position) {
-            container.addView(mViews.get(position));
-            return mViews.get(position);
-        }
-    }
 
 
     @Override
@@ -118,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         Bmob.initialize(this, "ceb483ffe9b2098bc90776ca5d0415b4");//初始化BmobSDk功能
+
+        //初始化控件
+        mRadioGroup=findViewById(R.id.rg_tab);
+        tab1=findViewById(R.id.rb_home);
+        tab2=findViewById(R.id.rb_task);//发布任务
+        tab3=findViewById(R.id.rb_me);
+        tab1.setOnClickListener(this);
+        tab1.setOnClickListener(this);
+        tab1.setOnClickListener(this);
+
         //这里获取了任务主页
         BmobQuery<MyTask> bmobQuery=new BmobQuery<MyTask>();
         bmobQuery.findObjects(new FindListener<MyTask>() {
@@ -135,27 +66,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        initView();//初始化数据
-        //对单选按钮进行监听，选中、未选中
-        mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i) {
-                    case R.id.rb_task://发布任务
-                        mViewPager.setCurrentItem(1);
-                        break;
-                    case R.id.rb_home://首页
-                        mViewPager.setCurrentItem(0);
-                        break;
-                    case R.id.rb_me://个人信息
-                        mViewPager.setCurrentItem(2);
-                        break;
-                }
-            }
-        });
 
     }
 
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.rb_home:
+                Intent button1 = new Intent(this,MainActivity.class);
+                startActivity(button1);
+                break;
+            case R.id.rb_task:
+                Intent button2 = new Intent(this,ReleaseTask.class);
+                startActivity(button2);
+                break;
+            case R.id.rb_me:
+                Intent button3 = new Intent(this,TestMeAc.class);
+                startActivity(button3);
+                break;
 
+        }
+    }
 }

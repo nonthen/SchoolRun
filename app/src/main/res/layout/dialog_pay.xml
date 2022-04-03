@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <View
+        android:id="@+id/view_bg"
+        android:layout_width="419dp"
+        android:layout_height="277dp"
+        android:background="@drawable/pay_type_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="360:212"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_pay_type"
+        android:layout_width="97dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="16dp"
+        android:text="付款方式"
+        android:textColor="#070707"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="@id/view_bg"
+        app:layout_constraintRight_toRightOf="@id/view_bg"
+        app:layout_constraintTop_toTopOf="@id/view_bg" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="370dp"
+        android:layout_height="224dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pay_type"
+        app:layout_constraintVertical_bias="1.0">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="100dp"
+            android:layout_height="52dp"
+            android:background="#F81605"
+            android:text="取消支付"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.811"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.992" />
+
+        <ImageView
+            android:id="@+id/zhifubao"
+            android:layout_width="26dp"
+            android:layout_height="23dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.644"
+            app:layout_constraintStart_toEndOf="@+id/zhifubaopay"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.48"
+            app:srcCompat="@drawable/ic_baseline_radio_button_unchecked_24" />
+
+        <ImageView
+            android:id="@+id/Wechat"
+            android:layout_width="42dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.015"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/weixing_touxiagn" />
+
+        <TextView
+            android:id="@+id/weixinpay"
+            android:layout_width="86dp"
+            android:layout_height="33dp"
+            android:text="微信支付"
+            android:textColor="#232222"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/Wechat"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.069" />
+
+        <TextView
+            android:id="@+id/zhifubaopay"
+            android:layout_width="120dp"
+            android:layout_height="29dp"
+            android:text="支付宝支付"
+            android:textColor="#232222"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/Wechat"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.466" />
+
+        <ImageView
+            android:id="@+id/ZhifubaoView"
+            android:layout_width="42dp"
+            android:layout_height="39dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.015"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Wechat"
+            app:layout_constraintVertical_bias="0.273"
+            app:srcCompat="@drawable/zhifubao_touxaing" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="100dp"
+            android:layout_height="52dp"
+            android:background="#698cf1"
+            android:text="模拟支付"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.216"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.992" />
+
+        <ImageView
+            android:id="@+id/wechat"
+            android:layout_width="26dp"
+            android:layout_height="23dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.705"
+            app:layout_constraintStart_toEndOf="@+id/weixinpay"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.064"
+            app:srcCompat="@drawable/ic_baseline_radio_button_checked_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

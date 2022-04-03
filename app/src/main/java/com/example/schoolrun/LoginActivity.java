@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.schoolrun.Activity.MainActivity;
+import com.example.schoolrun.Activity.ReleaseTask;
 import com.example.schoolrun.Entity.MyUser;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -66,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                 List<MyUser> list = (List<MyUser>) bmobQueryResult.getResults();
                 if (list!=null && list.size()>0){//存在一个匹配的用户
                     Snackbar.make(btLogin, "登录成功：" + userAccount, Snackbar.LENGTH_LONG).show();
-                    Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent=new Intent(LoginActivity.this, ReleaseTask.class);
                     startActivity(intent);
                     finish();//释放资源
                 }

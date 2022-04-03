@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.schoolrun">
 
     <!-- 允许联网 -->
@@ -40,6 +41,12 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
+        <activity android:name=".Activity.ReleaseTask"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".Activity.TestMeAc"></activity>
+
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
