@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                 List<MyUser> list = (List<MyUser>) bmobQueryResult.getResults();
                 if (list!=null && list.size()>0){//存在一个匹配的用户
                     Snackbar.make(btLogin, "登录成功：" + userAccount, Snackbar.LENGTH_LONG).show();
-                    Intent intent=new Intent(LoginActivity.this, ReleaseTask.class);
+                    Intent intent=new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();//释放资源
                 }

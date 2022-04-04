@@ -6,9 +6,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +22,9 @@ import com.example.schoolrun.Entity.MyTask;
 import com.example.schoolrun.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
@@ -46,19 +51,55 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tab2=findViewById(R.id.rb_task);//发布任务
         tab3=findViewById(R.id.rb_me);
         tab1.setOnClickListener(this);
-        tab1.setOnClickListener(this);
-        tab1.setOnClickListener(this);
+        tab2.setOnClickListener(this);
+        tab3.setOnClickListener(this);
 
         //这里获取了任务主页
         BmobQuery<MyTask> bmobQuery=new BmobQuery<MyTask>();
         bmobQuery.findObjects(new FindListener<MyTask>() {
             @Override
             public void done(List<MyTask> list, BmobException e) {
+
                 if(e==null){
+                    SimpleAdapter simpleAdapter;
                     Log.d("path","查询成功");
-                    ViewTaskAdapte viewTaskAdapte=new ViewTaskAdapte(MainActivity.this,R.layout.view_task_item_info,list);
+                    Map<String, String> mHashMap;
+                    String tempTprice,tempTid,tempTphone,tempTkind;
+                    Toast.makeText(MainActivity.this,"成功，共"+list.size()+"条数据",Toast.LENGTH_SHORT).show();
+                    List<Map<String,String>> mapList=new ArrayList<>();
+                    for (MyTask myTask:list){
+                        tempTprice=String.valueOf(myTask.getTprice());
+                        tempTid=String.valueOf(myTask.getTid());
+                        tempTphone=String.valueOf(myTask.getTphone());
+                        tempTkind=String.valueOf(myTask.getTkind());
+                        mHashMap=new HashMap<>();
+                        mHashMap.put("tname",myTask.getTname());
+                        mHashMap.put("targetaddress",myTask.getTargetaddress());
+                        mHashMap.put("tprice",tempTprice);
+                        mHashMap.put("tid",tempTid);
+                        mHashMap.put("tdetail",myTask.getTdetail());
+                        mHashMap.put("myaddress",myTask.getMyaddress());
+                        mHashMap.put("tphone",tempTphone);
+                        mHashMap.put("tkind",tempTkind);
+                        mapList.add(mHashMap);
+                        System.out.println("标题："+myTask.getTname()+"目标地址："+myTask.getTargetaddress()+"价格："+myTask.getTprice());
+                    }
                     ListView listView=findViewById(R.id.listView);
-                    listView.setAdapter(viewTaskAdapte);
+                    simpleAdapter=new SimpleAdapter(MainActivity.this,mapList,R.layout.view_task_item_info,new String[]{"tname","targetaddress","tprice"},new int[]{R.id.item_tname,R.id.item_targetaddress,R.id.item_tprice});
+                    listView.setAdapter(simpleAdapter);
+                    simpleAdapter.notifyDataSetChanged();
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                            //Bmob获取listview中某一行数据
+                            Intent intent = new Intent();
+                            intent.setClass(MainActivity.this, DetailedInfoActivity.class);
+                            intent.putExtra("tid", mapList.get(position).get("tid").toString()); // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
+                            System.out.println(position);
+                            startActivity(intent);
+
+                        }
+                    });
                 }
                 else {
                     Log.d("path","查询不成功");

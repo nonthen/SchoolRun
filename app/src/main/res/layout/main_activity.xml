@@ -1,56 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     tools:context="com.example.schoolrun.Activity.MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="horizontal">
 
-        <RadioGroup
-            android:id="@+id/rg_tab"
-            android:layout_width="fill_parent"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:ignore="MissingConstraints">
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
 
-            <RadioButton
-                android:id="@+id/rb_home"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:checked="true"
-                android:drawableTop="@drawable/shouye"
-                android:gravity="center"
-                android:paddingLeft="0dp"
-                android:text="任务" />
+    <RadioGroup
+        android:id="@+id/rg_tab"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/rb_task"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@drawable/fabu"
-                android:gravity="center"
-                android:paddingLeft="0dp"
-                android:text="发布任务" />
+        <RadioButton
+            android:id="@+id/rb_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/shouye"
+            android:gravity="center"
+            android:paddingLeft="0dp"
+            android:text="任务" />
+        <RadioButton
+            android:id="@+id/rb_task"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/fabu"
+            android:gravity="center"
+            android:paddingLeft="0dp"
+            android:text="发布任务" />
 
-            <RadioButton
-                android:id="@+id/rb_me"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@drawable/person"
-                android:gravity="center"
-                android:paddingLeft="0dp"
-                android:text="我" />
-        </RadioGroup>
+        <RadioButton
+            android:id="@+id/rb_me"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/person"
+            android:gravity="center"
+            android:paddingLeft="0dp"
+            android:text="我" />
+    </RadioGroup>
 
-</RelativeLayout>
+</LinearLayout>
