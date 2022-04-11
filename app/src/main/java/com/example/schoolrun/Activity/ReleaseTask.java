@@ -1,12 +1,9 @@
 package com.example.schoolrun.Activity;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,10 +15,20 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.schoolrun.Entity.MyTask;
+import com.example.schoolrun.Entity.MyUser;
+import com.example.schoolrun.LoginActivity;
 import com.example.schoolrun.R;
-import com.google.android.material.snackbar.Snackbar;
+
+import java.util.List;
 
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobQueryResult;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SQLQueryListener;
+import cn.bmob.v3.listener.SaveListener;
 
 //发布任务
 public class ReleaseTask extends AppCompatActivity {
@@ -35,9 +42,12 @@ public class ReleaseTask extends AppCompatActivity {
     private Button fabubutton;//发布按钮
     private Spinner kindsp;//任务类型下拉框
     private String kind;//类型名称
+    private MyTask myTask;
 
     private RadioButton tab1,tab2,tab3;//底部导航栏
     private PayTypesDialog payTypesDialog;//支付弹窗
+    private int  sum;//任务总个数
+    protected int uid;//当前发布人的uid
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +66,7 @@ public class ReleaseTask extends AppCompatActivity {
         tab2=findViewById(R.id.rb_task);
         tab3=findViewById(R.id.rb_me);
         payTypesDialog = new PayTypesDialog(ReleaseTask.this, R.style.pay_type_dialog);
+        myTask=new MyTask();
 
         //下拉框功能实现
         String[] ctype = new String[]{"代取快递或外卖", "代排队", "代购", "代送"};//下拉框数据
@@ -113,9 +124,81 @@ public class ReleaseTask extends AppCompatActivity {
         fabubutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //点击弹出支付方式
-                System.out.println("弹出支付方式");
-                payTypesDialog.show();
+
+                if (etname.getText().toString().equals("")){
+//                    System.out.println("名字："+etname.getText().toString());
+                    Toast.makeText(getApplication(), "请填写任务标题" ,
+                            Toast.LENGTH_SHORT).show();
+                }
+                else if(etprice.getText().toString().equals("")){
+                    Toast.makeText(getApplication(), "请输入任务价格" ,
+                            Toast.LENGTH_SHORT).show();
+                }
+                else if (etphone.getText().toString().equals("")){
+                    Toast.makeText(getApplication(), "请输入联系方式" ,
+                            Toast.LENGTH_SHORT).show();
+                }
+                else if(etdetails.getText().toString().equals("")){
+                    Toast.makeText(getApplication(), "请填写任务详细信息" ,
+                            Toast.LENGTH_SHORT).show();
+                }
+                else if (etmyadress.getText().toString().equals("")){
+                    Toast.makeText(getApplication(), "请输入任务起始地址" ,
+                            Toast.LENGTH_SHORT).show();
+                }
+                else if(ettargetadress.getText().toString().equals("")){
+                    Toast.makeText(getApplication(), "请输入任务目标地址" ,
+                            Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    BmobQuery<MyTask> bmobQuery = new BmobQuery<>();
+                    bmobQuery.findObjects(new FindListener<MyTask>(){
+                        @Override
+                        public void done(List<MyTask> list, BmobException e) {//统计任务总数
+                            if (e == null){
+                                sum = list.size();
+//                                System.out.println("任务总数："+sum);
+
+                                //插入一条任务数据,如果将插入数据放到外面，就会先执行插入数据，不会先查询，那么tid就永远为0
+                                myTask.setTid(sum+1);
+
+                                //通过用户的账号查找到用户的uid
+                                BmobQuery<MyUser> bmobQuery = new BmobQuery<>();
+                                String bql = "select uid from MyUser where account = ? ";
+                                bmobQuery.setSQL(bql);
+                                bmobQuery.setPreparedParams(new Object[]{LoginActivity.uaccount});
+                                bmobQuery.doSQLQuery(new SQLQueryListener<MyUser>() {
+                                    @Override
+                                    public void done(BmobQueryResult<MyUser> bmobQueryResult, BmobException e) {
+                                        List<MyUser> list = (List<MyUser>) bmobQueryResult.getResults();
+                                        if (list != null && list.size() > 0) {//存在一个匹配的用户
+                                            uid = list.get(0).getUid();//获得当前用户的uid
+                                            myTask.setUid(uid);
+                                            System.out.println("当前用户的uid:" + uid);
+                                        } else {
+                                            System.out.println("不存在当前用户的uid");
+                                        }
+
+                                    }
+
+                                });
+
+                                myTask.setTname(etname.getText().toString());
+                                myTask.setTkind(kind);
+                                myTask.setTprice(Double.valueOf(etprice.getText().toString()));
+                                myTask.setTphone(Integer.valueOf(etphone.getText().toString()));
+                                myTask.setTdetail(etdetails.getText().toString());
+                                myTask.setMyaddress(etmyadress.getText().toString());
+                                myTask.setTargetaddress(ettargetadress.getText().toString());
+                                //此时数据还没有存如任务表
+                                System.out.println("弹出支付方式");
+                                payTypesDialog.show();
+
+                            }
+                        }
+                    });
+
+                }
 
             }
         });
@@ -127,6 +210,19 @@ public class ReleaseTask extends AppCompatActivity {
 
                 if (payTypesDialog.getPanduan()==1){//支付成功，刷新界面
                     Toast.makeText(ReleaseTask.this,"支付成功",Toast. LENGTH_LONG).show();
+
+                    myTask.save(new SaveListener<String>() {//支付成功后才会将数据存入任务表
+                        @Override
+                        public void done(String objectId, BmobException e) {
+                            if (e == null) {
+                                System.out.println("发布任务成功");
+                            } else {
+                                Log.e("BMOB", e.toString());
+                                System.out.println("发布任务失败");
+                            }
+                        }
+                    });
+
                     Intent intent=new Intent(ReleaseTask.this, ReleaseTask.class);
                     startActivity(intent);
                     finish();
@@ -140,10 +236,7 @@ public class ReleaseTask extends AppCompatActivity {
         });
 
 
-
-
     }
-
 
 
 

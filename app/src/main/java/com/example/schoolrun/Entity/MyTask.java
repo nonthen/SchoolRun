@@ -8,7 +8,7 @@ public class MyTask extends BmobObject {
     private int tid;//任务编号
     private int uid;//发单人编号
     private int id;//接单人编号
-    private int tkind;//任务分类
+    private String tkind;//任务分类
     private String tname;//任务标题
     private String tdetail;//任务详情
     private String targetaddress;//目标地址
@@ -24,88 +24,99 @@ public class MyTask extends BmobObject {
         return tid;
     }
 
-    public void setTid(int tid) {
+    public MyTask setTid(int tid) {
         this.tid = tid;
+        return this;
     }
 
     public int getUid() {
         return uid;
     }
 
-    public void setUid(int uid) {
+    public MyTask setUid(int uid) {
         this.uid = uid;
+        return this;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public MyTask setId(int id) {
         this.id = id;
+        return this;
     }
 
-    public int getTkind() {
+    public String getTkind() {
         return tkind;
     }
 
-    public void setTkind(int tkind) {
+    public MyTask setTkind(String tkind) {
         this.tkind = tkind;
+        return this;
     }
 
     public String getTdetail() {
         return tdetail;
     }
 
-    public void setTdetail(String tdetail) {
+    public MyTask setTdetail(String tdetail) {
         this.tdetail = tdetail;
+        return this;
     }
 
     public String getMyaddress() {
         return myaddress;
     }
 
-    public void setMyaddress(String myaddress) {
+    public MyTask setMyaddress(String myaddress) {
         this.myaddress = myaddress;
+        return this;
     }
 
     public int getTphone() {
         return tphone;
     }
 
-    public void setTphone(int tphone) {
+    public MyTask setTphone(int tphone) {
         this.tphone = tphone;
+        return this;
     }
 
     public int getTcheck() {
         return tcheck;
     }
 
-    public void setTcheck(int tcheck) {
+    public MyTask setTcheck(int tcheck) {
         this.tcheck = tcheck;
+        return this;
     }
 
     public int getTorder() {
         return torder;
     }
 
-    public void setTorder(int torder) {
+    public MyTask setTorder(int torder) {
         this.torder = torder;
+        return this;
     }
 
     public int getTfinish() {
         return tfinish;
     }
 
-    public void setTfinish(int tfinish) {
+    public MyTask setTfinish(int tfinish) {
         this.tfinish = tfinish;
+        return this;
     }
 
     public int getTappraise() {
         return tappraise;
     }
 
-    public void setTappraise(int tappraise) {
+    public MyTask setTappraise(int tappraise) {
         this.tappraise = tappraise;
+        return this;
     }
 
 
@@ -113,24 +124,27 @@ public class MyTask extends BmobObject {
         return tname;
     }
 
-    public void setTname(String tname) {
+    public MyTask setTname(String tname) {
         this.tname = tname;
+        return this;
     }
 
     public String getTargetaddress() {
         return targetaddress;
     }
 
-    public void setTargetaddress(String targetaddress) {
+    public MyTask setTargetaddress(String targetaddress) {
         this.targetaddress = targetaddress;
+        return this;
     }
 
     public Number getTprice() {
         return tprice;
     }
 
-    public void setTprice(Number tprice) {
+    public MyTask setTprice(Number tprice) {
         this.tprice =  tprice;
+        return this;
     }
 
 

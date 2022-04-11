@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/SnaLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -16,274 +16,281 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="62dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tasktextname"
-                android:layout_width="126dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="4dp"
-                android:text="任务标题："
-                android:textColor="#070707"
-                android:textSize="25sp"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="11dp" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp">
 
-            <EditText
-                android:id="@+id/taskname"
-                android:layout_width="218dp"
-                android:layout_height="41dp"
-                android:ems="10"
-                android:hint="请填写任务标题"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/tasktextname"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="9dp" />
+                <TextView
+                    android:id="@+id/tasktextname"
+                    android:layout_width="126dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="4dp"
+                    android:text="任务标题："
+                    android:textColor="#070707"
+                    android:textSize="25sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteY="11dp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <EditText
+                    android:id="@+id/taskname"
+                    android:layout_width="218dp"
+                    android:layout_height="41dp"
+                    android:ems="10"
+                    android:hint="请填写任务标题"
+                    android:inputType="text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/tasktextname"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteY="9dp" />
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="62dp">
-
-            <TextView
-                android:id="@+id/tasktextkind"
-                android:layout_width="126dp"
-                android:layout_height="40dp"
-                android:text="任务类型："
-                android:textColor="#070707"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.021"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.272" />
-
-            <Spinner
-                android:id="@+id/kindspinner"
-                android:layout_width="222dp"
-                android:layout_height="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/tasktextkind"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.272" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="62dp">
-            <TextView
-                android:id="@+id/tasktextprice"
-                android:layout_width="126dp"
-                android:layout_height="40dp"
-                android:text="任务价格："
-                android:textColor="#070707"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.017"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.218" />
-
-            <EditText
-                android:id="@+id/taskprice"
-                android:layout_width="153dp"
-                android:layout_height="42dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="请填写价格"
-                android:inputType="number"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.028"
-                app:layout_constraintStart_toEndOf="@+id/tasktextprice"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.216" />
-
-            <TextView
-                android:id="@+id/yuan"
-                android:layout_width="52dp"
-                android:layout_height="40dp"
-                android:text="元"
-                android:textColor="#070707"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/taskprice"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.218" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="62dp">
-            <TextView
-                android:id="@+id/tasktextphone"
-                android:layout_width="129dp"
-                android:layout_height="40dp"
-                android:text="联系方式："
-                android:textColor="#070707"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.021"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.322" />
-
-            <EditText
-                android:id="@+id/taskphone"
-                android:layout_width="270dp"
-                android:layout_height="44dp"
-                android:ems="10"
-                android:hint="请填写联系电话号码"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/tasktextphone"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.166"
-                tools:ignore="MissingConstraints" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="126dp">
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            <TextView
-                android:id="@+id/tasktextdetails"
-                android:layout_width="159dp"
-                android:layout_height="45dp"
-                android:text="任务详情："
-                android:textColor="#070707"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.027"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.069" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp">
 
-            <EditText
-                android:id="@+id/taskdetails"
-                android:layout_width="398dp"
-                android:layout_height="56dp"
-                android:hint="请描述跑腿任务详细信息"
-                android:maxLines="3"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.461"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.771" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tasktextkind"
+                    android:layout_width="126dp"
+                    android:layout_height="40dp"
+                    android:text="任务类型："
+                    android:textColor="#070707"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.021"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.272" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="115dp">
+                <Spinner
+                    android:id="@+id/kindspinner"
+                    android:layout_width="222dp"
+                    android:layout_height="40dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/tasktextkind"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.272" />
 
-            <TextView
-                android:id="@+id/tasktextmyadress"
-                android:layout_width="184dp"
-                android:layout_height="45dp"
-                android:text="任务起始地址："
-                android:textColor="#070707"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.027"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.039" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <EditText
-                android:id="@+id/taskmyadress"
-                android:layout_width="402dp"
-                android:layout_height="55dp"
-                android:textSize="20sp"
-                android:hint="请输入任务起始地址"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.444"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.857" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tasktextprice"
+                    android:layout_width="126dp"
+                    android:layout_height="40dp"
+                    android:text="任务价格："
+                    android:textColor="#070707"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.017"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.218" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="115dp">
+                <EditText
+                    android:id="@+id/taskprice"
+                    android:layout_width="153dp"
+                    android:layout_height="42dp"
+                    android:layout_marginEnd="16dp"
+                    android:ems="10"
+                    android:hint="请填写价格"
+                    android:inputType="text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.028"
+                    app:layout_constraintStart_toEndOf="@+id/tasktextprice"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.216" />
 
-            <TextView
-                android:id="@+id/texttargetaddress"
-                android:layout_width="189dp"
-                android:layout_height="46dp"
-                android:text="任务目标地址："
-                android:textColor="#070707"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.031"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                <TextView
+                    android:id="@+id/yuan"
+                    android:layout_width="52dp"
+                    android:layout_height="40dp"
+                    android:text="元"
+                    android:textColor="#070707"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/taskprice"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.218" />
 
-            <EditText
-                android:id="@+id/tasktargetaddress"
-                android:layout_width="407dp"
-                android:layout_height="55dp"
-                android:hint="请输入目标地址"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.728" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="115dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp">
 
-            <Button
-                android:id="@+id/fabubutton"
-                android:layout_width="264dp"
-                android:layout_height="59dp"
-                android:background="#1D6AEF"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="确认发布"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.557"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.375" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tasktextphone"
+                    android:layout_width="129dp"
+                    android:layout_height="40dp"
+                    android:text="联系方式："
+                    android:textColor="#070707"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.021"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.322" />
+
+                <EditText
+                    android:id="@+id/taskphone"
+                    android:layout_width="270dp"
+                    android:layout_height="44dp"
+                    android:ems="10"
+                    android:hint="请填写联系电话号码"
+                    android:inputType="text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/tasktextphone"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.166"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="126dp">
+
+
+                <TextView
+                    android:id="@+id/tasktextdetails"
+                    android:layout_width="159dp"
+                    android:layout_height="45dp"
+                    android:text="任务详情："
+                    android:textColor="#070707"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.027"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.069" />
+
+                <EditText
+                    android:id="@+id/taskdetails"
+                    android:layout_width="398dp"
+                    android:layout_height="56dp"
+                    android:hint="请描述跑腿任务详细信息"
+                    android:maxLines="3"
+                    android:textSize="20sp"
+                    android:inputType="text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.461"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.771" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="115dp">
+
+                <TextView
+                    android:id="@+id/tasktextmyadress"
+                    android:layout_width="184dp"
+                    android:layout_height="45dp"
+                    android:text="任务起始地址："
+                    android:textColor="#070707"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.027"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.039" />
+
+                <EditText
+                    android:id="@+id/taskmyadress"
+                    android:layout_width="402dp"
+                    android:layout_height="55dp"
+                    android:hint="请输入任务起始地址"
+                    android:textSize="20sp"
+                    android:inputType="text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.444"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.857" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="115dp">
+
+                <TextView
+                    android:id="@+id/texttargetaddress"
+                    android:layout_width="189dp"
+                    android:layout_height="46dp"
+                    android:text="任务目标地址："
+                    android:textColor="#070707"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.031"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/tasktargetaddress"
+                    android:layout_width="407dp"
+                    android:layout_height="55dp"
+                    android:hint="请输入目标地址"
+                    android:textSize="20sp"
+                    android:inputType="text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.728" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="115dp">
+
+                <Button
+                    android:id="@+id/fabubutton"
+                    android:layout_width="264dp"
+                    android:layout_height="59dp"
+                    android:background="#1D6AEF"
+                    android:rotation="0"
+                    android:rotationX="0"
+                    android:rotationY="0"
+                    android:text="确认发布"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.557"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.375" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 

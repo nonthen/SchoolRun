@@ -35,6 +35,13 @@ public class MyUser extends BmobObject {
         return this;
     }
 
+    public int getUid() {
+        return uid;
+    }
 
+    public MyUser setUid(int uid) {
+        this.uid = uid;
+        return this;
+    }
 
 }

@@ -96,7 +96,7 @@ public class PayTypesDialog extends Dialog {
             public void onClick(View view) {
                 panduan=1;
 
-                Snackbar.make(zhifubutton, "模拟支付成功", Snackbar.LENGTH_LONG).show();
+//                Snackbar.make(zhifubutton, "模拟支付成功", Snackbar.LENGTH_LONG).show();
                 cancel();
             }
         });
@@ -105,7 +105,7 @@ public class PayTypesDialog extends Dialog {
             @Override
             public void onClick(View view) {
                 panduan=0;
-                Snackbar.make(quxiaobutton, "取消支付成功", Snackbar.LENGTH_LONG).show();
+//                Snackbar.make(quxiaobutton, "取消支付成功", Snackbar.LENGTH_LONG).show();
                 cancel();
             }
         });
