@@ -112,7 +112,7 @@ public class ReleaseTask extends AppCompatActivity {
         tab3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent button3 = new Intent(ReleaseTask.this,TestMeAc.class);
+                Intent button3 = new Intent(ReleaseTask.this, TestMeAc.class);
                 startActivity(button3);
                 finish();//释放资源
             }
@@ -190,7 +190,7 @@ public class ReleaseTask extends AppCompatActivity {
                                 myTask.setTdetail(etdetails.getText().toString());
                                 myTask.setMyaddress(etmyadress.getText().toString());
                                 myTask.setTargetaddress(ettargetadress.getText().toString());
-                                //此时数据还没有存如任务表
+                                //此时数据还没有存入任务表
                                 System.out.println("弹出支付方式");
                                 payTypesDialog.show();
 

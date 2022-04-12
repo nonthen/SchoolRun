@@ -22,10 +22,10 @@
 
     <RadioGroup
         android:id="@+id/rg_tab"
-        android:layout_width="fill_parent"
-        android:layout_height="55dp"
-        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <RadioButton
@@ -39,6 +39,7 @@
             android:gravity="center"
             android:paddingLeft="0dp"
             android:text="任务" />
+
         <RadioButton
             android:id="@+id/rb_task"
             android:layout_width="0dp"
