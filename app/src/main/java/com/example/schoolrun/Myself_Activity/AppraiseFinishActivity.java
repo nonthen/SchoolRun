@@ -1,12 +1,10 @@
 package com.example.schoolrun.Myself_Activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -16,11 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.schoolrun.Activity.DetailedInfoActivity;
 import com.example.schoolrun.Activity.MainActivity;
-import com.example.schoolrun.Activity.PayTypesDialog;
-import com.example.schoolrun.Activity.ReleaseTask;
-import com.example.schoolrun.Activity.TestMeAc;
 import com.example.schoolrun.Entity.MyTask;
-import com.example.schoolrun.Entity.MyUser;
 import com.example.schoolrun.LoginActivity;
 import com.example.schoolrun.R;
 
@@ -33,30 +27,25 @@ import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.datatype.BmobQueryResult;
 import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SQLQueryListener;
 
-//评价任务功能
-public class AppraiseActivity extends AppCompatActivity {
+//查看已经评价的任务列表
+public class AppraiseFinishActivity extends AppCompatActivity {
 
-    private  ImageButton fanhuiButton;//返回上一层按钮
-    private StarScoreDialog starScoreDialog;//评分弹窗
-    private Button appfinishbutton;//查看已经评价的任务
+    private ImageButton fanhuialllistbutton;//返回未评价任务列表
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.appraise_task);//绑定评价服务布局
+        setContentView(R.layout.appraisefinishlist);//绑定已经评价任务列表布局
         Bmob.initialize(this, "ceb483ffe9b2098bc90776ca5d0415b4");//初始化BmobSDk功能
 
-        fanhuiButton=findViewById(R.id.fanhuibutton);//返回按钮
-        appfinishbutton=findViewById(R.id.appraisefinishbutton);
-        starScoreDialog=new StarScoreDialog(AppraiseActivity.this, R.style.pay_type_dialog);//星星评分
+        fanhuialllistbutton=findViewById(R.id.fanhuialllistbutton);
 
-        //这里获取已完成任务的列表
+        //这里获取已完成评价的任务列表
         BmobQuery<MyTask> bmobQuery=new BmobQuery<MyTask>();
-        String bql = "select * from MyTask where tfinish =1 and tappfinsh=0 and  uid = ?";
+        String bql = "select * from MyTask where tappfinsh=1 and  uid = ?";
         bmobQuery.setSQL(bql);//必须先获取uid，由uaccount获取uid
         bmobQuery.setPreparedParams(new Object[]{LoginActivity.uid});
 //        System.out.println("评价的uid是"+LoginActivity.uid);
@@ -68,7 +57,7 @@ public class AppraiseActivity extends AppCompatActivity {
                     SimpleAdapter simpleAdapter;
                     Map<String, String> mHashMap;
                     String tempTprice,tempTid,tempTphone,tempTkind;
-                    Toast.makeText(AppraiseActivity.this,"任务完成，查询成功",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AppraiseFinishActivity.this,"评价成功的任务查询成功",Toast.LENGTH_SHORT).show();
                     List<Map<String,String>> mapList=new ArrayList<>();
 
                     List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
@@ -92,7 +81,7 @@ public class AppraiseActivity extends AppCompatActivity {
 
                     //获取数据显示在列表中
                     ListView listView=findViewById(R.id.listView);
-                    simpleAdapter=new SimpleAdapter(AppraiseActivity.this,mapList,R.layout.view_task_item_info,
+                    simpleAdapter=new SimpleAdapter(AppraiseFinishActivity.this,mapList,R.layout.view_task_item_info,
                             new String[]{"tname","targetaddress","tprice"},
                             new int[]{R.id.item_tname,R.id.item_targetaddress,R.id.item_tprice});
                     listView.setAdapter(simpleAdapter);
@@ -101,56 +90,34 @@ public class AppraiseActivity extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                             //Bmob获取listview中某一行数据
-                            System.out.println("弹出任务评分");
-                            //传入当前准备评分的任务的tid
-                            starScoreDialog.SetTaskid(mapList.get(position).get("tid"));
-                            starScoreDialog.show();
+                            Intent intent = new Intent();
+                            //跳转到已完成评价的任务详细信息
+                            intent.setClass(AppraiseFinishActivity.this, AppraiseFinshDetailsActivity.class);
+                            intent.putExtra("tid", mapList.get(position).get("tid")); // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
+                            System.out.println(position);
+                            startActivity(intent);
 
                         }
                     });
                 }
                 else {
-                    Log.d("path","已完成任务查询不成功");
+                    Log.d("path","已完成评价任务查询不成功");
                 }
             }
 
         });
 
-        //返回到个人信息界面
-        fanhuiButton.setOnClickListener(new View.OnClickListener() {
+        //返回未完成评价任务列表
+        fanhuialllistbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent fanhui = new Intent(AppraiseActivity.this, TestMeAc.class);
-                startActivity(fanhui);
-                finish();//释放资源
-            }
-        });
-
-        //查看已完成评价的任务
-        appfinishbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AppraiseActivity.this,AppraiseFinishActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        //在完成评价之后，页面进行刷新
-        starScoreDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialogInterface) {
-
-                Intent intent = new Intent(AppraiseActivity.this,AppraiseActivity.class);
+                Intent intent=new Intent(AppraiseFinishActivity.this,AppraiseActivity.class);
                 startActivity(intent);
                 finish();
 
             }
         });
+
 
     }
-
-
-
-
 }

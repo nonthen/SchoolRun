@@ -110,7 +110,8 @@ public class DetailedInfoActivity extends AppCompatActivity {
 
             }
         });
-        //返回登录
+
+        //返回主界面
         btmain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

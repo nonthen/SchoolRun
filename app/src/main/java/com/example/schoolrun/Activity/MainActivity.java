@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         mHashMap.put("tphone",tempTphone);
                         mHashMap.put("tkind",tempTkind);
                         mapList.add(mHashMap);
-                        System.out.println("标题："+myTask.getTname()+"目标地址："+myTask.getTargetaddress()+"价格："+myTask.getTprice());
+//                        System.out.println("标题："+myTask.getTname()+"目标地址："+myTask.getTargetaddress()+"价格："+myTask.getTprice());
                     }
                     ListView listView=findViewById(R.id.listView);
                     simpleAdapter=new SimpleAdapter(MainActivity.this,mapList,R.layout.view_task_item_info,new String[]{"tname","targetaddress","tprice"},new int[]{R.id.item_tname,R.id.item_targetaddress,R.id.item_tprice});

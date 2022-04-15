@@ -7,8 +7,8 @@
 
     <View
         android:id="@+id/view_bg"
-        android:layout_width="408dp"
-        android:layout_height="338dp"
+        android:layout_width="393dp"
+        android:layout_height="334dp"
         android:background="@drawable/pay_type_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="360:212"
@@ -32,19 +32,19 @@
 
     <RatingBar
         android:id="@+id/ratingBar"
-        android:layout_width="243dp"
-        android:layout_height="68dp"
+        android:layout_width="235dp"
+        android:layout_height="51dp"
         android:layout_margin="20dp"
-        android:layout_marginEnd="24dp"
         android:isIndicator="false"
         android:numStars="5"
         android:rating="0"
-        android:stepSize="0.5"
-        app:layout_constraintBottom_toBottomOf="@+id/view_bg"
+        android:stepSize="1"
+        app:layout_constraintBottom_toTopOf="@+id/appraiseendbutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/appraisetutle"
-        app:layout_constraintVertical_bias="0.084" />
+        app:layout_constraintVertical_bias="0.146" />
 
     <TextView
         android:id="@+id/textView2"

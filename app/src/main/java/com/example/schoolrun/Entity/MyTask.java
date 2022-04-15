@@ -18,7 +18,9 @@ public class MyTask extends BmobObject {
     private int tcheck;//判断是否审核成功
     private int torder;//任务是否被接单
     private int tfinish;//任务是否已经完成
-    private int tappraise;//评分
+    private float tappraise;//评分
+    private String tappraisetext;//文字评论
+    private int tappfinsh;//任务是否已经评论
 
     public int getTid() {
         return tid;
@@ -110,11 +112,11 @@ public class MyTask extends BmobObject {
         return this;
     }
 
-    public int getTappraise() {
+    public float getTappraise() {
         return tappraise;
     }
 
-    public MyTask setTappraise(int tappraise) {
+    public MyTask setTappraise(float tappraise) {
         this.tappraise = tappraise;
         return this;
     }
@@ -147,5 +149,22 @@ public class MyTask extends BmobObject {
         return this;
     }
 
+    public String getTappraisetext() {
+        return tappraisetext;
+    }
+
+    public MyTask setTappraisetext(String tappraisetext) {
+        this.tappraisetext = tappraisetext;
+        return this;
+    }
+
+    public int getTappfinsh() {
+        return tappfinsh;
+    }
+
+    public MyTask setTappfinsh(int tappfinsh) {
+        this.tappfinsh = tappfinsh;
+        return this;
+    }
 
 }

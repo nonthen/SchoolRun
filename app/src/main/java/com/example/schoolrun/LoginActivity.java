@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etPwd;//输入密码
     private Button btLogin;//登录按钮
     public static String uaccount;//当前用户账号
+    public static int uid;//当前用户id
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (list!=null && list.size()>0){//存在一个匹配的用户
                     Snackbar.make(btLogin, "登录成功：" + userAccount, Snackbar.LENGTH_LONG).show();
                     uaccount=userAccount;//将当前用户的账号赋值给uaccount，uaccount作为整个项目的变量
+                    uid=list.get(0).getUid();//将当前的用户id赋值给uid，uid作为整个项目的变量
                     Intent intent=new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();//释放资源

@@ -48,6 +48,8 @@
         <activity android:name=".Activity.TestMeAc"></activity>
         <activity android:name=".Activity.DetailedInfoActivity"></activity>
         <activity android:name=".Myself_Activity.AppraiseActivity"></activity>
+        <activity android:name=".Myself_Activity.AppraiseFinishActivity"></activity>
+        <activity android:name=".Myself_Activity.AppraiseFinshDetailsActivity"></activity>
 
 
 
