@@ -190,6 +190,7 @@ public class ReleaseTask extends AppCompatActivity {
                                 myTask.setTdetail(etdetails.getText().toString());
                                 myTask.setMyaddress(etmyadress.getText().toString());
                                 myTask.setTargetaddress(ettargetadress.getText().toString());
+                                myTask.setTcheck(0);//任务还没有被管理员审核
                                 //此时数据还没有存入任务表
                                 System.out.println("弹出支付方式");
                                 payTypesDialog.show();

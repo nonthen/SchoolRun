@@ -9,7 +9,7 @@
     <View
         android:id="@+id/line"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:background="#959393"
         app:layout_constraintBottom_toTopOf="@+id/rg_tab"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,8 +36,8 @@
 
         <RadioButton
             android:id="@+id/yijiedanbutton"
-            android:layout_width="35dp"
-            android:layout_height="89dp"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
             android:layout_weight="1"
             android:button="@null"
             android:checked="true"
@@ -67,24 +67,7 @@
             android:textSize="34dp"
             android:textStyle="bold" />
 
-        <View
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:background="#959393" />
 
-        <RadioButton
-            android:id="@+id/jiefinishbutton"
-            android:layout_width="36dp"
-            android:layout_height="89dp"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:paddingLeft="0dp"
-            android:text="已完成"
-            android:textSize="34dp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="264dp"
-            tools:layout_editor_absoluteY="805dp" />
 
     </RadioGroup>
 

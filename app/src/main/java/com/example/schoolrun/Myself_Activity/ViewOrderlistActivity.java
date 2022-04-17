@@ -39,7 +39,7 @@ import cn.bmob.v3.listener.SQLQueryListener;
 public class ViewOrderlistActivity extends AppCompatActivity implements View.OnClickListener{
 
     private RadioGroup mRadioGroup;
-    private RadioButton tab1,tab2,tab3;  //3个单选按钮
+    private RadioButton tab1,tab2;  //3个单选按钮
     private ImageButton returnmebutton;
 
     @Override
@@ -53,10 +53,8 @@ public class ViewOrderlistActivity extends AppCompatActivity implements View.OnC
         mRadioGroup=findViewById(R.id.rg_tab);
         tab1=findViewById(R.id.yijiedanbutton);//已接单按钮
         tab2=findViewById(R.id.runnigbutton);//进行中按钮
-        tab3=findViewById(R.id.jiefinishbutton);//已完成按钮
         tab1.setOnClickListener(this);
         tab2.setOnClickListener(this);
-        tab3.setOnClickListener(this);
         //点击当前界面，按钮的背景变色
         tab1.setBackgroundColor(Color.parseColor("#00abf4"));
 
@@ -124,6 +122,15 @@ public class ViewOrderlistActivity extends AppCompatActivity implements View.OnC
 
         });
 
+        //返回我的界面
+        returnmebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewOrderlistActivity.this, TestMeAc.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 
@@ -135,36 +142,18 @@ public class ViewOrderlistActivity extends AppCompatActivity implements View.OnC
             case R.id.yijiedanbutton:
                 tab1.setBackgroundColor(Color.parseColor("#00abf4"));
                 tab2.setBackgroundColor(Color.parseColor("#ffffff"));
-                tab3.setBackgroundColor(Color.parseColor("#ffffff"));
                 Intent button1 = new Intent(this, ViewOrderlistActivity.class);
                 startActivity(button1);
                 break;
             case R.id.runnigbutton:
                 tab1.setBackgroundColor(Color.parseColor("#ffffff"));
                 tab2.setBackgroundColor(Color.parseColor("#00abf4"));
-                tab3.setBackgroundColor(Color.parseColor("#ffffff"));
                 Intent button2 = new Intent(this, ViewOrderingActivity.class);
                 startActivity(button2);
-                break;
-            case R.id.jiefinishbutton:
-                tab1.setBackgroundColor(Color.parseColor("#ffffff"));
-                tab2.setBackgroundColor(Color.parseColor("#ffffff"));
-                tab3.setBackgroundColor(Color.parseColor("#ffffff"));
-                Intent button3 = new Intent(this, ViewOrderFinishActivity.class);
-                startActivity(button3);
                 break;
 
         }
 
-        //返回我的界面
-        returnmebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(ViewOrderlistActivity.this, TestMeAc.class);
-                finish();
-            }
-        });
 
     }
 }

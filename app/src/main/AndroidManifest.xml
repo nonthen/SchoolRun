@@ -52,13 +52,9 @@
         <activity android:name=".Myself_Activity.AppraiseFinishActivity"></activity>
         <activity android:name=".Myself_Activity.AppraiseFinshDetailsActivity"></activity>
 
-        <activity android:name=".Myself_Activity.ViewOrderlistActivity"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
+        <activity android:name=".Myself_Activity.ViewOrderlistActivity"></activity>
         <activity android:name=".Myself_Activity.ViewOrderingActivity"></activity>
         <activity android:name=".Myself_Activity.ViewOrderDetailsActivity"></activity>
-        <activity android:name=".Myself_Activity.ViewOrderFinishActivity"></activity>
 
 
         <provider

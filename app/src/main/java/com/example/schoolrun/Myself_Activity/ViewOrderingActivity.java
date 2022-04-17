@@ -1,5 +1,6 @@
 package com.example.schoolrun.Myself_Activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -36,8 +37,9 @@ import cn.bmob.v3.listener.SQLQueryListener;
 public class ViewOrderingActivity extends AppCompatActivity implements View.OnClickListener{
 
     private RadioGroup mRadioGroup;
-    private RadioButton tab1,tab2,tab3;  //3个单选按钮
-    private ImageButton returnmebutton;
+    private RadioButton tab1,tab2;  //2个单选按钮
+    private ImageButton returnmebutton2;
+    private OrderDialog orderDialog;//订单弹窗
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +48,13 @@ public class ViewOrderingActivity extends AppCompatActivity implements View.OnCl
         Bmob.initialize(this, "ceb483ffe9b2098bc90776ca5d0415b4");//初始化BmobSDk功能
 
         //初始化控件
+        orderDialog=new OrderDialog(ViewOrderingActivity.this, R.style.pay_type_dialog);
         mRadioGroup=findViewById(R.id.rg_tab);
-        returnmebutton=findViewById(R.id.returnmebutton);
+        returnmebutton2=findViewById(R.id.returnmebutton);
         tab1=findViewById(R.id.yijiedanbutton);//已接单按钮
         tab2=findViewById(R.id.runnigbutton);//进行中按钮
-        tab3=findViewById(R.id.jiefinishbutton);//已完成按钮
         tab1.setOnClickListener(this);
         tab2.setOnClickListener(this);
-        tab3.setOnClickListener(this);
         //点击当前界面，按钮的背景变色
         tab2.setBackgroundColor(Color.parseColor("#00abf4"));
 
@@ -83,6 +84,17 @@ public class ViewOrderingActivity extends AppCompatActivity implements View.OnCl
             }
         });
 
+        //返回我的界面
+        returnmebutton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewOrderingActivity.this, TestMeAc.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
     }
 
 
@@ -93,23 +105,14 @@ public class ViewOrderingActivity extends AppCompatActivity implements View.OnCl
             case R.id.yijiedanbutton:
                 tab1.setBackgroundColor(Color.parseColor("#00abf4"));
                 tab2.setBackgroundColor(Color.parseColor("#ffffff"));
-                tab3.setBackgroundColor(Color.parseColor("#ffffff"));
                 Intent button1 = new Intent(this, ViewOrderlistActivity.class);
                 startActivity(button1);
                 break;
             case R.id.runnigbutton:
                 tab1.setBackgroundColor(Color.parseColor("#ffffff"));
                 tab2.setBackgroundColor(Color.parseColor("#00abf4"));
-                tab3.setBackgroundColor(Color.parseColor("#ffffff"));
                 Intent button2 = new Intent(this, ViewOrderingActivity.class);
                 startActivity(button2);
-                break;
-            case R.id.jiefinishbutton:
-                tab1.setBackgroundColor(Color.parseColor("#ffffff"));
-                tab2.setBackgroundColor(Color.parseColor("#ffffff"));
-                tab3.setBackgroundColor(Color.parseColor("#00abf4"));
-                Intent button3 = new Intent(this, ViewOrderFinishActivity.class);
-                startActivity(button3);
                 break;
 
         }
@@ -172,12 +175,35 @@ public class ViewOrderingActivity extends AppCompatActivity implements View.OnCl
                             intent.setClass(ViewOrderingActivity.this, ViewOrderDetailsActivity.class);
                             // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
                             intent.putExtra("tid", mapList.get(position).get("tid"));
-                            intent.putExtra("lastlayout",String.valueOf(R.id.runnigbutton));
                             startActivity(intent);
                             finish();
                         }
                     });
 
+                    //长按订单列表，显示弹窗，选择是否已经完成当前订单，还是有特殊原因拒绝完成当前进行中的订单
+                    listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+                        @Override
+                        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            //Bmob获取listview中某一行数据
+                            System.out.println("弹窗显示订单选择详情");
+                            //传入当前准备评分的任务的tid
+                            orderDialog.SetTaskid(mapList.get(i).get("tid"));
+                            orderDialog.show();
+                            return true;
+                        }
+                    });
+
+                    //在取消dialog弹窗时添加一个事件监听
+                    orderDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        //刷新当前界面
+                        @Override
+                        public void onDismiss(DialogInterface dialogInterface) {
+                            Intent intent = new Intent(ViewOrderingActivity.this,ViewOrderingActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
 
 
                 }
@@ -188,15 +214,6 @@ public class ViewOrderingActivity extends AppCompatActivity implements View.OnCl
 
         });
 
-        //返回我的界面
-        returnmebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(ViewOrderingActivity.this, TestMeAc.class);
-                finish();
-            }
-        });
 
     }
 
