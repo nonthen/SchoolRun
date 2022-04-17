@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import com.example.schoolrun.Activity.MainActivity;
 import com.example.schoolrun.Activity.ReleaseTask;
+import com.example.schoolrun.Activity.RootMainActivity;
 import com.example.schoolrun.Entity.MyUser;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -71,9 +72,16 @@ public class LoginActivity extends AppCompatActivity {
                     Snackbar.make(btLogin, "登录成功：" + userAccount, Snackbar.LENGTH_LONG).show();
                     uaccount=userAccount;//将当前用户的账号赋值给uaccount，uaccount作为整个项目的变量
                     uid=list.get(0).getUid();//将当前的用户id赋值给uid，uid作为整个项目的变量
-                    Intent intent=new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();//释放资源
+                    if (userAccount.equals("root")){//管理员
+                        Intent intent=new Intent(LoginActivity.this, RootMainActivity.class);
+                        startActivity(intent);
+                        finish();//释放资源
+                    }
+                    else {//非管理员
+                        Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();//释放资源
+                    }
                 }
                 else{
                     Snackbar.make(btLogin, "登录失败", Snackbar.LENGTH_LONG).show();

@@ -56,6 +56,8 @@
         <activity android:name=".Myself_Activity.ViewOrderingActivity"></activity>
         <activity android:name=".Myself_Activity.ViewOrderDetailsActivity"></activity>
 
+        <activity android:name=".Activity.RootMainActivity"></activity>
+
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
