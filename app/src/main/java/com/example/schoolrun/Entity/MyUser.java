@@ -11,6 +11,7 @@ public class MyUser extends BmobObject {
     private int uid;//用户编号
     private String account;//对应user表中account，用户账号
     private String upassword;//用户密码
+    private int ucheck;//判断当前用户是否具有接单员资格
 //    private ImageView image;//用户头像
 
     public MyUser() {
@@ -41,6 +42,15 @@ public class MyUser extends BmobObject {
 
     public MyUser setUid(int uid) {
         this.uid = uid;
+        return this;
+    }
+
+    public int getUcheck() {
+        return ucheck;
+    }
+
+    public MyUser setUcheck(int ucheck) {
+        this.ucheck = ucheck;
         return this;
     }
 

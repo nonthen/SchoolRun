@@ -2,7 +2,6 @@ package com.example.schoolrun.Myself_Activity;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -12,13 +11,10 @@ import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.example.schoolrun.Entity.MyTask;
-import com.example.schoolrun.Entity.MyUser;
-import com.example.schoolrun.LoginActivity;
 import com.example.schoolrun.R;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -50,7 +46,7 @@ public class StarScoreDialog extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.star_appraise);
+        setContentView(R.layout.dialog_starappraise);
         Bmob.initialize(getContext(), "ceb483ffe9b2098bc90776ca5d0415b4");//初始化BmobSDk功能
 
         ratingBar=findViewById(R.id.ratingBar);//星星评分

@@ -9,6 +9,7 @@ import android.widget.RadioButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.schoolrun.Myself_Activity.AppraiseActivity;
+import com.example.schoolrun.Myself_Activity.ViewOrderlistActivity;
 import com.example.schoolrun.R;
 
 import cn.bmob.v3.Bmob;
@@ -16,6 +17,7 @@ import cn.bmob.v3.Bmob;
 public class TestMeAc extends AppCompatActivity {
 
     private Button appraisebutton;//评价服务
+    private Button view_order;//查看订单
     private Button button1;
     private Button button2;
     private Button button3;
@@ -31,6 +33,7 @@ public class TestMeAc extends AppCompatActivity {
         Bmob.initialize(this, "ceb483ffe9b2098bc90776ca5d0415b4");//初始化BmobSDk功能
 
         appraisebutton=findViewById(R.id.appraisebutton);
+        view_order=findViewById(R.id.look_order);
         button1=findViewById(R.id.change_message);//跳转到查看个人信息界面
         button2=findViewById(R.id.change_password);//跳转到修改密码界面
         button3=findViewById(R.id.look_income);//跳转到查看收益界面
@@ -89,6 +92,16 @@ public class TestMeAc extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent button = new Intent(TestMeAc.this, AppraiseActivity.class);
+                startActivity(button);
+                finish();//释放资源
+            }
+        });
+
+        //点击查看订单
+        view_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent button = new Intent(TestMeAc.this, ViewOrderlistActivity.class);
                 startActivity(button);
                 finish();//释放资源
             }
