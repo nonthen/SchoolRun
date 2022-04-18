@@ -1,4 +1,4 @@
-package com.example.schoolrun.Activity;
+package com.example.schoolrun.OrderBackActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,20 +7,17 @@ import android.widget.RadioButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.schoolrun.OrderBackActivity.RootOrderActivity;
-import com.example.schoolrun.OrderBackActivity.RootUserActivity;
+import com.example.schoolrun.Activity.RootMainActivity;
 import com.example.schoolrun.R;
 
-import cn.bmob.v3.Bmob;
+//管理员用户管理
+public class RootUserActivity extends AppCompatActivity implements View.OnClickListener{
 
-//管理员身份，进来的界面
-public class RootMainActivity extends AppCompatActivity implements View.OnClickListener{
     private RadioButton bt1,bt2,bt3;  //3个单选按钮
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_root);
-        Bmob.initialize(this, "ceb483ffe9b2098bc90776ca5d0415b4");//初始化BmobSDk功能
 
         bt1=findViewById(R.id.bt_task);
         bt2=findViewById(R.id.bt_order);
@@ -34,7 +31,7 @@ public class RootMainActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.bt_task:
-                Intent button1 = new Intent(this,RootMainActivity.class);//任务
+                Intent button1 = new Intent(this, RootMainActivity.class);//任务
                 startActivity(button1);
                 break;
             case R.id.bt_order:
