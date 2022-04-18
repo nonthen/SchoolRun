@@ -59,6 +59,7 @@
         <activity android:name=".Activity.RootMainActivity"></activity>
         <activity android:name=".OrderBackActivity.RootOrderActivity"></activity>
         <activity android:name=".OrderBackActivity.RootUserActivity"></activity>
+        <activity android:name=".OrderBackActivity.RootOrderDetailsActivity"></activity>
 
 
         <provider

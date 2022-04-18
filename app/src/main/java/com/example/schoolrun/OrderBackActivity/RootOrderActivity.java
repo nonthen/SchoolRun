@@ -84,7 +84,20 @@ public class RootOrderActivity extends AppCompatActivity implements View.OnClick
                     listView.setAdapter(simpleAdapter);
                     simpleAdapter.notifyDataSetChanged();
 
-
+                    //短按某个订单，就会跳转到订单详细界面
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                            //Bmob获取listview中某一行数据
+                            System.out.println("跳转到订单详情");
+                            Intent intent = new Intent();
+                            intent.setClass(RootOrderActivity.this, RootOrderDetailsActivity.class);
+                            // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
+                            intent.putExtra("tid", mapList.get(position).get("tid"));
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
 
 
                 }
