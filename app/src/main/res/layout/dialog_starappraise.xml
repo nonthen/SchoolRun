@@ -32,7 +32,7 @@
 
     <RatingBar
         android:id="@+id/ratingBar"
-        android:layout_width="235dp"
+        android:layout_width="292dp"
         android:layout_height="51dp"
         android:layout_margin="20dp"
         android:isIndicator="false"
@@ -41,15 +41,15 @@
         android:stepSize="1"
         app:layout_constraintBottom_toTopOf="@+id/appraiseendbutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appraisetutle"
-        app:layout_constraintVertical_bias="0.146" />
+        app:layout_constraintVertical_bias="0.301" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="130dp"
-        android:layout_height="57dp"
+        android:layout_width="100dp"
+        android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:gravity="center"
         android:text="请评分"
@@ -60,7 +60,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/view_bg"
         app:layout_constraintTop_toBottomOf="@+id/appraisetutle"
-        app:layout_constraintVertical_bias="0.148" />
+        app:layout_constraintVertical_bias="0.0" />
+
 
     <EditText
         android:id="@+id/detailappraise"
@@ -71,11 +72,10 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.289"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.542" />
-
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+        app:layout_constraintVertical_bias="0.051" />
 
     <Button
         android:id="@+id/appraiseendbutton"

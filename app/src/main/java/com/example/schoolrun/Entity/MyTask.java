@@ -18,6 +18,7 @@ public class MyTask extends BmobObject {
     private int tcheck;//判断是否审核成功
     private int torder;//任务是否被接单
     private String tordercanceldetails;//任务被取消的详细信息
+    private int tordercheck;//判断异常订单是同意取消还是拒绝取消
     private int tfinish;//任务是否已经完成
     private float tappraise;//评分
     private String tappraisetext;//文字评论
@@ -177,4 +178,12 @@ public class MyTask extends BmobObject {
         return this;
     }
 
+    public int getTordercheck() {
+        return tordercheck;
+    }
+
+    public MyTask setTordercheck(int tordercheck) {
+        this.tordercheck = tordercheck;
+        return this;
+    }
 }

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 //管理员详细订单信息
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.datatype.BmobQueryResult;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SQLQueryListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 public class RootOrderDetailsActivity extends AppCompatActivity{
 
@@ -35,6 +37,8 @@ public class RootOrderDetailsActivity extends AppCompatActivity{
 
     private Intent intent;
     private String stid;
+    private String Objectid;//bmob中默认的id值
+    private MyTask myTask;
 
     private String stitle;
     private String sdetails;
@@ -49,6 +53,7 @@ public class RootOrderDetailsActivity extends AppCompatActivity{
 
         intent=getIntent();//获取上一个界面的intent
         stid=intent.getStringExtra("tid");//获取上个界面传过来的任务tid
+        myTask=new MyTask();
 
         orderlist=findViewById(R.id.orderlist);
         ordertitle=findViewById(R.id.ordertitle);
@@ -77,16 +82,98 @@ public class RootOrderDetailsActivity extends AppCompatActivity{
                     renwudetails.setText(sdetails);
                     ordercanceldetails.setText(sordercaceldetails);
 
+                    //一些共有属性的设置
+                    Objectid=list.get(0).getObjectId();//获取bmob中默认的ObjectId值
+                    System.out.println("获取当前要评价的任务Objectid"+Objectid);
+
+                    myTask.setUid(list.get(0).getUid());
+                    myTask.setTid(list.get(0).getTid());
+                    myTask.setId(list.get(0).getId());
+                    myTask.setTname(list.get(0).getTname());
+                    myTask.setTkind(list.get(0).getTkind());
+                    myTask.setTphone(list.get(0).getTphone());
+                    myTask.setTprice(list.get(0).getTprice());
+                    myTask.setTdetail(list.get(0).getTdetail());
+                    myTask.setMyaddress(list.get(0).getMyaddress());
+                    myTask.setTargetaddress(list.get(0).getTargetaddress());
+                    myTask.setTcheck(1);//任务审核
+                    myTask.setTorder(2);//先维持异常订单状态
+
+
                 }
 
             }
         });
 
+
+        //拒绝取消订单
+        Refusebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                bmobQuery.doSQLQuery(new SQLQueryListener<MyTask>(){
+
+                    @Override
+                    public void done(BmobQueryResult<MyTask> bmobQueryResult, BmobException e) {
+                        myTask.setTorder(1);//将当前订单恢复成进行中订单
+                        myTask.setTordercheck(1);//拒绝取消订单
+
+                        myTask.update(Objectid,new UpdateListener(){
+                            @Override
+                            public void done(BmobException e) {
+
+                                if (e == null) {
+                                    Toast.makeText(RootOrderDetailsActivity.this,"已拒绝取消订单",Toast.LENGTH_SHORT).show();
+                                    returnlist();
+                                }
+
+                            }
+                        });
+
+                    }
+                });
+
+
+            }
+        });
+
+
+        //同意取消订单
+        Allowbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                bmobQuery.doSQLQuery(new SQLQueryListener<MyTask>(){
+
+                    @Override
+                    public void done(BmobQueryResult<MyTask> bmobQueryResult, BmobException e) {
+                        myTask.setTorder(0);//将当前订单改成未接单状态
+                        myTask.setTordercheck(2);//同意取消订单
+
+                        myTask.update(Objectid,new UpdateListener(){
+                            @Override
+                            public void done(BmobException e) {
+
+                                if (e == null) {
+                                    Toast.makeText(RootOrderDetailsActivity.this,"已同意取消订单",Toast.LENGTH_SHORT).show();
+                                    returnlist();
+                                }
+
+                            }
+                        });
+
+                    }
+                });
+
+            }
+        });
+
+
         //返回异常订单列表
         orderlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent button = new Intent(RootOrderDetailsActivity.this, RootOrderActivity.class);//任务
+                Intent button = new Intent(RootOrderDetailsActivity.this, RootOrderActivity.class);//异常订单列表
                 startActivity(button);
                 finish();
             }
@@ -94,5 +181,13 @@ public class RootOrderDetailsActivity extends AppCompatActivity{
 
 
     }
+
+    //由当前界面跳转到异常订单列表
+    void returnlist(){
+        Intent button = new Intent(RootOrderDetailsActivity.this, RootOrderActivity.class);//异常订单列表
+        startActivity(button);
+        finish();
+    }
+
 
 }

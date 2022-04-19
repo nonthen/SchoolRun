@@ -45,7 +45,7 @@ public class AppraiseFinishActivity extends AppCompatActivity {
 
         //这里获取已完成评价的任务列表
         BmobQuery<MyTask> bmobQuery=new BmobQuery<MyTask>();
-        String bql = "select * from MyTask where tappfinsh=1 and  uid = ?";
+        String bql = "select * from MyTask where tappfinsh=1 and  uid =?";//发单人
         bmobQuery.setSQL(bql);//必须先获取uid，由uaccount获取uid
         bmobQuery.setPreparedParams(new Object[]{LoginActivity.uid});
 //        System.out.println("评价的uid是"+LoginActivity.uid);
