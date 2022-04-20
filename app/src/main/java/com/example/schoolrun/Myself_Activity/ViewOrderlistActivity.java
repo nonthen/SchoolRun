@@ -41,6 +41,7 @@ public class ViewOrderlistActivity extends AppCompatActivity implements View.OnC
     private RadioGroup mRadioGroup;
     private RadioButton tab1,tab2;  //3个单选按钮
     private ImageButton returnmebutton;
+    private ImageButton notificationbutton;//通知
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class ViewOrderlistActivity extends AppCompatActivity implements View.OnC
 
         //初始化控件
         returnmebutton=findViewById(R.id.returnmebutton);
+        notificationbutton=findViewById(R.id.notificationbutton);
         mRadioGroup=findViewById(R.id.rg_tab);
         tab1=findViewById(R.id.yijiedanbutton);//已接单按钮
         tab2=findViewById(R.id.runnigbutton);//进行中按钮
@@ -122,7 +124,19 @@ public class ViewOrderlistActivity extends AppCompatActivity implements View.OnC
 
         });
 
-        //返回我的界面
+
+        //查看异常订单后续
+        notificationbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //跳转到异常订单后续列表
+                Intent intent = new Intent(ViewOrderlistActivity.this,ViewOrderAbnormalActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+                //返回我的界面
         returnmebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,6 +145,8 @@ public class ViewOrderlistActivity extends AppCompatActivity implements View.OnC
                 finish();
             }
         });
+
+
 
     }
 

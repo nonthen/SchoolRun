@@ -22,8 +22,7 @@
             android:id="@+id/item_abnormaltext"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="订单已被接单员取消，重新安排发单"
+            android:text="订单已被接单员取消，已重新安排"
             android:textColor="#FA403934"
             android:textSize="25dp" />
 

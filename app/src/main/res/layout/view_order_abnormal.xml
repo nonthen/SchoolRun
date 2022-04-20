@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/dingdan"
         android:layout_width="match_parent"
-        android:layout_height="59dp"
+        android:layout_height="71dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/rg_tab"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +49,7 @@
 
         <Button
             android:id="@+id/readbutton"
-            android:layout_width="73dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="标为已读" />

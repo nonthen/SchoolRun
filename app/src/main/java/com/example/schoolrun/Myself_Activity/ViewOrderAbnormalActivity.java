@@ -8,11 +8,13 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.schoolrun.Entity.MyTask;
 import com.example.schoolrun.LoginActivity;
+import com.example.schoolrun.OrderBackActivity.RootOrderDetailsActivity;
 import com.example.schoolrun.R;
 
 import java.util.ArrayList;
@@ -25,12 +27,15 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.datatype.BmobQueryResult;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SQLQueryListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 //异常订单后续通知
 public class ViewOrderAbnormalActivity extends AppCompatActivity {
 
     private ImageButton relistbutton;
     private Button readbutton;
+    private List<MyTask> readList;
+    private String Objectid;//bmob中默认的id值
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,8 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
 
         relistbutton=findViewById(R.id.relistbutton);
         readbutton=findViewById(R.id.readbutton);//标为已读
+
+        readList=new ArrayList<>();
 
         //筛选异常订单通过审核后的订单
         BmobQuery<MyTask> bmobQuery=new BmobQuery<MyTask>();
@@ -58,24 +65,33 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                     List<Map<String,String>> mapList=new ArrayList<>();
                     for (MyTask myTask:list){
                         mHashMap=new HashMap<>();
+
                         if (list.get(i).getId()==LoginActivity.uid&&list.get(i).getTorder()==1&&list.get(i).getTordercheck()==1){
                             mHashMap.put("tid",String.valueOf(myTask.getTid()));
                             mHashMap.put("tname",myTask.getTname());
                             mHashMap.put("torderabnormaledetails","拒绝取消订单，请完成当前订单");
+                            mapList.add(mHashMap);
+                            readList.add(myTask);
                         }
                         else if (list.get(i).getId()==LoginActivity.uid&&list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
                             mHashMap.put("tid",String.valueOf(myTask.getTid()));
                             mHashMap.put("tname",myTask.getTname());
                             mHashMap.put("torderabnormaledetails","申请取消订单成功");
+                            System.out.println("list.get(i).getId()="+list.get(i).getId()+myTask.getTname());
+                            mapList.add(mHashMap);
+                            readList.add(myTask);
                         }
                         else if (list.get(i).getUid()==LoginActivity.uid&&list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
                             mHashMap.put("tid",String.valueOf(myTask.getTid()));
                             mHashMap.put("tname",myTask.getTname());
-                            mHashMap.put("torderabnormaledetails","订单已被接单员取消，重新安排发单");
+                            mHashMap.put("torderabnormaledetails","订单已被接单员取消，已重新安排");
+                            System.out.println("list.get(i).getUid()="+list.get(i).getUid()+myTask.getTname());
+                            mapList.add(mHashMap);
+                            readList.add(myTask);
                         }
                         i++;
-                        mapList.add(mHashMap);
                     }
+
 
                     //获取数据显示在列表中
                     ListView listView=findViewById(R.id.listView);
@@ -122,21 +138,45 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                 bmobQuery.doSQLQuery(new SQLQueryListener<MyTask>() {
                     @Override
                     public void done(BmobQueryResult<MyTask> bmobQueryResult, BmobException e) {
-                        int i=0;
-                        List<MyTask> listread = (List<MyTask>) bmobQueryResult.getResults();//查询结果
+                        int temp=0;
                         if (e==null){
+                            for (MyTask myTask:readList){
 
-                            for (i=0;i< listread.size();i++){
-                                if (listread.get(i).getId()==LoginActivity.uid&&listread.get(i).getTorder()==1&&listread.get(i).getTordercheck()==1){
+                                Objectid=readList.get(temp).getObjectId();//获取bmob中默认的ObjectId值
+                                myTask.setUid(readList.get(temp).getUid());
+                                myTask.setTid(readList.get(temp).getTid());
+                                myTask.setId(readList.get(temp).getId());
+                                myTask.setTname(readList.get(temp).getTname());
+                                myTask.setTkind(readList.get(temp).getTkind());
+                                myTask.setTphone(readList.get(temp).getTphone());
+                                myTask.setTprice(readList.get(temp).getTprice());
+                                myTask.setTdetail(readList.get(temp).getTdetail());
+                                myTask.setMyaddress(readList.get(temp).getMyaddress());
+                                myTask.setTargetaddress(readList.get(temp).getTargetaddress());
+                                myTask.setTcheck(1);//任务审核
+                                myTask.setTorder(readList.get(temp).getTorder());
+                                myTask.setTordercheck(0);//置0
 
-                                }
-                                else if (listread.get(i).getId()==LoginActivity.uid&&listread.get(i).getTorder()==0&&listread.get(i).getTordercheck()==2){
+                                temp++;
 
-                                }
-                                else if (listread.get(i).getUid()==LoginActivity.uid&&listread.get(i).getTorder()==0&&listread.get(i).getTordercheck()==2){
+                                myTask.update(Objectid,new UpdateListener(){
+                                    @Override
+                                    public void done(BmobException e) {
 
-                                }
+                                        if (e == null) {
+                                            System.out.println("已读一条信息");
+                                        }
+
+                                    }
+                                });
+
+                                //刷新界面
+                                Intent intent = new Intent(ViewOrderAbnormalActivity.this,ViewOrderAbnormalActivity.class);
+                                startActivity(intent);
+                                finish();
+
                             }
+                            System.out.println("最后已读消息temp="+temp);
 
                         }
 
@@ -148,11 +188,5 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
 
 
     }
-
-    //将tordercheck设置0
-    void updateZero(){
-
-    }
-
 
 }

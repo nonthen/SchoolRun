@@ -96,71 +96,15 @@ public class ViewOrderingActivity extends AppCompatActivity implements View.OnCl
             }
         });
 
+
         //查看异常订单后续
         notificationbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                BmobQuery<MyTask> bmobQuery=new BmobQuery<MyTask>();
-                //接单员提交取消订单申请后，管理员拒绝当前取消申请，通知接单者继续完成该订单
-                String bql = "select * from MyTask where torder=1 and tcheckorder =1  and  id = ?";
-                bmobQuery.setSQL(bql);//必须先获取uid，由uaccount获取uid
-                bmobQuery.setPreparedParams(new Object[]{LoginActivity.uid});
-                bmobQuery.doSQLQuery(new SQLQueryListener<MyTask>() {
-                    @Override
-                    public void done(BmobQueryResult<MyTask> bmobQueryResult, BmobException e) {
-                        List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
-                        if (e==null){
-                            if (list.size()>0){
-                                System.out.println("拒绝申请，请继续完成，订单的数量"+list.size());
-                                notificationbutton.setImageResource(R.drawable.ic_baseline_notifications_active_24);
-                            }
-                        }
-                    }
-                });
-
-
-                BmobQuery<MyTask> bmobQuery1=new BmobQuery<MyTask>();
-                //接单员提交取消订单申请后，管理员同意取消订单申请，通知接单者成功取消订单
-                String bql1 = "select * from MyTask where torder=0 and tcheckorder =2  and  id = ?";
-                bmobQuery1.setSQL(bql1);//必须先获取uid，由uaccount获取uid
-                bmobQuery1.setPreparedParams(new Object[]{LoginActivity.uid});
-                bmobQuery1.doSQLQuery(new SQLQueryListener<MyTask>() {
-                    @Override
-                    public void done(BmobQueryResult<MyTask> bmobQueryResult, BmobException e) {
-                        List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
-                        if (e==null){
-                            if (list.size()>0){
-                                System.out.println("接单者：同意申请，订单的数量"+list.size());
-                                notificationbutton.setImageResource(R.drawable.ic_baseline_notifications_active_24);
-                            }
-                        }
-                    }
-                });
-
-                BmobQuery<MyTask> bmobQuery2=new BmobQuery<MyTask>();
-                //接单员提交取消订单申请后，管理员同意取消订单申请，通知发单者当前订单被接单者取消
-                String bql2 = "select * from MyTask where torder=0 and tcheckorder =2  and  uid = ?";
-                bmobQuery2.setSQL(bql2);//必须先获取uid，由uaccount获取uid
-                bmobQuery2.setPreparedParams(new Object[]{LoginActivity.uid});
-                bmobQuery2.doSQLQuery(new SQLQueryListener<MyTask>() {
-                    @Override
-                    public void done(BmobQueryResult<MyTask> bmobQueryResult, BmobException e) {
-                        List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
-                        if (e==null){
-                            if (list.size()>0){
-                                System.out.println("发单者：当前订单已被接单者取消，订单的数量"+list.size());
-                                notificationbutton.setImageResource(R.drawable.ic_baseline_notifications_active_24);
-                            }
-                        }
-                    }
-                });
-
-                //跳转到异常订单列表
+                //跳转到异常订单后续列表
                 Intent intent = new Intent(ViewOrderingActivity.this,ViewOrderAbnormalActivity.class);
                 startActivity(intent);
                 finish();
-
             }
         });
 
