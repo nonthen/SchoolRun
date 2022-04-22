@@ -64,8 +64,6 @@
         <activity android:name=".Myself_Activity.ViewOrderAbnormalActivity"></activity>
         <activity android:name=".Myself_Activity.ViewOrderAbnormalDetails"></activity>
 
-
-
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
             android:authorities="com.example.schoolrun.BmobContentProvider">

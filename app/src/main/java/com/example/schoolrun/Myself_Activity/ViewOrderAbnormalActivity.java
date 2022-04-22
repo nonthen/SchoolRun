@@ -37,6 +37,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
     private List<MyTask> readList;
     private String Objectid;//bmob中默认的id值
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -59,7 +60,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                 List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
                 if (e==null){
 
-                    int i=0;
+                    int i=0;//循环变量
                     SimpleAdapter simpleAdapter;
                     Map<String, String> mHashMap;
                     List<Map<String,String>> mapList=new ArrayList<>();
@@ -72,6 +73,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                             mHashMap.put("torderabnormaledetails","拒绝取消订单，请完成当前订单");
                             mapList.add(mHashMap);
                             readList.add(myTask);
+
                         }
                         else if (list.get(i).getId()==LoginActivity.uid&&list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
                             mHashMap.put("tid",String.valueOf(myTask.getTid()));
@@ -80,6 +82,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                             System.out.println("list.get(i).getId()="+list.get(i).getId()+myTask.getTname());
                             mapList.add(mHashMap);
                             readList.add(myTask);
+
                         }
                         else if (list.get(i).getUid()==LoginActivity.uid&&list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
                             mHashMap.put("tid",String.valueOf(myTask.getTid()));
@@ -88,10 +91,10 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                             System.out.println("list.get(i).getUid()="+list.get(i).getUid()+myTask.getTname());
                             mapList.add(mHashMap);
                             readList.add(myTask);
+
                         }
                         i++;
                     }
-
 
                     //获取数据显示在列表中
                     ListView listView=findViewById(R.id.listView);
@@ -111,6 +114,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                             intent.setClass(ViewOrderAbnormalActivity.this, ViewOrderAbnormalDetails.class);
                             // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
                             intent.putExtra("tid", mapList.get(position).get("tid"));
+                            intent.putExtra("tdingdanabnormal",mapList.get(position).get("torderabnormaledetails"));
                             startActivity(intent);
                             finish();
                         }

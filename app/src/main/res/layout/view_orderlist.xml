@@ -52,7 +52,8 @@
             android:layout_width="73dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_baseline_notifications_none_24" />
+            app:srcCompat="@drawable/ic_baseline_notifications_none_24"
+            tools:srcCompat="@drawable/ic_baseline_notifications_none_24" />
 
     </LinearLayout>
 

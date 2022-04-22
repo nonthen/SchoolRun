@@ -16,9 +16,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.schoolrun.Activity.DetailedInfoActivity;
-import com.example.schoolrun.Activity.MainActivity;
-import com.example.schoolrun.Activity.ReleaseTask;
 import com.example.schoolrun.Activity.TestMeAc;
 import com.example.schoolrun.Entity.MyTask;
 import com.example.schoolrun.LoginActivity;
@@ -59,6 +56,8 @@ public class ViewOrderlistActivity extends AppCompatActivity implements View.OnC
         tab2.setOnClickListener(this);
         //点击当前界面，按钮的背景变色
         tab1.setBackgroundColor(Color.parseColor("#00abf4"));
+
+        NotiYesOrNo();
 
         //这里获取已接单的任务列表，此时是发单员和接单员共有视角
         BmobQuery<MyTask> bmobQuery=new BmobQuery<MyTask>();
@@ -170,6 +169,50 @@ public class ViewOrderlistActivity extends AppCompatActivity implements View.OnC
 
         }
 
+    }
+
+    //判断是否存在异常订单后续消息
+    void NotiYesOrNo(){
+        final int[] temp = new int[1];
+        //筛选异常订单通过审核后的订单
+        final BmobQuery<MyTask>[] bmobQuery = new BmobQuery[]{new BmobQuery<MyTask>()};
+        String bql = "select * from MyTask where tfinish=0 and tcheckorder!=0";
+        bmobQuery[0].setSQL(bql);//必须先获取uid，由uaccount获取uid
+        bmobQuery[0].doSQLQuery(new SQLQueryListener<MyTask>() {
+            @Override
+            public void done(BmobQueryResult<MyTask> bmobQueryResult, BmobException e) {
+                List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
+                if (e==null){
+
+                    int i=0;//循环变量
+
+                    for (MyTask myTask:list){
+                        if (list.get(i).getId()== LoginActivity.uid&&list.get(i).getTorder()==1&&list.get(i).getTordercheck()==1){
+                            temp[0] =1;
+                            notificationbutton.setImageResource(R.drawable.ic_baseline_notifications_active_24);
+                        }
+                        else if (list.get(i).getId()==LoginActivity.uid&&list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
+                            temp[0] =1;
+                            notificationbutton.setImageResource(R.drawable.ic_baseline_notifications_active_24);
+                        }
+                        else if (list.get(i).getUid()==LoginActivity.uid&&list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
+                            temp[0] =1;
+                            notificationbutton.setImageResource(R.drawable.ic_baseline_notifications_active_24);
+                        }
+                        i++;
+                    }
+                    System.out.println(" temp[0] ="+ temp[0]);
+
+                    if ( temp[0] !=1){
+                        notificationbutton.setImageResource(R.drawable.ic_baseline_notifications_none_24);
+                    }
+
+                }
+            }
+
+        });
 
     }
+
+
 }

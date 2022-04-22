@@ -12,7 +12,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/returnlistbutton"
+            android:id="@+id/returnfirstbutton"
             android:layout_width="71dp"
             android:layout_height="63dp"
             app:layout_constraintBottom_toBottomOf="@+id/textView5"
@@ -37,34 +37,31 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
         android:layout_marginTop="10dp"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#FA403934"
             android:text="任务标题: "
-            android:textSize="26dp"
-            />
+            android:textColor="#FA403934"
+            android:textSize="26dp" />
 
         <TextView
             android:id="@+id/item_tname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FA403934"
+            android:layout_width="295dp"
+            android:layout_height="match_parent"
             android:text="帮我拿东西"
-            android:textSize="26dp"
-            />
+            android:textColor="#FA403934"
+            android:textSize="26dp" />
     </LinearLayout>
 
 
-
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
         android:layout_marginTop="10dp">
 
         <TextView
@@ -72,20 +69,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#FA403934"
             android:text="任务类型: "
-            android:textSize="26dp"
-            />
+            android:textColor="#FA403934"
+            android:textSize="26dp" />
 
         <TextView
             android:id="@+id/item_tkind"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="290dp"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:textColor="#FA403934"
             android:text="下拉框类型"
-            android:textSize="26dp"
-            />
+            android:textColor="#FA403934"
+            android:textSize="26dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -94,12 +89,13 @@
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
         >
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
             android:gravity="center"
-            android:textColor="#FA403934"
             android:text="任务详情: "
+            android:textColor="#FA403934"
             android:textSize="26dp"
 
             />
@@ -110,8 +106,7 @@
     <TextView
         android:id="@+id/item_tdetail"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:gravity="center"
+        android:layout_height="107dp"
         android:text="去5教老师办公室拿资料"
         android:textColor="#FA403934"
         android:textSize="26dp"
@@ -137,8 +132,7 @@
     <TextView
         android:id="@+id/dingdanabnormal"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:gravity="center_vertical"
+        android:layout_height="118dp"
         android:textColor="#ff0000"
         android:textSize="26dp" />
 
