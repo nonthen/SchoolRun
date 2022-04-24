@@ -15,6 +15,9 @@ public class MyUser extends BmobObject {
     private int ucheck;//判断当前用户是否具有接单员资格
 //    private ImageView image;//用户头像
     private float ureputation;//用户信誉值
+    private int goodappraisecount;//好评数
+    private int badappraisecount;//差评数
+
 
     public MyUser() {
     }
@@ -71,6 +74,24 @@ public class MyUser extends BmobObject {
 
     public MyUser setUreputation(float ureputation) {
         this.ureputation = ureputation;
+        return this;
+    }
+
+    public int getGoodappraisecount() {
+        return goodappraisecount;
+    }
+
+    public MyUser setGoodappraisecount(int goodappraisecount) {
+        this.goodappraisecount = goodappraisecount;
+        return this;
+    }
+
+    public int getBadappraisecount() {
+        return badappraisecount;
+    }
+
+    public MyUser setBadappraisecount(int badappraisecount) {
+        this.badappraisecount = badappraisecount;
         return this;
     }
 }

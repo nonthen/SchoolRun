@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.schoolrun.Activity.TestMeAc;
 import com.example.schoolrun.Entity.MyTask;
+import com.example.schoolrun.Entity.MyUser;
 import com.example.schoolrun.LoginActivity;
 import com.example.schoolrun.R;
 
@@ -33,9 +34,10 @@ import cn.bmob.v3.listener.SQLQueryListener;
 //评价任务功能
 public class AppraiseActivity extends AppCompatActivity {
 
-    private  ImageButton fanhuiButton;//返回上一层按钮
+//    private  ImageButton fanhuiButton;//返回上一层按钮
     private StarScoreDialog starScoreDialog;//评分弹窗
     private Button appfinishbutton;//查看已经评价的任务
+    private ImageButton shuaxin;//刷新按钮
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,8 @@ public class AppraiseActivity extends AppCompatActivity {
         setContentView(R.layout.appraise_task);//绑定评价服务布局
         Bmob.initialize(this, "ceb483ffe9b2098bc90776ca5d0415b4");//初始化BmobSDk功能
 
-        fanhuiButton=findViewById(R.id.fanhuibutton);//返回按钮
+//        fanhuiButton=findViewById(R.id.fanhuibutton);//返回按钮
+        shuaxin=findViewById(R.id.shuaxin);
         appfinishbutton=findViewById(R.id.appraisefinishbutton);
         starScoreDialog=new StarScoreDialog(AppraiseActivity.this, R.style.pay_type_dialog);//星星评分
 
@@ -100,6 +103,7 @@ public class AppraiseActivity extends AppCompatActivity {
                             starScoreDialog.SetTaskid(mapList.get(position).get("tid"));
                             starScoreDialog.show();
 
+
                         }
                     });
                 }
@@ -110,12 +114,22 @@ public class AppraiseActivity extends AppCompatActivity {
 
         });
 
-        //返回到个人信息界面
-        fanhuiButton.setOnClickListener(new View.OnClickListener() {
+//        //返回到个人信息界面
+//        fanhuiButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent fanhui = new Intent(AppraiseActivity.this, TestMeAc.class);
+//                startActivity(fanhui);
+//                finish();//释放资源
+//            }
+//        });
+
+        //刷新按钮，刷新当前界面
+        shuaxin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent fanhui = new Intent(AppraiseActivity.this, TestMeAc.class);
-                startActivity(fanhui);
+                Intent shuaxin = new Intent(AppraiseActivity.this, AppraiseActivity.class);
+                startActivity(shuaxin);
                 finish();//释放资源
             }
         });
@@ -133,18 +147,15 @@ public class AppraiseActivity extends AppCompatActivity {
         //在完成评价之后，页面进行刷新
         starScoreDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
-            public void onDismiss(DialogInterface dialogInterface) {
+            public void onDismiss(DialogInterface dialoge) {
 
-                Intent intent = new Intent(AppraiseActivity.this,AppraiseActivity.class);
+                Intent intent = new Intent();
+                intent.setClass(AppraiseActivity.this, AppraiseActivity.class);
                 startActivity(intent);
                 finish();
-
             }
         });
 
     }
-
-
-
 
 }
