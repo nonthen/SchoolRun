@@ -14,6 +14,7 @@ public class MyUser extends BmobObject {
     private String uname;//用户名称
     private int ucheck;//判断当前用户是否具有接单员资格
 //    private ImageView image;//用户头像
+    private float ureputation;//用户信誉值
 
     public MyUser() {
     }
@@ -61,6 +62,15 @@ public class MyUser extends BmobObject {
 
     public MyUser setUname(String uname) {
         this.uname = uname;
+        return this;
+    }
+
+    public float getUreputation() {
+        return ureputation;
+    }
+
+    public MyUser setUreputation(float ureputation) {
+        this.ureputation = ureputation;
         return this;
     }
 }

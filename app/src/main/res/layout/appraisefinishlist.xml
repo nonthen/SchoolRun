@@ -10,7 +10,7 @@
         android:layout_width="410dp"
         android:layout_height="74dp"
         android:gravity="center"
-        android:text="评价完成"
+        android:text="我的评价"
         android:textColor="#070707"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,6 +55,18 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/jiebutton"
+        android:layout_width="87dp"
+        android:layout_height="51dp"
+        android:text="他人评价"
+        app:layout_constraintBottom_toBottomOf="@+id/appraiselist"
+        app:layout_constraintEnd_toEndOf="@+id/appraiselist"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/fanhuialllistbutton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,7 @@
 package com.example.schoolrun.OrderBackActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -15,9 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.schoolrun.Activity.RootMainActivity;
 import com.example.schoolrun.Entity.MyTask;
-import com.example.schoolrun.LoginActivity;
-import com.example.schoolrun.Myself_Activity.ViewOrderDetailsActivity;
-import com.example.schoolrun.Myself_Activity.ViewOrderingActivity;
 import com.example.schoolrun.R;
 
 import java.util.ArrayList;
@@ -80,7 +75,7 @@ public class RootOrderActivity extends AppCompatActivity implements View.OnClick
                     ListView listView=findViewById(R.id.listView);
                     simpleAdapter=new SimpleAdapter(RootOrderActivity.this,mapList,R.layout.root_order_item_info,
                             new String[]{"tname","id","tordercanceldetails"},
-                            new int[]{R.id.item_tname,R.id.item_id,R.id.item_canceldetails});
+                            new int[]{R.id.jiefinish_tname,R.id.item_id,R.id.item_canceldetails});
                     listView.setAdapter(simpleAdapter);
                     simpleAdapter.notifyDataSetChanged();
 

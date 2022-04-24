@@ -1,10 +1,8 @@
 package com.example.schoolrun.Myself_Activity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -59,13 +57,13 @@ public class ViewOrderDetailsActivity extends AppCompatActivity {
         Bmob.initialize(this, "ceb483ffe9b2098bc90776ca5d0415b4");//初始化BmobSDk功能
 
         //绑定布局
-        tvtitle=findViewById(R.id.item_tname);
+        tvtitle=findViewById(R.id.jiefinish_tname);
         tvkind=findViewById(R.id.item_tkind);
         tvdetail=findViewById(R.id.item_tdetail);
         tvtargetaddress=findViewById(R.id.item_targetaddress);
         tvmyaddress=findViewById(R.id.item_myaddress);
         tvphone=findViewById(R.id.item_tphone);
-        tvprice=findViewById(R.id.item_tprice);
+        tvprice=findViewById(R.id.jiefinish_tprice);
         tvbegaintime=findViewById(R.id.begain_time);
         tvjiedantime=findViewById(R.id.jiedan_time);
         fanhuilistbutton=findViewById(R.id.returnlistbutton);

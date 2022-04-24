@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -12,9 +13,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.schoolrun.Activity.DetailedInfoActivity;
-import com.example.schoolrun.Activity.MainActivity;
 import com.example.schoolrun.Entity.MyTask;
+import com.example.schoolrun.Entity.MyUser;
 import com.example.schoolrun.LoginActivity;
 import com.example.schoolrun.R;
 
@@ -33,6 +33,7 @@ import cn.bmob.v3.listener.SQLQueryListener;
 public class AppraiseFinishActivity extends AppCompatActivity {
 
     private ImageButton fanhuialllistbutton;//返回未评价任务列表
+    private Button jiebutton;//查看他人对我的评价
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class AppraiseFinishActivity extends AppCompatActivity {
         Bmob.initialize(this, "ceb483ffe9b2098bc90776ca5d0415b4");//初始化BmobSDk功能
 
         fanhuialllistbutton=findViewById(R.id.fanhuialllistbutton);
+        jiebutton=findViewById(R.id.jiebutton);
 
         //这里获取已完成评价的任务列表
         BmobQuery<MyTask> bmobQuery=new BmobQuery<MyTask>();
@@ -83,7 +85,7 @@ public class AppraiseFinishActivity extends AppCompatActivity {
                     ListView listView=findViewById(R.id.listView);
                     simpleAdapter=new SimpleAdapter(AppraiseFinishActivity.this,mapList,R.layout.view_task_item_info,
                             new String[]{"tname","targetaddress","tprice"},
-                            new int[]{R.id.item_tname,R.id.item_targetaddress,R.id.item_tprice});
+                            new int[]{R.id.jiefinish_tname,R.id.item_targetaddress,R.id.jiefinish_tprice});
                     listView.setAdapter(simpleAdapter);
                     simpleAdapter.notifyDataSetChanged();
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -115,6 +117,42 @@ public class AppraiseFinishActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
 
+            }
+        });
+
+        //点进去查看他人对我的评价，此时身份为接单者
+        jiebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //这里判断当前用户是否具有接单员权限
+                BmobQuery<MyUser> bQmyuser=new BmobQuery<MyUser>();
+                String bqluser = "select * from MyUser where uid = ?";
+                bQmyuser.setSQL(bqluser);//必须先获取uid，由uaccount获取uid
+                bQmyuser.setPreparedParams(new Object[]{LoginActivity.uid});
+                bQmyuser.doSQLQuery(new SQLQueryListener<MyUser>() {//获取当前用户的所有信息
+                    @Override
+                    public void done(BmobQueryResult<MyUser> bmobQueryResult, BmobException e) {
+
+                        if (e==null){
+                            List<MyUser> list = (List<MyUser>) bmobQueryResult.getResults();//查询结果
+                            if (list.get(0).getUcheck()==1){//具有接单员资格，可以查看自己接的订单，并进行派送
+                                System.out.println("具有接单员资格，可以查看他人对自己的评价");
+
+                                Intent intent=new Intent(AppraiseFinishActivity.this,AppraiseJieFinishActivity.class);
+                                startActivity(intent);
+                                finish();
+
+                            }
+                            else {
+                                Toast.makeText(AppraiseFinishActivity.this,"您不是接单员，请申请",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else {
+                            Log.d("path","用户信息获取失败！");
+                        }
+
+                    }
+                });
             }
         });
 

@@ -52,7 +52,7 @@
             />
 
         <TextView
-            android:id="@+id/item_tname"
+            android:id="@+id/jiefinish_tname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FA403934"
@@ -220,7 +220,7 @@
             />
 
         <TextView
-            android:id="@+id/item_tprice"
+            android:id="@+id/jiefinish_tprice"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"

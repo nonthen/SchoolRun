@@ -35,13 +35,13 @@ public class DetailedInfoActivity extends AppCompatActivity {
         Integer temptid;
         temptid=Double.valueOf(tasktid).intValue();//带小数点的字符串是不能直接转成整数的，应该先将它转成double类型再转int整数。
         System.out.println("tasktid是："+tasktid+"temptid是"+temptid);
-        TextView textView1 =(TextView)findViewById(R.id.item_tname);
+        TextView textView1 =(TextView)findViewById(R.id.jiefinish_tname);
         TextView textView2 =findViewById(R.id.item_tkind);
         TextView textView3 =(TextView)findViewById(R.id.item_tdetail);
         TextView textView4=(TextView)findViewById(R.id.item_targetaddress);
         TextView textView5=(TextView)findViewById(R.id.item_myaddress);
         TextView textView6=(TextView)findViewById(R.id.item_tphone);
-        TextView textView7=(TextView)findViewById(R.id.item_tprice);
+        TextView textView7=(TextView)findViewById(R.id.jiefinish_tprice);
         btorder=findViewById(R.id.button_receive_order);
         btmain=findViewById(R.id.button_main);
         BmobQuery<MyTask> bmobQuery = new BmobQuery<>();

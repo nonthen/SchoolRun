@@ -15,36 +15,34 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="已完成评价的任务详情"
+            android:text="已评价的任务详情"
             android:textColor="#2E1517"
             android:textSize="38sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FA403934"
-            android:text="任务标题: "
-            android:textSize="30dp"
-            android:textStyle="bold"
-            />
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/item_tname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="任务标题: "
             android:textColor="#FA403934"
-            android:text="帮我拿东西"
             android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/jiefinish_tname"
+            android:layout_width="278dp"
+            android:layout_height="match_parent"
+            android:text="帮我拿东西"
+            android:textColor="#FA403934"
+            android:textSize="30dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 
@@ -78,149 +76,61 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="101dp"
         android:layout_marginTop="10dp"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#FA403934"
             android:text="任务详情: "
+            android:textColor="#FA403934"
             android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_tdetail"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#FA403934"
+            android:layout_height="match_parent"
             android:text="去5教老师办公室拿资料"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
             android:textColor="#FA403934"
-            android:text="目标地址: "
-            android:textSize="30dp"
-            android:textStyle="bold"
-            />
-
-        <TextView
-            android:id="@+id/item_targetaddress"
-            android:layout_width="255dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="5教"
-            android:textColor="#FA403934"
-            android:textSize="30dp"
+            android:textSize="24dp"
             android:textStyle="bold" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#FA403934"
-            android:text="本人地址: "
-            android:textSize="30dp"
-            android:textStyle="bold"
-            />
-
-        <TextView
-            android:id="@+id/item_myaddress"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="我在c区18栋"
-            android:textColor="#FA403934"
-            android:textSize="30dp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#FA403934"
-            android:text="电话："
-            android:textSize="30dp"
-            android:textStyle="bold"
-            />
-
-        <TextView
-            android:id="@+id/item_tphone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#FA403934"
-            android:text="18178333174"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            />
-    </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_height="70dp"
         android:layout_marginTop="10dp"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="价格: "
-            android:textSize="30dp"
             android:textColor="#FA403934"
-            android:textStyle="bold"
-            />
-
-        <TextView
-            android:id="@+id/item_tprice"
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textColor="#ff0000"
             android:textSize="30dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
-            android:layout_width="61dp"
-            android:layout_height="40dp"
+            android:id="@+id/jiefinish_tprice"
+            android:layout_width="80dp"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:textColor="#FA403934"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="63dp"
+            android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:text="元"
             android:textColor="#FA403934"
             android:textSize="30dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -252,7 +162,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="86dp"
+        android:layout_height="91dp"
         android:orientation="horizontal">
 
         <TextView
@@ -266,11 +176,11 @@
 
         <TextView
             android:id="@+id/appfinishdetails"
-            android:layout_width="295dp"
-            android:layout_height="74dp"
+            android:layout_width="312dp"
+            android:layout_height="match_parent"
             android:text="评论详情"
             android:textColor="#2E1517"
-            android:textSize="30dp"
+            android:textSize="24dp"
             android:textStyle="bold" />
     </LinearLayout>
 

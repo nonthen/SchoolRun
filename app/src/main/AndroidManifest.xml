@@ -51,6 +51,7 @@
         <activity android:name=".Myself_Activity.AppraiseActivity"></activity>
         <activity android:name=".Myself_Activity.AppraiseFinishActivity"></activity>
         <activity android:name=".Myself_Activity.AppraiseFinshDetailsActivity"></activity>
+        <activity android:name=".Myself_Activity.AppraiseJieFinishActivity"></activity>
 
         <activity android:name=".Myself_Activity.ViewOrderlistActivity"></activity>
         <activity android:name=".Myself_Activity.ViewOrderingActivity"></activity>

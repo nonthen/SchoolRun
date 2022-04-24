@@ -8,13 +8,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.schoolrun.Entity.MyTask;
 import com.example.schoolrun.LoginActivity;
-import com.example.schoolrun.OrderBackActivity.RootOrderDetailsActivity;
 import com.example.schoolrun.R;
 
 import java.util.ArrayList;
@@ -100,7 +98,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                     ListView listView=findViewById(R.id.listView);
                     simpleAdapter=new SimpleAdapter(ViewOrderAbnormalActivity.this,mapList,R.layout.view_order_abnormalitem_info,
                             new String[]{"tname","torderabnormaledetails"},
-                            new int[]{R.id.item_tname,R.id.item_abnormaltext});
+                            new int[]{R.id.jiefinish_tname,R.id.item_abnormaltext});
                     listView.setAdapter(simpleAdapter);
                     simpleAdapter.notifyDataSetChanged();
 

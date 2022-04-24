@@ -9,12 +9,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.schoolrun.Entity.MyTask;
-import com.example.schoolrun.LoginActivity;
 import com.example.schoolrun.R;
 
 import java.util.List;
 
-import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.datatype.BmobQueryResult;
 import cn.bmob.v3.exception.BmobException;
@@ -26,9 +24,6 @@ public class AppraiseFinshDetailsActivity extends AppCompatActivity {
     private TextView tvtitle;
     private TextView tvkind;
     private TextView tvdetail;
-    private TextView tvtargetaddress;
-    private TextView tvmyaddress;
-    private TextView tvphone;
     private TextView tvprice;
     private TextView tvscore;
     private TextView tvappfinishdetails;
@@ -40,14 +35,8 @@ public class AppraiseFinshDetailsActivity extends AppCompatActivity {
     private String stitle;
     private String skind;
     private String sdetails;
-    private String stargetaddres;
-    private String smyaddress;
-    private String sphone;
-    private String sprice;
-    private String sscore;
     private String sappfinishdetails;
 
-    private int phone;
     private Number price;
     private float score;
 
@@ -58,13 +47,10 @@ public class AppraiseFinshDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.appraisefiniah_details);//绑定已经评价任务详细信息布局
 
         //绑定布局
-        tvtitle=findViewById(R.id.item_tname);
+        tvtitle=findViewById(R.id.jiefinish_tname);
         tvkind=findViewById(R.id.item_tkind);
         tvdetail=findViewById(R.id.item_tdetail);
-        tvtargetaddress=findViewById(R.id.item_targetaddress);
-        tvmyaddress=findViewById(R.id.item_myaddress);
-        tvphone=findViewById(R.id.item_tphone);
-        tvprice=findViewById(R.id.item_tprice);
+        tvprice=findViewById(R.id.jiefinish_tprice);
         tvscore=findViewById(R.id.appfinishscore);
         tvappfinishdetails=findViewById(R.id.appfinishdetails);
         fanhuifinishlist=findViewById(R.id.button_fanhui);
@@ -86,10 +72,7 @@ public class AppraiseFinshDetailsActivity extends AppCompatActivity {
                     stitle=list.get(0).getTname();
                     skind=list.get(0).getTkind();
                     sdetails=list.get(0).getTdetail();
-                    stargetaddres=list.get(0).getTargetaddress();
-                    smyaddress=list.get(0).getMyaddress();
                     sappfinishdetails=list.get(0).getTappraisetext();
-                    phone=list.get(0).getTphone();
                     price=list.get(0).getTprice();
                     score=list.get(0).getTappraise();
 
@@ -97,10 +80,7 @@ public class AppraiseFinshDetailsActivity extends AppCompatActivity {
                     tvtitle.setText(stitle);
                     tvkind.setText(skind);
                     tvdetail.setText(sdetails);
-                    tvtargetaddress.setText(stargetaddres);
-                    tvmyaddress.setText(smyaddress);
                     tvappfinishdetails.setText(sappfinishdetails);
-                    tvphone.setText(String.valueOf(phone));
                     tvprice.setText(String.valueOf(price));
                     tvscore.setText(String.valueOf(score));
 

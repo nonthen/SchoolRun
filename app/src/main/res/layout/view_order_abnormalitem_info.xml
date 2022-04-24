@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/item_tname"
+        android:id="@+id/jiefinish_tname"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="任务标题:"

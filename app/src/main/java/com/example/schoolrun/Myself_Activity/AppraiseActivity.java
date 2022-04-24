@@ -14,13 +14,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.schoolrun.Activity.DetailedInfoActivity;
-import com.example.schoolrun.Activity.MainActivity;
-import com.example.schoolrun.Activity.PayTypesDialog;
-import com.example.schoolrun.Activity.ReleaseTask;
 import com.example.schoolrun.Activity.TestMeAc;
 import com.example.schoolrun.Entity.MyTask;
-import com.example.schoolrun.Entity.MyUser;
 import com.example.schoolrun.LoginActivity;
 import com.example.schoolrun.R;
 
@@ -33,7 +28,6 @@ import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.datatype.BmobQueryResult;
 import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SQLQueryListener;
 
 //评价任务功能
@@ -94,7 +88,7 @@ public class AppraiseActivity extends AppCompatActivity {
                     ListView listView=findViewById(R.id.listView);
                     simpleAdapter=new SimpleAdapter(AppraiseActivity.this,mapList,R.layout.view_task_item_info,
                             new String[]{"tname","targetaddress","tprice"},
-                            new int[]{R.id.item_tname,R.id.item_targetaddress,R.id.item_tprice});
+                            new int[]{R.id.jiefinish_tname,R.id.item_targetaddress,R.id.jiefinish_tprice});
                     listView.setAdapter(simpleAdapter);
                     simpleAdapter.notifyDataSetChanged();
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

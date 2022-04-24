@@ -43,7 +43,7 @@ public class ViewOrderAbnormalDetails extends AppCompatActivity {
         setContentView(R.layout.view_order_abnormal_details);//绑定异常订单详细信息布局
         Bmob.initialize(this, "ceb483ffe9b2098bc90776ca5d0415b4");//初始化BmobSDk功能
 
-        item_tname=findViewById(R.id.item_tname);
+        item_tname=findViewById(R.id.jiefinish_tname);
         item_tkind=findViewById(R.id.item_tkind);
         item_tdetail=findViewById(R.id.item_tdetail);
         dingdanabnormal=findViewById(R.id.dingdanabnormal);
