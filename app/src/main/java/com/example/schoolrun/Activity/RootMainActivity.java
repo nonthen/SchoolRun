@@ -13,7 +13,7 @@ import com.example.schoolrun.R;
 
 import cn.bmob.v3.Bmob;
 
-//管理员身份，进来的界面
+//管理员身份，进来的界面,即任管理员审核任务界面
 public class RootMainActivity extends AppCompatActivity implements View.OnClickListener{
     private RadioButton bt1,bt2,bt3;  //3个单选按钮
     @Override

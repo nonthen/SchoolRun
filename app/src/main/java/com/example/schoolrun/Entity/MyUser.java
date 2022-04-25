@@ -13,10 +13,17 @@ public class MyUser extends BmobObject {
     private String upassword;//用户密码
     private String uname;//用户名称
     private int ucheck;//判断当前用户是否具有接单员资格
+    private String sex;//用户性别
+    private String income;//收益
+    private String phone;//用户电话
+    private String qq;//qq号码
 //    private ImageView image;//用户头像
     private float ureputation;//用户信誉值
     private int goodappraisecount;//好评数
     private int badappraisecount;//差评数
+    private int usubapplicate;//表示用户是否提交申请
+    private String urealname;//用户真实姓名
+    private String uidentitycard;//用户身份证号码
 
 
     public MyUser() {
@@ -92,6 +99,69 @@ public class MyUser extends BmobObject {
 
     public MyUser setBadappraisecount(int badappraisecount) {
         this.badappraisecount = badappraisecount;
+        return this;
+    }
+
+    public int getUsubapplicate() {
+        return usubapplicate;
+    }
+
+    public MyUser setUsubapplicate(int usubapplicate) {
+        this.usubapplicate = usubapplicate;
+        return this;
+    }
+
+    public String getUrealname() {
+        return urealname;
+    }
+
+    public MyUser setUrealname(String urealname) {
+        this.urealname = urealname;
+        return this;
+    }
+
+    public String getUidentitycard() {
+        return uidentitycard;
+    }
+
+    public MyUser setUidentitycard(String uidentitycard) {
+        this.uidentitycard = uidentitycard;
+        return this;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public MyUser setSex(String sex) {
+        this.sex = sex;
+        return this;
+    }
+
+    public String getIncome() {
+        return income;
+    }
+
+    public MyUser setIncome(String income) {
+        this.income = income;
+        return this;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public MyUser setPhone(String phone) {
+        this.phone = phone;
+        return this;
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public MyUser setQq(String qq) {
+        this.qq = qq;
         return this;
     }
 }
