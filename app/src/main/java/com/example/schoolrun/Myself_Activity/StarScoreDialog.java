@@ -82,67 +82,75 @@ public class StarScoreDialog extends Dialog {
             }
         });
 
+
+        BmobQuery<MyTask> bmobQuery = new BmobQuery<>();
+        String bql="select * from MyTask where tid=?";
+        bmobQuery.setSQL(bql);
+        bmobQuery.setPreparedParams(new Object[]{Integer.valueOf(tasktid)});
+//                System.out.println("完成评价按钮的tasktid:"+tasktid);
+//                System.out.println("完成评价的分数ratingscore:"+ratingscore);
+        bmobQuery.doSQLQuery(new SQLQueryListener<MyTask>() {
+            @Override
+            public void done(BmobQueryResult<MyTask> bmobQueryResult, BmobException e) {
+
+                if (e==null){
+
+                    List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();
+                    Objectid=list.get(0).getObjectId();//获取bmob中默认的ObjectId值
+                    System.out.println("获取当前要评价的任务Objectid"+Objectid);
+                    id=list.get(0).getId();
+
+                    myTask.setUid(list.get(0).getUid());
+                    myTask.setTid(list.get(0).getTid());
+                    myTask.setId(list.get(0).getId());
+                    myTask.setTname(list.get(0).getTname());
+                    myTask.setTkind(list.get(0).getTkind());
+                    myTask.setTphone(list.get(0).getTphone());
+                    myTask.setTprice(list.get(0).getTprice());
+                    myTask.setTdetail(list.get(0).getTdetail());
+                    myTask.setMyaddress(list.get(0).getMyaddress());
+                    myTask.setTargetaddress(list.get(0).getTargetaddress());
+                    myTask.setTorder(1);
+                    myTask.setTcheck(1);
+                    myTask.setTfinish(1);
+
+                    myTask.setTappfinsh(1);
+                }
+
+            }
+
+        });
+
+
+
         //完成评价
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BmobQuery<MyTask> bmobQuery = new BmobQuery<>();
-                String bql="select * from MyTask where tid=?";
-                bmobQuery.setSQL(bql);
-                bmobQuery.setPreparedParams(new Object[]{Integer.valueOf(tasktid)});
-//                System.out.println("完成评价按钮的tasktid:"+tasktid);
-//                System.out.println("完成评价的分数ratingscore:"+ratingscore);
-                bmobQuery.doSQLQuery(new SQLQueryListener<MyTask>() {
+
+                System.out.println("评价完成,分数是"+ratingscore+"任务id"+tasktid);
+                myTask.setTappraise(ratingscore);
+                myTask.setTappraisetext(appraisedetails.getText().toString());
+                myTask.update(Objectid,new UpdateListener(){
                     @Override
-                    public void done(BmobQueryResult<MyTask> bmobQueryResult, BmobException e) {
+                    public void done(BmobException e) {
 
-                        if (e==null){
-                            List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();
-                            Objectid=list.get(0).getObjectId();//获取bmob中默认的ObjectId值
-                            System.out.println("获取当前要评价的任务Objectid"+Objectid);
-                            System.out.println("评价完成,分数是"+ratingscore+"任务id"+tasktid);
-                            id=list.get(0).getId();
+                        if (e == null) {
+                            UpdateMyUser();
+                            Snackbar.make(submitBtn, "评价成功", Snackbar.LENGTH_LONG).show();
+                            cancel();
+                        }
+                        else {
 
-                            myTask.setUid(list.get(0).getUid());
-                            myTask.setTid(list.get(0).getTid());
-                            myTask.setId(list.get(0).getId());
-                            myTask.setTname(list.get(0).getTname());
-                            myTask.setTkind(list.get(0).getTkind());
-                            myTask.setTphone(list.get(0).getTphone());
-                            myTask.setTprice(list.get(0).getTprice());
-                            myTask.setTdetail(list.get(0).getTdetail());
-                            myTask.setMyaddress(list.get(0).getMyaddress());
-                            myTask.setTargetaddress(list.get(0).getTargetaddress());
-                            myTask.setTorder(1);
-                            myTask.setTcheck(1);
-                            myTask.setTfinish(1);
-
-                            myTask.setTappraise(ratingscore);
-                            myTask.setTappraisetext(appraisedetails.getText().toString());
-                            myTask.setTappfinsh(1);
-                            myTask.update(Objectid,new UpdateListener(){
-                                @Override
-                                public void done(BmobException e) {
-
-                                    if (e == null) {
-                                        UpdateMyUser();
-                                        Snackbar.make(submitBtn, "评价成功", Snackbar.LENGTH_LONG).show();
-
-                                    }
-                                    else {
-
-                                        Snackbar.make(submitBtn, "评价失败", Snackbar.LENGTH_LONG).show();
-                                    }
-                                }
-                            });
-
+                            Snackbar.make(submitBtn, "评价失败", Snackbar.LENGTH_LONG).show();
+                            cancel();
                         }
 
                     }
-
                 });
 
-                cancel();
+
+
             }
         });
 
@@ -183,7 +191,9 @@ public class StarScoreDialog extends Dialog {
                     myUser.setGoodappraisecount(list.get(0).getGoodappraisecount()+1);
 
                     if (list.get(0).getUreputation()<10){
-                        float temp= (float) (list.get(0).getUreputation()+0.1);
+                        //因为0.1是double类型
+                        float num= (float) 0.1;
+                        float temp= list.get(0).getUreputation()+num;
                         myUser.setUreputation(temp);
 
                     }
@@ -196,7 +206,8 @@ public class StarScoreDialog extends Dialog {
                     myUser.setBadappraisecount(list.get(0).getBadappraisecount()+1);
 
                     if (list.get(0).getUreputation()>0&&list.get(0).getUreputation()<=10){
-                        float temp= (float) (list.get(0).getUreputation()-0.1);
+                        float num= (float) 0.1;
+                        float temp= list.get(0).getUreputation()-num;
                         myUser.setUreputation(temp);
                     }
                     else {

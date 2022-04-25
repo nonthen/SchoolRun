@@ -46,18 +46,18 @@
 
     </LinearLayout>
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/fanhuibutton"-->
-<!--        android:layout_width="53dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/appraiselist"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.044"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/appraiselist"-->
-<!--        app:layout_constraintVertical_bias="0.483"-->
-<!--        app:srcCompat="@drawable/ic_baseline_arrow_back_24"-->
-<!--        />-->
+    <ImageButton
+        android:id="@+id/fanhuibutton"
+        android:layout_width="53dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/appraiselist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appraiselist"
+        app:layout_constraintVertical_bias="0.483"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+        />
 
 
     <Button
@@ -71,16 +71,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/shuaxin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/appraiselist"
-        app:layout_constraintEnd_toStartOf="@+id/appraisefinishbutton"
-        app:layout_constraintHorizontal_bias="0.059"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/appraiselist"
-        app:layout_constraintVertical_bias="0.516"
-        app:srcCompat="@android:drawable/stat_notify_sync_noanim" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
