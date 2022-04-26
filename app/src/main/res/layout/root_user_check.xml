@@ -14,7 +14,7 @@
             android:id="@+id/returnrootmu"
             android:layout_width="62dp"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+            app:srcCompat="@drawable/ic_arrow_left" />
 
         <TextView
             android:id="@+id/textView18"
