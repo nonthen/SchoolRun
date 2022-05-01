@@ -9,6 +9,7 @@ import android.widget.RadioButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.schoolrun.Activity.RootMainActivity;
+import com.example.schoolrun.DataBackActivity.RootDataActivity;
 import com.example.schoolrun.R;
 
 //管理员用户管理
@@ -16,6 +17,7 @@ public class RootUserActivity extends AppCompatActivity implements View.OnClickL
 
     private RadioButton bt1,bt2,bt3;  //3个单选按钮
     private Button UserCheckButton;//审核用户
+    private Button databutton;//数据统计
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class RootUserActivity extends AppCompatActivity implements View.OnClickL
 
 
         UserCheckButton=findViewById(R.id.UserCheckButton);
+        databutton=findViewById(R.id.databutton);
 
         bt1=findViewById(R.id.bt_task);
         bt2=findViewById(R.id.bt_order);
@@ -32,15 +35,25 @@ public class RootUserActivity extends AppCompatActivity implements View.OnClickL
         bt2.setOnClickListener(this);
         bt3.setOnClickListener(this);
 
-        //挑战到审核用户界面
+        //跳转到审核用户界面
         UserCheckButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent button2 = new Intent(RootUserActivity.this, RootUserCheckActivity.class);
-                startActivity(button2);
+                Intent button = new Intent(RootUserActivity.this, RootUserCheckActivity.class);
+                startActivity(button);
                 finish();
 
+            }
+        });
+
+        //跳转到数据统计界面
+        databutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent button = new Intent(RootUserActivity.this, RootDataActivity.class);
+                startActivity(button);
+                finish();
             }
         });
 

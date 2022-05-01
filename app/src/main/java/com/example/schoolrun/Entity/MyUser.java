@@ -1,8 +1,6 @@
 package com.example.schoolrun.Entity;
 
 
-import android.widget.ImageView;
-
 import cn.bmob.v3.BmobObject;
 
 //用户实体类，对应bmob数据库的MyUser表

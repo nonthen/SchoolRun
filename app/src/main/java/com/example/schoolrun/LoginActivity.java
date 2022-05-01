@@ -1,15 +1,14 @@
 package com.example.schoolrun;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.schoolrun.Activity.MainActivity;
-import com.example.schoolrun.Activity.ReleaseTask;
 import com.example.schoolrun.Activity.RootMainActivity;
 import com.example.schoolrun.Entity.MyUser;
 import com.google.android.material.snackbar.Snackbar;
@@ -21,6 +20,7 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.datatype.BmobQueryResult;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SQLQueryListener;
+
 //登录界面
 public class LoginActivity extends AppCompatActivity {
 
@@ -39,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         etAccount = findViewById(R.id.et_account);//用户的账户名
         etPwd = findViewById(R.id.et_pwd);//密码的形式
         btLogin = findViewById(R.id.bt_login);//登陆按钮的形式
+
 
         //当前登陆活动设置一个监听事件
         btLogin.setOnClickListener(new View.OnClickListener(){
@@ -88,34 +89,10 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
 
-//                if (e == null) {
-//                    List<MyUser> list = (List<MyUser>) bmobQueryResult.getResults();
-//                    if (list!=null && list.size()>0) {
-//                        //成功
-//                        Snackbar.make(btLogin, "登录成功：" + userAccount, Snackbar.LENGTH_LONG).show();
-//                    }
-//
-//                }else {
-//                    //查询失败
-//                    Log.e("BMOB", e.toString());
-//                    Snackbar.make(btLogin, "登录失败", Snackbar.LENGTH_LONG).show();
-//
-//                }
+
             }
 
         });
-
-//        bmobQuery.getObject("k4b8DDDI", new QueryListener<MyUser>() {
-//            @Override
-//            public void done(MyUser myUser, BmobException e) {
-//                if (e == null) {
-//                    Snackbar.make(btLogin, "查询成功：" + myUser.getAccount(), Snackbar.LENGTH_LONG).show();
-//                } else {
-//                    Log.e("BMOB", e.toString());
-//                    Snackbar.make(btLogin, e.getMessage(), Snackbar.LENGTH_LONG).show();
-//                }
-//            }
-//        });
 
 
     }

@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="361dp"
         android:layout_weight="4"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/UserCheckButton"
@@ -34,6 +34,13 @@
             android:layout_height="60dp"
             android:text="用户审核"
             android:textSize="26dp" />
+
+        <Button
+            android:id="@+id/databutton"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:text="数据统计"
+            android:textSize="26dp"/>
 
     </LinearLayout>
 
