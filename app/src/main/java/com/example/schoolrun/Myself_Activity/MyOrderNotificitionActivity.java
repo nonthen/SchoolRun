@@ -26,14 +26,13 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SQLQueryListener;
 import cn.bmob.v3.listener.UpdateListener;
 
-//异常订单后续通知，这是在已接单的界面或者正在进行中的订单界面跳转的订单通知
-public class ViewOrderAbnormalActivity extends AppCompatActivity {
+//这是从个人界面的通知跳转的异常订单消息通知
+public class MyOrderNotificitionActivity extends AppCompatActivity {
 
     private ImageButton relistbutton;
     private ImageButton readbutton;
     private List<MyTask> readList;
     private String Objectid;//bmob中默认的id值
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +63,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                     for (MyTask myTask:list){
                         mHashMap=new HashMap<>();
 
-                        if (list.get(i).getId()==LoginActivity.uid&&list.get(i).getTorder()==1&&list.get(i).getTordercheck()==1){
+                        if (list.get(i).getId()== LoginActivity.uid&&list.get(i).getTorder()==1&&list.get(i).getTordercheck()==1){
                             mHashMap.put("tid",String.valueOf(myTask.getTid()));
                             mHashMap.put("tname",myTask.getTname());
                             mHashMap.put("torderabnormaledetails","拒绝取消订单，请完成当前订单");
@@ -95,7 +94,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
 
                     //获取数据显示在列表中
                     ListView listView=findViewById(R.id.listView);
-                    simpleAdapter=new SimpleAdapter(ViewOrderAbnormalActivity.this,mapList,R.layout.view_order_abnormalitem_info,
+                    simpleAdapter=new SimpleAdapter(MyOrderNotificitionActivity.this,mapList,R.layout.view_order_abnormalitem_info,
                             new String[]{"tname","torderabnormaledetails"},
                             new int[]{R.id.jiefinish_tname,R.id.item_abnormaltext});
                     listView.setAdapter(simpleAdapter);
@@ -108,7 +107,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                             //Bmob获取listview中某一行数据
                             System.out.println("跳转到异常订单详情");
                             Intent intent = new Intent();
-                            intent.setClass(ViewOrderAbnormalActivity.this, ViewOrderAbnormalDetails.class);
+                            intent.setClass(MyOrderNotificitionActivity.this, ViewOrderAbnormalDetails.class);
                             // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
                             intent.putExtra("tid", mapList.get(position).get("tid"));
                             intent.putExtra("tdingdanabnormal",mapList.get(position).get("torderabnormaledetails"));
@@ -122,11 +121,11 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
             }
         });
 
-        //返回订单列表
+        //返回通知消息列表
         relistbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ViewOrderAbnormalActivity.this,ViewOrderlistActivity.class);
+                Intent intent=new Intent(MyOrderNotificitionActivity.this,NotifyActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -172,7 +171,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                                 });
 
                                 //刷新界面
-                                Intent intent = new Intent(ViewOrderAbnormalActivity.this,ViewOrderAbnormalActivity.class);
+                                Intent intent = new Intent(MyOrderNotificitionActivity.this,MyOrderNotificitionActivity.class);
                                 startActivity(intent);
                                 finish();
 
@@ -187,7 +186,5 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
             }
         });
 
-
     }
-
 }

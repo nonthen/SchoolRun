@@ -58,7 +58,9 @@ public class ViewOrderingActivity extends AppCompatActivity implements View.OnCl
         tab1.setOnClickListener(this);
         tab2.setOnClickListener(this);
         //点击当前界面，按钮的背景变色
-        tab2.setBackgroundColor(Color.parseColor("#00abf4"));
+//        tab2.setBackgroundColor(Color.parseColor("#1A67C5"));
+        //点击当前界面，按钮下方的文字进行变色
+        tab2.setTextColor(Color.parseColor("#1A67C5"));
 
         NotiYesOrNo();
 
@@ -120,14 +122,14 @@ public class ViewOrderingActivity extends AppCompatActivity implements View.OnCl
 
         switch (view.getId()){
             case R.id.yijiedanbutton:
-                tab1.setBackgroundColor(Color.parseColor("#00abf4"));
-                tab2.setBackgroundColor(Color.parseColor("#ffffff"));
+                tab1.setTextColor(Color.parseColor("#1A67C5"));
+                tab2.setTextColor(Color.parseColor("#FF000000"));
                 Intent button1 = new Intent(this, ViewOrderlistActivity.class);
                 startActivity(button1);
                 break;
             case R.id.runnigbutton:
-                tab1.setBackgroundColor(Color.parseColor("#ffffff"));
-                tab2.setBackgroundColor(Color.parseColor("#00abf4"));
+                tab1.setTextColor(Color.parseColor("#FF000000"));
+                tab2.setTextColor(Color.parseColor("#1A67C5"));
                 Intent button2 = new Intent(this, ViewOrderingActivity.class);
                 startActivity(button2);
                 break;
@@ -252,22 +254,22 @@ public class ViewOrderingActivity extends AppCompatActivity implements View.OnCl
                     for (MyTask myTask:list){
                         if (list.get(i).getId()== LoginActivity.uid&&list.get(i).getTorder()==1&&list.get(i).getTordercheck()==1){
                             temp[0] =1;
-                            notificationbutton.setImageResource(R.drawable.ic_baseline_notifications_active_24);
+                            notificationbutton.setImageResource(R.drawable.ic_notification___notification_outline_dot);
                         }
                         else if (list.get(i).getId()==LoginActivity.uid&&list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
                             temp[0] =1;
-                            notificationbutton.setImageResource(R.drawable.ic_baseline_notifications_active_24);
+                            notificationbutton.setImageResource(R.drawable.ic_notification___notification_outline_dot);
                         }
                         else if (list.get(i).getUid()==LoginActivity.uid&&list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
                             temp[0] =1;
-                            notificationbutton.setImageResource(R.drawable.ic_baseline_notifications_active_24);
+                            notificationbutton.setImageResource(R.drawable.ic_notification___notification_outline_dot);
                         }
                         i++;
                     }
                     System.out.println(" temp[0] ="+ temp[0]);
 
                     if ( temp[0] !=1){
-                        notificationbutton.setImageResource(R.drawable.ic_baseline_notifications_none_24);
+                        notificationbutton.setImageResource(R.drawable.ic_notification___notification_outline);
                     }
 
                 }

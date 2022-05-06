@@ -22,14 +22,15 @@
         <ImageButton
             android:id="@+id/returnmebutton"
             android:layout_width="71dp"
-            android:layout_height="63dp"
+            android:layout_height="match_parent"
+            android:background="#02FFFFFF"
             app:layout_constraintBottom_toBottomOf="@+id/textView5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toTopOf="@+id/textView5"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+            app:srcCompat="@drawable/ic_icon_arrow_arrow_left" />
 
         <TextView
             android:id="@+id/textView5"
@@ -52,8 +53,9 @@
             android:layout_width="73dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_baseline_notifications_none_24"
-            tools:srcCompat="@drawable/ic_baseline_notifications_none_24" />
+            android:background="#19FFFFFF"
+            app:srcCompat="@drawable/ic_notification___notification_outline"
+            tools:srcCompat="@drawable/ic_notification___notification_outline" />
 
     </LinearLayout>
 
@@ -66,8 +68,14 @@
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:listSelector="@android:color/transparent"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="@null"
+            android:dividerHeight="10dp"/>
+        <!-- 一定要将divider设置为@null,dividerHeight控制卡片上下距离 -->
     </LinearLayout>
+
         <View
             android:id="@+id/line"
             android:layout_width="match_parent"
@@ -84,7 +92,7 @@
     <RadioGroup
         android:id="@+id/rg_tab"
         android:layout_width="390dp"
-        android:layout_height="78dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -100,15 +108,15 @@
         <RadioButton
             android:id="@+id/yijiedanbutton"
             android:layout_width="78dp"
-            android:layout_height="78dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:button="@null"
             android:checked="true"
+            android:drawableTop="@drawable/ic_yijiedan_tubiao"
             android:gravity="center"
             android:paddingLeft="0dp"
             android:text="已接单"
-            android:textSize="34dp"
-            android:textStyle="bold"
+            android:textSize="20dp"
             tools:layout_editor_absoluteX="4dp"
             tools:layout_editor_absoluteY="807dp" />
 
@@ -120,15 +128,16 @@
 
         <RadioButton
             android:id="@+id/runnigbutton"
-            android:layout_width="65dp"
-            android:layout_height="89dp"
+            android:layout_width="78dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:button="@null"
+            android:drawableTop="@drawable/ic_order_running"
             android:gravity="center"
             android:paddingLeft="0dp"
             android:text="进行中"
-            android:textSize="34dp"
-            android:textStyle="bold" />
+            android:textSize="20dp"
+           />
 
 
     </RadioGroup>

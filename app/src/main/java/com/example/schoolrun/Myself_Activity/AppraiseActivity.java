@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -16,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.schoolrun.Activity.TestMeAc;
 import com.example.schoolrun.Entity.MyTask;
-import com.example.schoolrun.Entity.MyUser;
 import com.example.schoolrun.LoginActivity;
 import com.example.schoolrun.R;
 
@@ -36,7 +34,7 @@ public class AppraiseActivity extends AppCompatActivity {
 
     private  ImageButton fanhuiButton;//返回上一层按钮
     private StarScoreDialog starScoreDialog;//评分弹窗
-    private Button appfinishbutton;//查看已经评价的任务
+    private ImageButton appfinishbutton;//查看已经评价的任务
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -41,35 +41,64 @@
             <ListView
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:divider="@null"
+                android:dividerHeight="10dp"/>
         </LinearLayout>
 
     </LinearLayout>
 
     <ImageButton
         android:id="@+id/fanhuibutton"
-        android:layout_width="53dp"
-        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:background="#25FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/appraiselist"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/appraiselist"
         app:layout_constraintVertical_bias="0.483"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_24"
-        />
+        app:srcCompat="@drawable/ic_icon_arrow_arrow_left" />
 
-
-    <Button
+    <ImageButton
         android:id="@+id/appraisefinishbutton"
+        android:layout_width="38dp"
+        android:layout_height="30dp"
+        android:background="#3EFFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/appraiselist"
+        app:layout_constraintEnd_toEndOf="@+id/appraiselist"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toEndOf="@+id/fanhuibutton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.386"
+        app:srcCompat="@drawable/appraisefinshimagebutton" />
+
+    <TextView
+        android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="已评价"
         app:layout_constraintBottom_toBottomOf="@+id/appraiselist"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintHorizontal_bias="0.956"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/appraisefinishbutton"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <!--    <Button-->
+<!--        android:id="@+id/appraisefinishbutton"-->
+<!--        android:layout_width="79dp"-->
+<!--        android:layout_height="51dp"-->
+<!--        android:text="已评价"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/appraiselist"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.952"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

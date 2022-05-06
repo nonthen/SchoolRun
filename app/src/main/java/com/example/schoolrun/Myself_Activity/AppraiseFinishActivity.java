@@ -33,7 +33,7 @@ import cn.bmob.v3.listener.SQLQueryListener;
 public class AppraiseFinishActivity extends AppCompatActivity {
 
     private ImageButton fanhuialllistbutton;//返回未评价任务列表
-    private Button jiebutton;//查看他人对我的评价
+    private ImageButton jiebutton;//查看他人对我的评价
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

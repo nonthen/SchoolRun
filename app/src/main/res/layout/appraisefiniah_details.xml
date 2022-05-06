@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -17,7 +19,7 @@
             android:gravity="center"
             android:text="已评价的任务详情"
             android:textColor="#2E1517"
-            android:textSize="38sp"
+            android:textSize="40sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -41,14 +43,13 @@
             android:layout_height="match_parent"
             android:text="帮我拿东西"
             android:textColor="#FA403934"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
     </LinearLayout>
 
 
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
 
@@ -57,22 +58,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#FA403934"
             android:text="任务类型: "
+            android:textColor="#FA403934"
             android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_tkind"
-            android:layout_width="wrap_content"
+            android:layout_width="205dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#FA403934"
             android:text="下拉框类型"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:textColor="#FA403934"
+            android:textSize="25dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -92,7 +91,7 @@
 
         <TextView
             android:id="@+id/item_tdetail"
-            android:layout_width="wrap_content"
+            android:layout_width="268dp"
             android:layout_height="match_parent"
             android:text="去5教老师办公室拿资料"
             android:textColor="#FA403934"
@@ -120,7 +119,7 @@
             android:layout_height="56dp"
             android:gravity="center_vertical"
             android:textColor="#FA403934"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
 
         <TextView
@@ -154,15 +153,15 @@
             android:layout_width="121dp"
             android:layout_height="56dp"
             android:gravity="center_vertical"
-            android:textColor="#ff0000"
-            android:textSize="30dp"
+            android:textColor="#2E1517"
+            android:textSize="25dp"
             android:textStyle="bold" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="91dp"
+        android:layout_height="108dp"
         android:orientation="horizontal">
 
         <TextView
@@ -180,18 +179,27 @@
             android:layout_height="match_parent"
             android:text="评论详情"
             android:textColor="#2E1517"
-            android:textSize="24dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button_fanhui"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="#75975C"
-        android:text="返回"
-        android:textColor="#ffffff"
-        android:textSize="30dp" />
+        android:layout_height="73dp">
+
+        <Button
+            android:id="@+id/button_fanhui"
+            android:layout_width="209dp"
+            android:layout_height="58dp"
+            android:background="@drawable/button_style"
+            android:text="返回"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

@@ -128,30 +128,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="取消"
-        android:textSize="23sp"
-        android:textColor="#FFFFFF"
-        android:background="#E11C0D"
+        android:background="@drawable/shape_red"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/view_bg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.786"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dingdancanceldetail"
-        app:layout_constraintVertical_bias="0.72" />
+        app:layout_constraintVertical_bias="0.612" />
 
     <Button
         android:id="@+id/finishbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="确定"
-        android:textColor="#FFFFFF"
-        android:textSize="23sp"
-        android:background="#2196F3"
+        android:background="@drawable/shape"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/view_bg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.575"
-        app:layout_constraintStart_toEndOf="@+id/cancelbutton"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dingdancanceldetail"
-        app:layout_constraintVertical_bias="0.72" />
+        app:layout_constraintVertical_bias="0.612" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

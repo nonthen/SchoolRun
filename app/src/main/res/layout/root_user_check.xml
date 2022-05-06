@@ -14,11 +14,12 @@
             android:id="@+id/returnrootmu"
             android:layout_width="62dp"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_arrow_left" />
+            android:background="#3BFFFFFF"
+            app:srcCompat="@drawable/ic_icon_arrow_arrow_left" />
 
         <TextView
             android:id="@+id/textView18"
-            android:layout_width="317dp"
+            android:layout_width="303dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="待审核"
@@ -37,7 +38,9 @@
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:dividerHeight="10dp"/>
     </LinearLayout>
 
 

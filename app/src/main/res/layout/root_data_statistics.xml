@@ -206,11 +206,12 @@
         android:id="@+id/returnuserbutton"
         android:layout_width="46dp"
         android:layout_height="41dp"
+        android:background="#57FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/textView26"
         app:layout_constraintEnd_toStartOf="@+id/textView24"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3"
-        app:srcCompat="@drawable/ic_arrow_left" />
+        app:srcCompat="@drawable/ic_icon_arrow_arrow_left" />
 </androidx.constraintlayout.widget.ConstraintLayout>

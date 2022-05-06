@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--注意先后顺序-->
+    <!-- 触摸模式下单击时的阴影-->
+    <item android:state_pressed="true"  android:drawable="@drawable/shadowpress"  />
+    <!-- 默认时的背景图片-->
+    <item android:drawable="@drawable/shadow" />
+</selector>

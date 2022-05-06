@@ -58,6 +58,12 @@
                 android:text="查看收益" />
 
             <Button
+                android:id="@+id/notifybutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="系统通知" />
+
+            <Button
                 android:id="@+id/software_setting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

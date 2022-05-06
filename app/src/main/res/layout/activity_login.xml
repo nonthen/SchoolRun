@@ -92,17 +92,19 @@
 
     <Button
         android:id="@+id/bt_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="341dp"
+        android:layout_height="49dp"
         android:layout_alignParentTop="true"
-        android:background="?attr/colorPrimary"
+        android:background="@drawable/button_style"
         android:text="登陆"
         android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
-        app:layout_constraintVertical_bias="0.212"
-        tools:layout_editor_absoluteX="0dp" />
-
+        app:layout_constraintVertical_bias="0.195" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

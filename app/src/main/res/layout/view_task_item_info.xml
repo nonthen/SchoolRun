@@ -11,7 +11,7 @@
         android:gravity="center"
         android:textColor="#FA403934"
         android:text="任务标题:"
-        android:textSize="34dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         />
 
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:text="目标地址:"
         android:textSize="30dp"
-
+        android:textColor="#2C2828"
         />
 
     <LinearLayout

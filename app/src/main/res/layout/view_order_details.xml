@@ -15,13 +15,14 @@
             android:id="@+id/returnlistbutton"
             android:layout_width="71dp"
             android:layout_height="63dp"
+            android:background="#56FFFFFF"
             app:layout_constraintBottom_toBottomOf="@+id/textView5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toTopOf="@+id/textView5"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+            app:srcCompat="@drawable/ic_icon_arrow_arrow_left" />
 
 
         <TextView
@@ -37,35 +38,32 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_marginTop="10dp"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FA403934"
+            android:layout_height="match_parent"
             android:text="任务标题: "
+            android:textColor="#FA403934"
             android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/jiefinish_tname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FA403934"
+            android:layout_width="275dp"
+            android:layout_height="match_parent"
             android:text="帮我拿东西"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:textColor="#FA403934"
+            android:textSize="25dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
 
@@ -74,133 +72,121 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#FA403934"
             android:text="任务类型: "
+            android:textColor="#FA403934"
             android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_tkind"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="209dp"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:textColor="#FA403934"
             android:text="下拉框类型"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:textColor="#FA403934"
+            android:textSize="25dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
         android:layout_marginTop="10dp"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#FA403934"
             android:text="任务详情: "
+            android:textColor="#FA403934"
             android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_tdetail"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#FA403934"
+            android:layout_height="73dp"
             android:text="去5教老师办公室拿资料"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:textColor="#FA403934"
+            android:textSize="25dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
         android:layout_marginTop="10dp"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#FA403934"
             android:text="目标地址: "
+            android:textColor="#FA403934"
             android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_targetaddress"
-            android:layout_width="255dp"
+            android:layout_width="264dp"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:text="5教"
             android:textColor="#FA403934"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
         android:layout_marginTop="10dp"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#FA403934"
             android:text="本人地址: "
+            android:textColor="#FA403934"
             android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_myaddress"
-            android:layout_width="wrap_content"
+            android:layout_width="271dp"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:text="我在c区18栋"
             android:textColor="#FA403934"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#FA403934"
             android:text="电话："
+            android:textColor="#FA403934"
             android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_tphone"
-            android:layout_width="wrap_content"
+            android:layout_width="317dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#FA403934"
             android:text="18178333174"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:textColor="#FA403934"
+            android:textSize="25dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 
@@ -225,7 +211,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:textColor="#ff0000"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textStyle="bold"/>
 
         <TextView
@@ -260,7 +246,7 @@
             android:layout_height="89dp"
             android:gravity="center_vertical"
             android:textColor="#ff0000"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -286,7 +272,7 @@
             android:layout_height="87dp"
             android:gravity="center_vertical"
             android:textColor="#ff0000"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
 
     </LinearLayout>

@@ -3,22 +3,45 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1395" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable-v24/me_darwable.xml" value="0.191" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/arrow_left.xml" value="0.111" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/button_style.xml" value="0.13333333333333333" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/card_background.xml" value="0.1395" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/card_background_selector.xml" value="0.1395" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/card_state_pressed.xml" value="0.1395" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_arrow_left.xml" value="0.111" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.151" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.1635" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_baseline_notifications_active_24.xml" value="0.166" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_baseline_notifications_none_24.xml" value="0.1395" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_baseline_radio_button_unchecked_24.xml" value="0.191" />
-        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/activity_login.xml" value="0.14130434782608695" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.1395" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_basic___download_done.xml" value="0.1395" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1395" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1395" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_icon_arrow_arrow_left.xml" value="0.1525" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_icon_my_notificition.xml" value="0.1395" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1395" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_my_notification.xml" value="0.1395" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.107" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_order_running.xml" value="0.1395" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_pencil.xml" value="0.1395" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/ic_yijiedan_tubiao.xml" value="0.1395" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/shadow.xml" value="0.15" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/shadowpress.xml" value="0.15" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/shape.xml" value="0.15" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/shape_red.xml" value="0.1395" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/drawable/shapepress.xml" value="0.15" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/appraise_item_info.xml" value="0.16092475067996373" />
-        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/appraise_task.xml" value="0.3333333333333333" />
-        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/appraisefiniah_details.xml" value="0.15639165911151406" />
-        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/appraisefinishlist.xml" value="0.3333333333333333" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/appraise_task.xml" value="0.22" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/appraisefiniah_details.xml" value="0.16666666666666666" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/appraisefinishlist.xml" value="0.14666666666666667" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/appraisejiefinishlist.xml" value="0.16092475067996373" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/dialog_finishorder.xml" value="0.22" />
-        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/dialog_pay.xml" value="0.16666666666666666" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/dialog_pay.xml" value="0.22" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/dialog_starappraise.xml" value="0.15639165911151406" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/fragment_Publishtask.xml" value="0.1" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/fragment_dashboard.xml" value="0.14130434782608695" />
@@ -26,6 +49,8 @@
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/main_activity.xml" value="0.22" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/main_root.xml" value="0.15639165911151406" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/me.xml" value="0.1644021739130435" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/my_notify.xml" value="0.5" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/my_notify_item_info.xml" value="0.13327289211242066" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/mymessage.xml" value="0.22" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/receive_order.xml" value="0.14266304347826086" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/relese_task.xml" value="0.22" />
@@ -38,12 +63,16 @@
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/root_user_check.xml" value="0.16092475067996373" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/root_user_check_info.xml" value="0.16092475067996373" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/root_user_checkuser_details.xml" value="0.16666666666666666" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/root_user_checkuser_info.xml" value="0.11514052583862194" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/shape.xml" value="0.15639165911151406" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/shapepress.xml" value="0.15639165911151406" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/star_appraise.xml" value="0.22" />
-        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_order_abnormal.xml" value="0.22" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_order_abnormal.xml" value="0.16666666666666666" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_order_abnormal_details.xml" value="0.16092475067996373" />
-        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_order_abnormalitem_info.xml" value="0.16092475067996373" />
-        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_order_details.xml" value="0.15639165911151406" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_order_abnormalitem_info.xml" value="0.16666666666666666" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_order_details.xml" value="0.16666666666666666" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_order_item_info.xml" value="0.16666666666666666" />
+        <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_order_mynotification.xml" value="0.13327289211242066" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_orderlist.xml" value="0.22" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_task.xml" value="0.1" />
         <entry key="..\:/AndroidProject/SchoolRun/app/src/main/res/layout/view_task_detailed_info.xml" value="0.1" />

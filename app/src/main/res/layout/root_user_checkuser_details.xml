@@ -82,8 +82,10 @@
         android:layout_width="158dp"
         android:layout_height="59dp"
         android:text="验证"
-        android:textColor="#131212"
-        android:textSize="30dp"
+        android:background="@drawable/button_style"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -95,12 +97,13 @@
         android:id="@+id/returnucheklistbutton"
         android:layout_width="50dp"
         android:layout_height="49dp"
+        android:background="#2FFFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView22"
         app:layout_constraintHorizontal_bias="0.259"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.008"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+        app:srcCompat="@drawable/ic_icon_arrow_arrow_left" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

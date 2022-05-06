@@ -69,7 +69,7 @@ public class ReleaseTask extends AppCompatActivity {
         myTask=new MyTask();
 
         //下拉框功能实现
-        String[] ctype = new String[]{"代取快递或外卖", "代排队", "代购", "代送"};//下拉框数据
+        String[] ctype = new String[]{"代取快递或外卖", "代排队", "代购", "代送","其他"};//下拉框数据
         kindsp =  findViewById(R.id.kindspinner);//下拉框样式
         //创建一个数组适配器,用来存放数据
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
