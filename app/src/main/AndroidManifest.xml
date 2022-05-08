@@ -53,6 +53,24 @@
             tools:ignore="Instantiatable" />
         <activity android:name=".Activity.TestMeAc"></activity>
         <activity android:name=".Activity.DetailedInfoActivity"></activity>
+        <activity android:name=".Activity.SuceesufulTask"></activity>
+        <activity android:name=".Activity.TaskProcess"></activity>
+        <activity android:name=".Activity.Register"></activity>
+
+        <activity android:name=".Myself_Activity.Mymessage"></activity>
+        <activity android:name=".Myself_Activity.Changepassword"></activity>
+        <activity android:name=".Myself_Activity.Ideafeedback"></activity>
+        <activity android:name=".Myself_Activity.Looktask"></activity>
+        <activity android:name=".Myself_Activity.Lookincome"></activity>
+        <activity android:name=".Myself_Activity.Softwaresetting"></activity>
+        <activity android:name=".Myself_Activity.Changemessage"></activity>
+        <activity android:name=".Myself_Activity.Looknotask"></activity>
+        <activity android:name=".Myself_Activity.Tasknomessage"></activity>
+        <activity android:name=".Myself_Activity.Taskmessage"></activity>
+        <activity android:name=".Myself_Activity.Apply"></activity>
+        <activity android:name=".Myself_Activity.Judgetask"></activity>
+        <activity android:name=".Myself_Activity.Lookcheckingtask"></activity>
+
 
         <activity android:name=".Myself_Activity.AppraiseActivity"></activity>
         <activity android:name=".Myself_Activity.AppraiseFinishActivity"></activity>
@@ -66,7 +84,6 @@
         <activity android:name=".Activity.RootMainActivity"></activity>
         <activity android:name=".OrderBackActivity.RootOrderActivity"></activity>
         <activity android:name=".OrderBackActivity.RootOrderDetailsActivity"></activity>
-        <activity android:name=".OrderBackActivity.RootUserActivity"></activity>
         <activity android:name=".OrderBackActivity.RootUserCheckActivity"></activity>
         <activity android:name=".OrderBackActivity.RootUserCheckDetailsActivity"></activity>
         <activity android:name=".DataBackActivity.RootDataActivity"></activity>
@@ -76,6 +93,9 @@
         <activity android:name=".Myself_Activity.ViewOrderAbnormalDetails"></activity>
         <activity android:name=".Myself_Activity.NotifyActivity"></activity>
         <activity android:name=".Myself_Activity.MyOrderNotificitionActivity"></activity>
+
+        <activity android:name=".userbackground.Changepasswordbackground"></activity>
+        <activity android:name=".userbackground.user_activity"></activity>
 
 
         <!--TODO 集成：1.2、添加推送所需要的服务和广播-->

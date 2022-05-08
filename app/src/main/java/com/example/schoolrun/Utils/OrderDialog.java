@@ -1,4 +1,4 @@
-package com.example.schoolrun.Myself_Activity;
+package com.example.schoolrun.Utils;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -11,7 +11,6 @@ import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 

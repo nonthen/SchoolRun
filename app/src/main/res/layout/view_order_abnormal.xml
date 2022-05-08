@@ -58,14 +58,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
                 android:background="#16FFFFFF"
-                app:srcCompat="@drawable/ic_basic___download_done" />
+                app:srcCompat="@drawable/ic_delete_notifition" />
 
             <TextView
                 android:id="@+id/textView35"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="一键已读"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:text="长按删除" />
 
         </LinearLayout>
 

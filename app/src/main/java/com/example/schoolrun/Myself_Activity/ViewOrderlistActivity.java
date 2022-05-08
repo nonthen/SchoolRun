@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.schoolrun.Activity.TestMeAc;
+import com.example.schoolrun.Entity.MyOrderRead;
 import com.example.schoolrun.Entity.MyTask;
 import com.example.schoolrun.LoginActivity;
 import com.example.schoolrun.R;
@@ -32,7 +33,7 @@ import cn.bmob.v3.datatype.BmobQueryResult;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SQLQueryListener;
 
-//查看订单
+//查看订单，接单者查看自己发布的任务且已经被接单者接单
 public class ViewOrderlistActivity extends AppCompatActivity implements View.OnClickListener{
 
     private RadioGroup mRadioGroup;
@@ -177,30 +178,49 @@ public class ViewOrderlistActivity extends AppCompatActivity implements View.OnC
     void NotiYesOrNo(){
         final int[] temp = new int[1];
         //筛选异常订单通过审核后的订单
-        final BmobQuery<MyTask>[] bmobQuery = new BmobQuery[]{new BmobQuery<MyTask>()};
-        String bql = "select * from MyTask where tfinish=0 and tcheckorder!=0";
-        bmobQuery[0].setSQL(bql);//必须先获取uid，由uaccount获取uid
-        bmobQuery[0].doSQLQuery(new SQLQueryListener<MyTask>() {
+        BmobQuery<MyTask> bmobQuery=new BmobQuery<>();
+        String bql = "select * from MyTask where tfinish=0";
+        bmobQuery.setSQL(bql);//必须先获取uid，由uaccount获取uid
+        bmobQuery.doSQLQuery(new SQLQueryListener<MyTask>() {
             @Override
             public void done(BmobQueryResult<MyTask> bmobQueryResult, BmobException e) {
-                List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
+                List<MyTask> list = bmobQueryResult.getResults();//查询结果
                 if (e==null){
 
                     int i=0;//循环变量
 
                     for (MyTask myTask:list){
-                        if (list.get(i).getId()== LoginActivity.uid&&list.get(i).getTorder()==1&&list.get(i).getTordercheck()==1){
-                            temp[0] =1;
-                            notificationbutton.setImageResource(R.drawable.ic_notification___notification_outline_dot);
+                        //当前用户是接单者，查询MyOrderRead表
+                        if (list.get(i).getId()== LoginActivity.uid){
+
+                            BmobQuery<MyOrderRead> bmobQuery=new BmobQuery<>();
+                            String bql="select * from MyOrderRead where tid = ?";
+                            bmobQuery.setSQL(bql);
+                            bmobQuery.setPreparedParams(new Object[]{list.get(i).getTid()});
+                            bmobQuery.doSQLQuery(new SQLQueryListener<MyOrderRead>(){
+
+                                @Override
+                                public void done(BmobQueryResult<MyOrderRead> bmobQueryResult, BmobException e) {
+                                    List<MyOrderRead> listorder = bmobQueryResult.getResults();//查询结果
+                                    if (e==null){
+                                        if (listorder.get(0).getTorderread()==1){//表示接单者还未读消息
+                                            temp[0] =1;
+                                            notificationbutton.setImageResource(R.drawable.ic_notification___notification_outline_dot);
+                                        }
+                                    }
+                                }
+                            });
+
                         }
-                        else if (list.get(i).getId()==LoginActivity.uid&&list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
-                            temp[0] =1;
-                            notificationbutton.setImageResource(R.drawable.ic_notification___notification_outline_dot);
+                        else {//当前用户是发单者
+                            if (list.get(i).getUid()== LoginActivity.uid){
+                                if (list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
+                                    temp[0] =1;
+                                    notificationbutton.setImageResource(R.drawable.ic_notification___notification_outline_dot);
+                                }
+                            }
                         }
-                        else if (list.get(i).getUid()==LoginActivity.uid&&list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
-                            temp[0] =1;
-                            notificationbutton.setImageResource(R.drawable.ic_notification___notification_outline_dot);
-                        }
+
                         i++;
                     }
                     System.out.println(" temp[0] ="+ temp[0]);

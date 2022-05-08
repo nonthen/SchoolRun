@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.schoolrun.Activity.RootMainActivity;
 import com.example.schoolrun.Entity.MyTask;
 import com.example.schoolrun.R;
+import com.example.schoolrun.userbackground.user_activity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -117,7 +118,7 @@ public class RootOrderActivity extends AppCompatActivity implements View.OnClick
                 startActivity(button2);
                 break;
             case R.id.bt_user:
-                Intent button3 = new Intent(this, RootUserActivity.class);//用户
+                Intent button3 = new Intent(this, user_activity.class);//用户
                 startActivity(button3);
                 break;
 

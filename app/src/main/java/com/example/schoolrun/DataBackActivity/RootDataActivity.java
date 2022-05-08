@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.schoolrun.Entity.MyTask;
 import com.example.schoolrun.Entity.MyUser;
-import com.example.schoolrun.OrderBackActivity.RootUserActivity;
 import com.example.schoolrun.R;
+import com.example.schoolrun.userbackground.user_activity;
 
 import java.util.List;
 
@@ -55,7 +55,7 @@ public class RootDataActivity extends AppCompatActivity {
         returnuserbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(RootDataActivity.this, RootUserActivity.class);
+                Intent intent=new Intent(RootDataActivity.this, user_activity.class);
                 startActivity(intent);
                 finish();//释放资源
             }

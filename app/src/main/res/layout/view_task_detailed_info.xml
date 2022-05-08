@@ -2,72 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FA403934"
-            android:text="任务标题: "
-            android:textSize="34dp"
-            android:textStyle="bold"
-            />
-
-        <TextView
-            android:id="@+id/jiefinish_tname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FA403934"
-            android:text="帮我拿东西"
-            android:textSize="34dp"
-            android:textStyle="bold"
-            />
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#FA403934"
-            android:text="任务类型: "
-            android:textSize="34dp"
-            android:textStyle="bold"
-            />
-
-        <TextView
-            android:id="@+id/item_tkind"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#FA403934"
-            android:text="下拉框类型"
-            android:textSize="34dp"
-            android:textStyle="bold"
-            />
-        <!--    <Spinner-->
-        <!--        android:id="@+id/item_tkind"-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_marginLeft="30dp"-->
-        <!--        android:textAlignment="center">-->
-        <!--    </Spinner>-->
-    </LinearLayout>
-
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,7 +15,7 @@
             android:gravity="center"
             android:textColor="#FA403934"
             android:text="任务详情: "
-            android:textSize="34dp"
+            android:textSize="30dp"
             android:textStyle="bold"
             />
 
@@ -91,11 +26,10 @@
             android:gravity="center"
             android:textColor="#FA403934"
             android:text="去5教老师办公室拿资料"
-            android:textSize="34dp"
+            android:textSize="30dp"
             android:textStyle="bold"
             />
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -109,7 +43,7 @@
             android:gravity="center"
             android:textColor="#FA403934"
             android:text="目标地址: "
-            android:textSize="34dp"
+            android:textSize="30dp"
             android:textStyle="bold"
             />
 
@@ -120,7 +54,7 @@
             android:gravity="center"
             android:textColor="#FA403934"
             android:text="5教"
-            android:textSize="34dp"
+            android:textSize="30dp"
             android:textStyle="bold"
             />
     </LinearLayout>
@@ -137,7 +71,7 @@
             android:gravity="center"
             android:textColor="#FA403934"
             android:text="本人地址: "
-            android:textSize="34dp"
+            android:textSize="30dp"
             android:textStyle="bold"
             />
 
@@ -148,7 +82,7 @@
             android:gravity="center"
             android:textColor="#FA403934"
             android:text="我在c区18栋"
-            android:textSize="34dp"
+            android:textSize="30dp"
             android:textStyle="bold"
             />
     </LinearLayout>
@@ -164,8 +98,35 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="#FA403934"
+            android:text="收货人："
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/item_uname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FA403934"
+            android:text="张女士"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FA403934"
             android:text="电话："
-            android:textSize="34dp"
+            android:textSize="30dp"
             android:textStyle="bold"
             />
 
@@ -176,12 +137,38 @@
             android:gravity="center"
             android:textColor="#FA403934"
             android:text="18178333174"
-            android:textSize="34dp"
+            android:textSize="30dp"
             android:textStyle="bold"
             />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FA403934"
+            android:text="发布任务时间："
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
 
+        <TextView
+            android:id="@+id/item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FA403934"
+            android:text="2022年4月12日23：33分"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -191,13 +178,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="价格: "
+            android:text="此单价格: "
+            android:textColor="#FA403934"
             android:textSize="30dp"
-            android:textColor="#2C2828"
+            android:textStyle="bold"
             />
 
         <TextView
-            android:id="@+id/jiefinish_tprice"
+            android:id="@+id/item_tprice"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -209,29 +197,64 @@
             android:layout_height="40dp"
             android:gravity="center_vertical"
             android:text="元"
-            android:textColor="#2E1517"
-            android:textSize="30dp" />
+            android:textColor="#FA403934"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FA403934"
+            android:text="配送员："
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
 
-    <Button
-        android:id="@+id/button_receive_order"
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FA403934"
+            android:text="张女士"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="#75975C"
-        android:text="接单"
-        android:textColor="#ffffff"
-        android:textSize="30dp" />
+        android:orientation="vertical"
+        android:gravity="center">
+        <Button
+            android:id="@+id/button_receive_order"
+            android:layout_marginTop="30dp"
+            android:text="确认接单"
+            android:layout_width="294dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_style"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
 
-    <Button
-        android:id="@+id/button_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="#75975C"
-        android:text="返回"
-        android:textColor="#ffffff"
-        android:textSize="30dp" />
+        <Button
+            android:id="@+id/button_main"
+            android:layout_marginTop="30dp"
+            android:text="返回"
+            android:layout_width="294dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_style"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+    </LinearLayout>
 
 </LinearLayout>

@@ -16,17 +16,50 @@
         android:paddingRight="15dp"
         android:background="@drawable/card_background_selector"
         android:descendantFocusability="afterDescendants"><!-- 给每个item增加background -->
-        <TextView
-            android:id="@+id/item_noyify"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#FA403934"
-            android:text="消息内容"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            />
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#FA403934"
+                    android:text="任务发布失败通知："
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    />
 
+                <CheckBox
+                    android:id="@+id/checkbox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="invisible"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/item_noyify_tname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="任务名"
+                android:textSize="30dp"
+                />
+
+            <TextView
+                android:id="@+id/item_noyify_tchek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="消息内容"
+                android:textSize="30dp"
+                />
+        </LinearLayout>
     </LinearLayout>
 </FrameLayout>

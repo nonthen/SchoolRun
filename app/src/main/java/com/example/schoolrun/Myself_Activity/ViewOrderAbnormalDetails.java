@@ -36,6 +36,8 @@ public class ViewOrderAbnormalDetails extends AppCompatActivity {
     private String sdetails;
     private String sdingdanabnormal;
 
+    private MyTask myTask;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -52,7 +54,7 @@ public class ViewOrderAbnormalDetails extends AppCompatActivity {
         intent=getIntent();//获取上一个界面的intent
         stid=intent.getStringExtra("tid");//获取上个界面传过来的任务tid
         sdingdanabnormal=intent.getStringExtra("tdingdanabnormal");//获取上个界面传过来的异常订单状态
-
+        myTask=new MyTask();
 
         //获取当前任务的所有信息
         BmobQuery<MyTask> bmobQuery=new BmobQuery<MyTask>();
@@ -68,7 +70,6 @@ public class ViewOrderAbnormalDetails extends AppCompatActivity {
                     stitle=list.get(0).getTname();
                     skind=list.get(0).getTkind();
                     sdetails=list.get(0).getTdetail();
-
 
                     //显示在界面上
                     item_tname.setText(stitle);

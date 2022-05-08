@@ -15,10 +15,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.schoolrun.Entity.MyOrderRead;
 import com.example.schoolrun.Entity.MyTask;
 import com.example.schoolrun.Entity.MyUser;
 import com.example.schoolrun.LoginActivity;
 import com.example.schoolrun.R;
+import com.example.schoolrun.Utils.PayTypesDialog;
 
 import java.util.List;
 
@@ -43,6 +45,7 @@ public class ReleaseTask extends AppCompatActivity {
     private Spinner kindsp;//任务类型下拉框
     private String kind;//类型名称
     private MyTask myTask;
+    private MyOrderRead myOrderRead;
 
     private RadioButton tab1,tab2,tab3;//底部导航栏
     private PayTypesDialog payTypesDialog;//支付弹窗
@@ -67,6 +70,7 @@ public class ReleaseTask extends AppCompatActivity {
         tab3=findViewById(R.id.rb_me);
         payTypesDialog = new PayTypesDialog(ReleaseTask.this, R.style.pay_type_dialog);
         myTask=new MyTask();
+        myOrderRead=new MyOrderRead();
 
         //下拉框功能实现
         String[] ctype = new String[]{"代取快递或外卖", "代排队", "代购", "代送","其他"};//下拉框数据
@@ -92,7 +96,11 @@ public class ReleaseTask extends AppCompatActivity {
         tab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = getIntent();
                 Intent button1 = new Intent(ReleaseTask.this,MainActivity.class);
+                String uid = intent.getStringExtra("uid");
+                button1.putExtra("uid", uid);
+                System.out.println("uid:" + uid);
                 startActivity(button1);
                 finish();//释放资源
             }
@@ -102,7 +110,11 @@ public class ReleaseTask extends AppCompatActivity {
         tab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = getIntent();
                 Intent button2 = new Intent(ReleaseTask.this,ReleaseTask.class);
+                String uid = intent.getStringExtra("uid");
+                button2.putExtra("uid", uid);
+                System.out.println("uid:" + uid);
                 startActivity(button2);
                 finish();//释放资源
             }
@@ -112,7 +124,11 @@ public class ReleaseTask extends AppCompatActivity {
         tab3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = getIntent();
                 Intent button3 = new Intent(ReleaseTask.this, TestMeAc.class);
+                String uid = intent.getStringExtra("uid");
+                button3.putExtra("uid", uid);
+                System.out.println("uid:" + uid);
                 startActivity(button3);
                 finish();//释放资源
             }
@@ -161,6 +177,7 @@ public class ReleaseTask extends AppCompatActivity {
 
                                 //插入一条任务数据,如果将插入数据放到外面，就会先执行插入数据，不会先查询，那么tid就永远为0
                                 myTask.setTid(sum+1);
+                                myOrderRead.setTid(sum+1);
 
                                 //通过用户的账号查找到用户的uid
                                 BmobQuery<MyUser> bmobQuery = new BmobQuery<>();
@@ -183,6 +200,7 @@ public class ReleaseTask extends AppCompatActivity {
 
                                 });
 
+
                                 myTask.setTname(etname.getText().toString());
                                 myTask.setTkind(kind);
                                 myTask.setTprice(Double.valueOf(etprice.getText().toString()));
@@ -192,6 +210,11 @@ public class ReleaseTask extends AppCompatActivity {
                                 myTask.setTargetaddress(ettargetadress.getText().toString());
                                 myTask.setTcheck(0);//任务还没有被管理员审核
                                 //此时数据还没有存入任务表
+
+                                myOrderRead.setTname(etname.getText().toString());
+                                myOrderRead.setTorderread(0);
+                                //此时数据还没有存入接单者消息表
+
                                 System.out.println("弹出支付方式");
                                 payTypesDialog.show();
 
@@ -220,6 +243,18 @@ public class ReleaseTask extends AppCompatActivity {
                             } else {
                                 Log.e("BMOB", e.toString());
                                 System.out.println("发布任务失败");
+                            }
+                        }
+                    });
+
+                    myOrderRead.save(new SaveListener<String>() {
+                        @Override
+                        public void done(String s, BmobException e) {
+                            if (e == null) {
+                                System.out.println("MyOrederRead数据保存成功");
+                            } else {
+                                Log.e("BMOB", e.toString());
+                                System.out.println("保存失败失败");
                             }
                         }
                     });

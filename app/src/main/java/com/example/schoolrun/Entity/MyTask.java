@@ -23,6 +23,8 @@ public class MyTask extends BmobObject {
     private float tappraise;//评分
     private String tappraisetext;//文字评论
     private int tappfinsh;//任务是否已经评论
+    private int tasknotify;//是否删除任务通知
+    private String tcheckerrordetails;//审核任务失败原因
 
     public int getTid() {
         return tid;
@@ -184,6 +186,24 @@ public class MyTask extends BmobObject {
 
     public MyTask setTordercheck(int tordercheck) {
         this.tordercheck = tordercheck;
+        return this;
+    }
+
+    public int getTasknotify() {
+        return tasknotify;
+    }
+
+    public MyTask setTasknotify(int tasknotify) {
+        this.tasknotify = tasknotify;
+        return this;
+    }
+
+    public String getTcheckerrordetails() {
+        return tcheckerrordetails;
+    }
+
+    public MyTask setTcheckerrordetails(String tcheckerrordetails) {
+        this.tcheckerrordetails = tcheckerrordetails;
         return this;
     }
 }

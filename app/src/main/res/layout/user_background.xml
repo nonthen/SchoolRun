@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:layout_alignParentBottom="true" >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="编辑"
+            android:onClick="click_editButton"
+            android:background="@drawable/button_style"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            />
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="删除"
+            android:onClick="click_deleteButton"
+            android:background="@drawable/button_style"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            />
+        <Button
+            android:id="@+id/change_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="修改密码"
+            android:onClick="click_succeedButton"
+            android:background="@drawable/button_style"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            />
+        <Button
+            android:id="@+id/chat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="取消"
+            android:onClick="click_cancelButton"
+            android:background="@drawable/button_style"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="用户审核"
+            android:onClick="UserCheckButton"
+            android:background="@drawable/button_style"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="数据统计"
+            android:onClick="databutton"
+            android:background="@drawable/button_style"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:orientation="vertical"></LinearLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="50dp"
+                android:background="#cccccc"/>
+
+            <LinearLayout
+                android:id="@+id/lin_header_content"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="3"
+                android:orientation="vertical">
+                <!--以下是行标题能动的-->
+                <com.example.schoolrun.userbackground.SyncHorizontalScrollView
+                    android:id="@+id/header_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/lin_year_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="昵称"/>
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="50dp"
+                            android:background="#cccccc"/>
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="性别"/>
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="50dp"
+                            android:background="#cccccc"/>
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="QQ"/>
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="50dp"
+                            android:background="#cccccc"/>
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="联系电话"/>
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="50dp"
+                            android:background="#cccccc"/>
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="真实性别"/>
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="50dp"
+                            android:background="#cccccc"/>
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="收益"/>
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="50dp"
+                            android:background="#cccccc"/>
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="信誉值"/>
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="50dp"
+                            android:background="#cccccc"/>
+
+
+                    </LinearLayout>
+                </com.example.schoolrun.userbackground.SyncHorizontalScrollView>
+            </LinearLayout>
+        </LinearLayout>
+        <!--以上是行标题不能动的-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#cccccc"/>
+        <!--ScrollView里面是可滑动的表格-->
+        <ScrollView
+            android:id="@+id/scroll_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal">
+                <!--ScrollView里面是不可滑动的最左标签-->
+
+
+
+                <com.example.schoolrun.userbackground.NoscrollListView
+                    android:id="@+id/lv_left"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"/>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="#cccccc"/>
+                <!--ScrollView里面是可滑动的非最左标签-->
+                <LinearLayout
+                    android:id="@+id/lin_data_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:orientation="vertical">
+
+                    <com.example.schoolrun.userbackground.SyncHorizontalScrollView
+                        android:id="@+id/data_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:overScrollMode="never"
+                        android:scrollbars="none">
+
+                        <com.example.schoolrun.userbackground.NoscrollListView
+                            android:id="@+id/lv_data"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:overScrollMode="never"
+                            android:scrollbars="none"/>
+                    </com.example.schoolrun.userbackground.SyncHorizontalScrollView>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal">
+        <RadioGroup
+            android:id="@+id/rg_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/bt_task"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/renwu"
+                android:gravity="center"
+                android:paddingLeft="0dp"
+                android:text="任务" />
+
+            <RadioButton
+                android:id="@+id/bt_order"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/dingdan"
+                android:gravity="center"
+                android:paddingLeft="0dp"
+                android:text="任务" />
+
+            <RadioButton
+                android:id="@+id/bt_user"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/wode"
+                android:gravity="center"
+                android:paddingLeft="0dp"
+                android:text="用户" />
+        </RadioGroup>
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:descendantFocusability="beforeDescendants"><!-- 为突出卡片效果，需设置左右padding,上下通过listView的divider设置 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="15dp"
+        android:background="@drawable/card_background_selector"
+        android:descendantFocusability="afterDescendants"><!-- 给每个item增加background -->
     <TextView
-        android:id="@+id/jiefinish_tname"
+        android:id="@+id/item_tname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -21,7 +33,6 @@
         android:layout_height="wrap_content"
         android:text="目标地址:"
         android:textSize="30dp"
-        android:textColor="#2C2828"
         />
 
     <LinearLayout
@@ -39,7 +50,7 @@
             />
 
         <TextView
-            android:id="@+id/jiefinish_tprice"
+            android:id="@+id/item_tprice"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -53,8 +64,6 @@
             android:text="元"
             android:textColor="#2E1517"
             android:textSize="30dp" />
-
     </LinearLayout>
-
-
-</LinearLayout>
+    </LinearLayout>
+</FrameLayout>

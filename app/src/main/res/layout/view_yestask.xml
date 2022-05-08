@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FA403934"
+            android:text="任务标题: "
+            android:textSize="34dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/item_tname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="帮我拿东西"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FA403934"
+            android:text="任务类型: "
+            android:textSize="34dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/item_tkind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="下拉框类型"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+        <!--    <Spinner-->
+        <!--        android:id="@+id/item_tkind"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginLeft="30dp"-->
+        <!--        android:textAlignment="center">-->
+        <!--    </Spinner>-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FA403934"
+            android:text="任务详情: "
+            android:textSize="34dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/item_tdetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="去5教老师办公室拿资料"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FA403934"
+            android:text="目标地址: "
+            android:textSize="34dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/item_targetaddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="5教"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FA403934"
+            android:text="本人地址: "
+            android:textSize="34dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/item_myaddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="我在c区18栋"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FA403934"
+            android:text="电话："
+            android:textSize="34dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/item_tphone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="18178333174"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="价格: "
+            android:textSize="34dp"
+            android:textColor="#FA403934"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/item_tprice"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="#ff0000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="61dp"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="元"
+            android:textColor="#FA403934"
+            android:textStyle="bold"
+            android:textSize="34dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下单时间: "
+            android:textSize="34dp"
+            android:textColor="#FA403934"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/item_time"
+            android:layout_width="258dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="25dp" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/fanhui"
+            android:layout_width="360dp"
+            android:layout_height="53dp"
+            android:background="@drawable/button_style"
+            android:rotation="0"
+            android:rotationX="0"
+            android:rotationY="0"
+            android:text="返回"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.178" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

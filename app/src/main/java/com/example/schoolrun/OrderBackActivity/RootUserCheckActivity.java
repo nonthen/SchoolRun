@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.schoolrun.Entity.MyUser;
 import com.example.schoolrun.R;
+import com.example.schoolrun.userbackground.user_activity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -96,7 +97,7 @@ public class RootUserCheckActivity extends AppCompatActivity {
         returnrootmu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(RootUserCheckActivity.this,RootUserActivity.class);
+                Intent intent=new Intent(RootUserCheckActivity.this, user_activity.class);
                 startActivity(intent);
                 finish();
             }

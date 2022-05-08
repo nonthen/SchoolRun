@@ -1,10 +1,7 @@
-package com.example.schoolrun.Activity;
-
-import static androidx.core.content.ContextCompat.startActivity;
+package com.example.schoolrun.Utils;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -13,13 +10,10 @@ import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.example.schoolrun.LoginActivity;
 import com.example.schoolrun.R;
-import com.google.android.material.snackbar.Snackbar;
 
 //底部弹出支付方式
 public class PayTypesDialog extends Dialog {
