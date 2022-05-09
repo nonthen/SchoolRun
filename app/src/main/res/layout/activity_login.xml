@@ -94,7 +94,7 @@
             android:layout_marginEnd="9dp"
             android:layout_marginRight="9dp"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#31FFFFFF"
             android:src="@drawable/ic_eye_close" />
     </RelativeLayout>
 

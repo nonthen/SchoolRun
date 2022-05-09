@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -85,7 +84,7 @@ public class AppraiseFinishActivity extends AppCompatActivity {
                     ListView listView=findViewById(R.id.listView);
                     simpleAdapter=new SimpleAdapter(AppraiseFinishActivity.this,mapList,R.layout.view_task_item_info,
                             new String[]{"tname","targetaddress","tprice"},
-                            new int[]{R.id.jiefinish_tname,R.id.item_targetaddress,R.id.jiefinish_tprice});
+                            new int[]{R.id.item_tname,R.id.item_targetaddress,R.id.item_tprice});
                     listView.setAdapter(simpleAdapter);
                     simpleAdapter.notifyDataSetChanged();
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

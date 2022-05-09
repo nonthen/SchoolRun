@@ -16,16 +16,14 @@
         android:paddingRight="15dp"
         android:background="@drawable/card_background_selector"
         android:descendantFocusability="afterDescendants"><!-- 给每个item增加background -->
-    <TextView
-        android:id="@+id/item_tname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="#FA403934"
-        android:text="任务标题:"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        />
+        <TextView
+            android:id="@+id/item_tname"
+            android:layout_width="338dp"
+            android:layout_height="wrap_content"
+            android:text="任务标题:"
+            android:textColor="#FA403934"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
     <TextView
         android:id="@+id/item_targetaddress"

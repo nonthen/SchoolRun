@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String tempTprice, tempTid, tempTphone, tempTkind;
                     List<Map<String, String>> mapList = new ArrayList<>();
                     for (MyTask myTask : list) {
-                        price=0.9*myTask.getTprice().doubleValue();
+                        price=0.9*myTask.getTprice().floatValue();
                         tempTprice = String.valueOf(price);
                         tempTid = String.valueOf(myTask.getTid());
                         tempTphone = String.valueOf(myTask.getTphone());

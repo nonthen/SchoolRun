@@ -88,7 +88,7 @@ public class AppraiseActivity extends AppCompatActivity {
                     ListView listView=findViewById(R.id.listView);
                     simpleAdapter=new SimpleAdapter(AppraiseActivity.this,mapList,R.layout.view_task_item_info,
                             new String[]{"tname","targetaddress","tprice"},
-                            new int[]{R.id.jiefinish_tname,R.id.item_targetaddress,R.id.jiefinish_tprice});
+                            new int[]{R.id.item_tname,R.id.item_targetaddress,R.id.item_tprice});
                     listView.setAdapter(simpleAdapter);
                     simpleAdapter.notifyDataSetChanged();
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -82,6 +82,8 @@ public class Register extends AppCompatActivity{
                                     if (e == null) {
                                         Snackbar.make(button, "注册成功", Snackbar.LENGTH_LONG).show();
                                         intent.setClass(Register.this, LoginActivity.class);
+                                        startActivity(intent);
+                                        finish();
 
                                     } else {
                                         Snackbar.make(button, "注册失败", Snackbar.LENGTH_LONG).show();

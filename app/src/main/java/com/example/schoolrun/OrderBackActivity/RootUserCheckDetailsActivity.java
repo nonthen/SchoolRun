@@ -74,7 +74,6 @@ public class RootUserCheckDetailsActivity extends AppCompatActivity {
                     myUser.setIncome(list.get(0).getIncome());
                     myUser.setUrealname(list.get(0).getUrealname());
                     myUser.setUidentitycard(list.get(0).getUidentitycard());
-                    myUser.setUreputation(list.get(0).getUreputation());
                     myUser.setGoodappraisecount(list.get(0).getGoodappraisecount());
                     myUser.setBadappraisecount(list.get(0).getBadappraisecount());
 
@@ -101,6 +100,7 @@ public class RootUserCheckDetailsActivity extends AppCompatActivity {
 
                             myUser.setUreputation(0);//置0，表示已经具有接单者权限且已经经过申请
                             myUser.setUcheck(1);//具有接单者权限
+                            myUser.setUreputation(6);
 
                             myUser.update(Objectid,new UpdateListener(){
 
@@ -129,6 +129,7 @@ public class RootUserCheckDetailsActivity extends AppCompatActivity {
 
                             myUser.setUreputation(0);//置0，表示用户能够重新进行申请
                             myUser.setUcheck(0);//没有接单者权限
+                            myUser.setUreputation(6);
 
                             myUser.update(Objectid,new UpdateListener(){
 

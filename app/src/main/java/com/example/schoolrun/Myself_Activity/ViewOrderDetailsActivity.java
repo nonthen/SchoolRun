@@ -46,7 +46,7 @@ public class ViewOrderDetailsActivity extends AppCompatActivity {
     private String sbegaintime;
     private String sjiedantime;
 
-    private int phone;
+    private long phone;
     private Number price;
 
     @Override

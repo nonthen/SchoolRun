@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.schoolrun.Entity.MyUser;
+import com.example.schoolrun.LoginActivity;
 import com.example.schoolrun.Myself_Activity.Apply;
 import com.example.schoolrun.Myself_Activity.AppraiseActivity;
 import com.example.schoolrun.Myself_Activity.Changepassword;
@@ -90,8 +91,8 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
         xiaoxi=findViewById(R.id.xiaoxi);
 
         Intent intent = getIntent();
-        String uid = intent.getStringExtra("uid");
         String objectId = intent.getStringExtra("objectId");
+        String uid=String.valueOf(LoginActivity.uid);
 
         //这里获取了用户主页
         BmobQuery<MyUser> bmobQuery = new BmobQuery<MyUser>();
@@ -110,7 +111,7 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
                         if (Uid.equals(uid)) {
                             check = String.valueOf(myuser.getUcheck());
                             System.out.println("check:"+ check);
-                            uidview.setText("uid:"+uid);
+                            uidview.setText("uid:"+ LoginActivity.uid);
                             String i = "1";
                             if (check.equals(i)) {
                                 checkView.setText("接单用户");
@@ -131,6 +132,7 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
                                 a.putExtra("uid", uid);
                                 a.putExtra("objectId", objectId);
                                 startActivity(a);
+                                finish();
                             }
                         });
                         button2.setOnClickListener(new View.OnClickListener() {//修改密码
@@ -144,6 +146,7 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
                                 b.putExtra("uid", uid);
                                 b.putExtra("objectId", objectId);
                                 TestMeAc.this.startActivity(b);
+                                finish();
                             }
                         });
                         button3.setOnClickListener(new View.OnClickListener() {//查看收益
@@ -157,6 +160,7 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
                                 c.putExtra("uid", uid);
                                 c.putExtra("objectId", objectId);
                                 TestMeAc.this.startActivity(c);
+                                finish();
                             }
                         });
                         button4.setOnClickListener(new View.OnClickListener() {//查看任务
@@ -169,6 +173,7 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
                                 d.putExtra("objectId", objectId);
                                 System.out.println("+++++++++uid:"+uid);
                                 TestMeAc.this.startActivity(d);
+                                finish();
                             }
                         });
                         button5.setOnClickListener(new View.OnClickListener() {//软件设置
@@ -181,6 +186,7 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
                                 e.putExtra("objectId", objectId);
                                 System.out.println("+++++++++uid:"+uid);
                                 TestMeAc.this.startActivity(e);
+                                finish();
                             }
                         });
                         button6.setOnClickListener(new View.OnClickListener() {//意见反馈
@@ -189,12 +195,13 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
                                 Intent f = new Intent();
                                 f.setClass(TestMeAc.this, Ideafeedback.class);
                                 TestMeAc.this.startActivity(f);
+                                finish();
                             }
                         });
                         button7.setOnClickListener(new View.OnClickListener() {//申请申请接单者
                             @Override
                             public void onClick(View view) {
-                                if (check.equals("1.0")) {
+                                if (check.equals("1")) {
                                     Snackbar.make(button7, "您已经是接单者了，无需重复申请", Snackbar.LENGTH_LONG).show();
                                 }
                                 else{
@@ -203,6 +210,7 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
                                     g.putExtra("uid", uid);
                                     g.putExtra("objectId", objectId);
                                     TestMeAc.this.startActivity(g);
+                                    finish();
                                 }
                             }
                         });

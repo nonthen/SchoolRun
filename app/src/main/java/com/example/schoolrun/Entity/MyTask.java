@@ -13,7 +13,7 @@ public class MyTask extends BmobObject {
     private String tdetail;//任务详情
     private String targetaddress;//目标地址
     private String myaddress;//本人地址
-    private int tphone;//发单人联系电话
+    private long tphone;//发单人联系电话
     private Number tprice;//任务价格
     private int tcheck;//判断是否审核成功
     private int torder;//任务是否被接单
@@ -80,11 +80,11 @@ public class MyTask extends BmobObject {
         return this;
     }
 
-    public int getTphone() {
+    public long getTphone() {
         return tphone;
     }
 
-    public MyTask setTphone(int tphone) {
+    public MyTask setTphone(long tphone) {
         this.tphone = tphone;
         return this;
     }

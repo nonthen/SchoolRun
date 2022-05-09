@@ -28,9 +28,10 @@ public class DetailedInfoActivity extends AppCompatActivity {
     private String sprice, sphone;
     private String tasktid;
     private Button btmain,btorder;
-    private String sname,skind,sdetail,sargetaddress,smyaddress,Uname;
+    private String sname,skind,sdetail,sargetaddress,smyaddress, UAccount;
     private Number iprice;
-    private int iphone, uid,ucheck,torder;
+    private long iphone;
+    private int  uid,ucheck,torder;
     private float ureputation;
     public static int tid;
     public static String ObjectId;
@@ -66,7 +67,7 @@ public class DetailedInfoActivity extends AppCompatActivity {
                     for (int i=0;i<list.size();i++){
                         uid =list.get(i).getUid();
                         BmobQuery<MyUser> bmobQuery = new BmobQuery<>();
-                        String bql1 = "select uname from MyUser where uid = ? ";
+                        String bql1 = "select account from MyUser where uid = ? ";
                         bmobQuery.setSQL(bql1);
                         bmobQuery.setPreparedParams(new Object[]{uid});
                         bmobQuery.doSQLQuery(new SQLQueryListener<MyUser>() {
@@ -74,11 +75,11 @@ public class DetailedInfoActivity extends AppCompatActivity {
                             public void done(BmobQueryResult<MyUser> bmobQueryResult, BmobException e) {
                                 List<MyUser> list = (List<MyUser>) bmobQueryResult.getResults();
                                 if (list != null && list.size() > 0) {//存在一个匹配的用户
-                                    Uname = list.get(0).getUname();//获得当前用户的uaccount
-                                    textView9.setText(Uname);
-                                    System.out.println("此时当前用户Uname为"+ Uname);
+                                    UAccount = list.get(0).getAccount();//获得当前用户的uaccount
+                                    textView9.setText(UAccount);
+                                    System.out.println("此时当前用户UAccount为"+ UAccount);
                                 } else {
-                                    System.out.println("不存在当前用户的Uname");
+                                    System.out.println("不存在当前用户的UAccount");
                                 }
 
                             }

@@ -40,17 +40,18 @@ public class Changepasswordbackground extends AppCompatActivity {
             TextView textView3 = findViewById(R.id.showuname);
             textView2.setText(useruid);
             textView3.setText(uname);
+            String newpassword = textView1.getText().toString().trim();//获取文本框的数据
+            int id = Integer.parseInt(useruid);
+            MyUser p3 = new MyUser();
+            p3.setUpassword(newpassword);
+            p3.setUid(id);
             //当前登陆活动设置一个监听事件
             button.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View view) {
-                    String newpassword = textView1.getText().toString().trim();//获取文本框的数据
+
                     System.out.println(objectId + useruid + newpassword);
-                    int id = Integer.parseInt(useruid);
-                    MyUser p3 = new MyUser();
-                    p3.setUpassword(newpassword);
-                    p3.setUid(id);
                     p3.update(objectId, new UpdateListener() {
                         @Override
                         public void done(BmobException e) {

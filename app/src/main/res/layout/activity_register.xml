@@ -82,14 +82,19 @@
             android:inputType="textPassword"
             android:maxLines="1" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/iv_pwd_switch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="27dp"
+            android:layout_height="24dp"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#3BFFFFFF"
             android:src="@drawable/ic_eye_close" />
     </RelativeLayout>
 
