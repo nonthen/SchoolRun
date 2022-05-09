@@ -111,7 +111,7 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
                             check = String.valueOf(myuser.getUcheck());
                             System.out.println("check:"+ check);
                             uidview.setText("uid:"+uid);
-                            String i = "1.0";
+                            String i = "1";
                             if (check.equals(i)) {
                                 checkView.setText("接单用户");
                             }
@@ -265,16 +265,22 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
         switch (view.getId()) {
             case R.id.rb_home:
                 Intent button1 = new Intent(this, MainActivity.class);
+                String uid = intent.getStringExtra("uid");
+                button1.putExtra("uid", uid);
+                System.out.println("uid:" + uid);
                 startActivity(button1);
                 break;
             case R.id.rb_task:
                 Intent button2 = new Intent(this, ReleaseTask.class);
+                uid = intent.getStringExtra("uid");
+                button2.putExtra("uid", uid);
+                System.out.println("uid:" + uid);
                 startActivity(button2);
                 break;
             case R.id.rb_me:
                 Intent button3 = new Intent(this, TestMeAc.class);
-                String uid = intent.getStringExtra("uid");
-                intent.putExtra("uid", uid);
+                uid = intent.getStringExtra("uid");
+                button3.putExtra("uid", uid);
                 System.out.println("uid:" + uid);
                 startActivity(button3);
                 break;

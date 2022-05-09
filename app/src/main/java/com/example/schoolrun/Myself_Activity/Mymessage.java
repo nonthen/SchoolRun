@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.schoolrun.Activity.TestMeAc;
 import com.example.schoolrun.Entity.MyUser;
 import com.example.schoolrun.R;
 
@@ -71,7 +72,7 @@ public class Mymessage extends AppCompatActivity{
         button.setOnClickListener(new View.OnClickListener() {//跳转界面
             @Override
             public void onClick(View view) {
-                Intent b = new Intent();
+                Intent b = new Intent(Mymessage.this, TestMeAc.class);
                 b.setClass(Mymessage.this, Changemessage.class);
                 b.putExtra("uid", useruid);
                 b.putExtra("objectId", objectId);
@@ -82,7 +83,7 @@ public class Mymessage extends AppCompatActivity{
         back.setOnClickListener(new View.OnClickListener() {//返回
             @Override
             public void onClick(View view) {
-                Intent a = new Intent();
+                Intent a = new Intent(Mymessage.this, TestMeAc.class);
                 String uid=intent.getStringExtra("uid");
                 String objectId=intent.getStringExtra("objectId");
                 System.out.println("id是："+uid+"objectId是："+objectId);

@@ -25,8 +25,6 @@ import com.example.schoolrun.Entity.MyUser;
 import com.example.schoolrun.OrderBackActivity.RootOrderActivity;
 import com.example.schoolrun.OrderBackActivity.RootUserCheckActivity;
 import com.example.schoolrun.R;
-import com.example.schoolrun.Activity.NoscrollListView;
-import com.example.schoolrun.Activity.SyncHorizontalScrollView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -42,8 +40,6 @@ import cn.bmob.v3.listener.UpdateListener;
 
 public class user_activity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button UserCheckButton;//审核用户
-    private Button databutton;//数据统计
     private RadioButton bt1, bt2, bt3;  //3个单选按钮
 
     private NoscrollListView mLeft;
@@ -84,8 +80,6 @@ public class user_activity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.user_background);
         Bmob.initialize(this, "ceb483ffe9b2098bc90776ca5d0415b4");//初始化BmobSDk功能
 
-        UserCheckButton=findViewById(R.id.UserCheckButton);
-        databutton=findViewById(R.id.databutton);
 
         bt1 = findViewById(R.id.bt_task);
         bt2 = findViewById(R.id.bt_order);
@@ -243,11 +237,6 @@ public class user_activity extends AppCompatActivity implements View.OnClickList
     }
 
 
-
-
-
-
-
     /**
      * 删除用户
      */
@@ -373,31 +362,18 @@ public class user_activity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    //跳转到审核用户
-    public void click_checkUserButton(View v){
-        UserCheckButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent button = new Intent(user_activity.this, RootUserCheckActivity.class);
-                startActivity(button);
-                finish();
-
-            }
-        });
+    //跳转到审核用户，这里的函数名字是对应布局上的控件名称
+    public void UserCheckButton(View v){
+        Intent button = new Intent(user_activity.this, RootUserCheckActivity.class);
+        startActivity(button);
+        finish();
     }
 
-    //跳转到数据统计界面
-    public void click_datastaticButton(View v){
-
-        databutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent button = new Intent(user_activity.this, RootDataActivity.class);
-                startActivity(button);
-                finish();
-            }
-        });
+    //跳转到数据统计界面,这里的函数名字是对应布局上的控件名称
+    public void databutton(View v){
+        Intent button = new Intent(user_activity.this, RootDataActivity.class);
+        startActivity(button);
+        finish();
     }
 
 

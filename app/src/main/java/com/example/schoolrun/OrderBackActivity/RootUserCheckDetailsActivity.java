@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.schoolrun.Entity.MyTask;
 import com.example.schoolrun.Entity.MyUser;
 import com.example.schoolrun.R;
 import com.example.schoolrun.Utils.IDCardValidate;
@@ -137,8 +136,8 @@ public class RootUserCheckDetailsActivity extends AppCompatActivity {
                                 public void done(BmobException e) {
                                     if (e == null) {
                                         Toast.makeText(RootUserCheckDetailsActivity.this,
-                                                "身份证信息错误！无法获得接单者权限",Toast.LENGTH_SHORT).show();
-                                        Intent intent=new Intent(RootUserCheckDetailsActivity.this,RootUserCheckActivity.class);
+                                                "身份证信息错误！无法获得接单者权限，已通知用户",Toast.LENGTH_SHORT).show();
+                                      Intent intent=new Intent(RootUserCheckDetailsActivity.this,RootUserCheckActivity.class);
                                         startActivity(intent);
                                         finish();
 

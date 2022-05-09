@@ -68,10 +68,10 @@
 
     <TextView
         android:id="@+id/textView29"
-        android:layout_width="144dp"
+        android:layout_width="170dp"
         android:layout_height="50dp"
         android:gravity="center"
-        android:text="发单者人数:"
+        android:text="普通用户人数:"
         android:textColor="#131212"
         android:textSize="26dp"
         app:layout_constraintBottom_toBottomOf="parent"
