@@ -100,7 +100,6 @@ public class ReleaseTask extends AppCompatActivity {
                 Intent button1 = new Intent(ReleaseTask.this,MainActivity.class);
                 String uid = intent.getStringExtra("uid");
                 button1.putExtra("uid", uid);
-                System.out.println("uid:" + uid);
                 startActivity(button1);
                 finish();//释放资源
             }
@@ -233,8 +232,8 @@ public class ReleaseTask extends AppCompatActivity {
             public void onDismiss(DialogInterface dialog) {
 
                 if (payTypesDialog.getPanduan()==1){//支付成功，刷新界面
-                    Toast.makeText(ReleaseTask.this,"支付成功",Toast. LENGTH_LONG).show();
 
+                    Toast.makeText(ReleaseTask.this,"支付成功",Toast. LENGTH_LONG).show();
                     myTask.save(new SaveListener<String>() {//支付成功后才会将数据存入任务表
                         @Override
                         public void done(String objectId, BmobException e) {

@@ -7,9 +7,11 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.schoolrun.Entity.MyOrderRead;
 import com.example.schoolrun.Entity.MyTask;
 import com.example.schoolrun.LoginActivity;
 import com.example.schoolrun.R;
@@ -31,8 +33,13 @@ public class MyOrderNotificitionActivity extends AppCompatActivity {
 
     private ImageButton relistbutton;
     private ImageButton readbutton;
-    private List<MyTask> readList;
+//    private List<MyTask> readList;
     private String Objectid;//bmob中默认的id值
+    private MyTask myTask;
+    private MyOrderRead myOrderRead;
+    private Map<String, String> mHashMap;
+    private List<Map<String,String>> mapList;
+    private SimpleAdapter simpleAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +51,11 @@ public class MyOrderNotificitionActivity extends AppCompatActivity {
         relistbutton=findViewById(R.id.relistbutton);
         readbutton=findViewById(R.id.readbutton);//标为已读
 
-        readList=new ArrayList<>();
+//        readList=new ArrayList<>();
+
+        myTask=new MyTask();
+        myOrderRead=new MyOrderRead();
+        mapList=new ArrayList<>();
 
         //筛选异常订单通过审核后的订单
         BmobQuery<MyTask> bmobQuery=new BmobQuery<MyTask>();
@@ -53,69 +64,203 @@ public class MyOrderNotificitionActivity extends AppCompatActivity {
         bmobQuery.doSQLQuery(new SQLQueryListener<MyTask>() {
             @Override
             public void done(BmobQueryResult<MyTask> bmobQueryResult, BmobException e) {
-                List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
+                List<MyTask> list =  bmobQueryResult.getResults();//查询结果
                 if (e==null){
 
                     int i=0;//循环变量
-                    SimpleAdapter simpleAdapter;
-                    Map<String, String> mHashMap;
-                    List<Map<String,String>> mapList=new ArrayList<>();
+
                     for (MyTask myTask:list){
                         mHashMap=new HashMap<>();
 
-                        if (list.get(i).getId()== LoginActivity.uid&&list.get(i).getTorder()==1&&list.get(i).getTordercheck()==1){
+                        //通知发单者
+                        if (list.get(i).getUid()== LoginActivity.uid&&list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
                             mHashMap.put("tid",String.valueOf(myTask.getTid()));
-                            mHashMap.put("tname",myTask.getTname());
-                            mHashMap.put("torderabnormaledetails","拒绝取消订单，请完成当前订单");
-                            mapList.add(mHashMap);
-                            readList.add(myTask);
-
-                        }
-                        else if (list.get(i).getId()==LoginActivity.uid&&list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
-                            mHashMap.put("tid",String.valueOf(myTask.getTid()));
-                            mHashMap.put("tname",myTask.getTname());
-                            mHashMap.put("torderabnormaledetails","申请取消订单成功");
-                            System.out.println("list.get(i).getId()="+list.get(i).getId()+myTask.getTname());
-                            mapList.add(mHashMap);
-                            readList.add(myTask);
-
-                        }
-                        else if (list.get(i).getUid()==LoginActivity.uid&&list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
-                            mHashMap.put("tid",String.valueOf(myTask.getTid()));
+                            mHashMap.put("id",String.valueOf(myTask.getId()));//接单者编号
                             mHashMap.put("tname",myTask.getTname());
                             mHashMap.put("torderabnormaledetails","订单已被接单员取消，已重新安排");
-                            System.out.println("list.get(i).getUid()="+list.get(i).getUid()+myTask.getTname());
                             mapList.add(mHashMap);
-                            readList.add(myTask);
+//                            readList.add(myTask);
 
                         }
                         i++;
                     }
 
-                    //获取数据显示在列表中
+                    //当前用户是接单者
+                    BmobQuery<MyOrderRead> bmobQuery1=new BmobQuery<MyOrderRead>();
+                    String bql1 = "select * from MyOrderRead where id = ?";
+                    bmobQuery1.setSQL(bql1);
+                    bmobQuery1.setPreparedParams(new Object[]{LoginActivity.uid});//接单者
+                    bmobQuery1.doSQLQuery(new SQLQueryListener<MyOrderRead>(){
+
+                        @Override
+                        public void done(BmobQueryResult<MyOrderRead> bmobQueryResult, BmobException e) {
+                            List<MyOrderRead> myorderreadlist =bmobQueryResult.getResults();
+                            if (e==null){
+                                int i=0;
+                                for (MyOrderRead myOrderRead:myorderreadlist){
+                                    mHashMap=new HashMap<>();
+                                    if (myorderreadlist.get(i).getTorderread()==1){//获取接单者未读的消息
+                                        System.out.println("接单者是否运行");
+                                        mHashMap.put("tid",String.valueOf(myOrderRead.getTid()));
+                                        mHashMap.put("id",String.valueOf(myOrderRead.getId()));//接单者编号
+                                        mHashMap.put("tname",myOrderRead.getTname());
+                                        mHashMap.put("torderabnormaledetails",myOrderRead.getTorderreaddetails());
+                                        mapList.add(mHashMap);
+//                                        jiereadList.add(myOrderRead);
+                                    }
+                                    i++;
+                                }
+
+
+                                //获取数据显示在列表中
+                                ListView listView=findViewById(R.id.listView);
+                                simpleAdapter=new SimpleAdapter(MyOrderNotificitionActivity.this,mapList,R.layout.view_from_myorder_abnormalitem_info,
+                                        new String[]{"tname","torderabnormaledetails"},
+                                        new int[]{R.id.jiefinish_tname,R.id.item_abnormaltext});
+                                listView.setAdapter(simpleAdapter);
+                                simpleAdapter.notifyDataSetChanged();
+
+                                //短按某个订单，就会跳转到订单详细界面
+//                                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                                    @Override
+//                                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+//                                        //Bmob获取listview中某一行数据
+//                                        System.out.println("跳转到异常订单详情");
+//                                        Intent intent = new Intent();
+//                                        intent.setClass(MyOrderNotificitionActivity.this, ViewOrderAbnormalDetails.class);
+//                                        // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
+//                                        intent.putExtra("tid", mapList.get(position).get("tid"));
+//                                        intent.putExtra("tdingdanabnormal",mapList.get(position).get("torderabnormaledetails"));
+//                                        startActivity(intent);
+//                                        finish();
+//                                    }
+//                                });
+
+
+                            }
+                        }
+                    });
+
+                    //获取数据显示在列表中,这个界面是长按删除
                     ListView listView=findViewById(R.id.listView);
-                    simpleAdapter=new SimpleAdapter(MyOrderNotificitionActivity.this,mapList,R.layout.view_order_abnormalitem_info,
+                    simpleAdapter=new SimpleAdapter(MyOrderNotificitionActivity.this,mapList,R.layout.view_from_myorder_abnormalitem_info,
                             new String[]{"tname","torderabnormaledetails"},
                             new int[]{R.id.jiefinish_tname,R.id.item_abnormaltext});
                     listView.setAdapter(simpleAdapter);
                     simpleAdapter.notifyDataSetChanged();
 
-                    //短按某个订单，就会跳转到订单详细界面
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+//                    //短按某个订单，就会跳转到订单详细界面
+//                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                        @Override
+//                        public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+//                            //Bmob获取listview中某一行数据
+//                            System.out.println("跳转到异常订单详情");
+//                            Intent intent = new Intent();
+//                            intent.setClass(MyOrderNotificitionActivity.this, ViewOrderAbnormalDetails.class);
+//                            // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
+//                            intent.putExtra("tid", mapList.get(position).get("tid"));
+//                            intent.putExtra("tdingdanabnormal",mapList.get(position).get("torderabnormaledetails"));
+//                            startActivity(intent);
+//                            finish();
+//                        }
+//                    });
+
+                    //长按某个订单，表示消息已读(即删除通知)
+                    listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                         @Override
-                        public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                            //Bmob获取listview中某一行数据
-                            System.out.println("跳转到异常订单详情");
-                            Intent intent = new Intent();
-                            intent.setClass(MyOrderNotificitionActivity.this, ViewOrderAbnormalDetails.class);
-                            // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
-                            intent.putExtra("tid", mapList.get(position).get("tid"));
-                            intent.putExtra("tdingdanabnormal",mapList.get(position).get("torderabnormaledetails"));
-                            startActivity(intent);
-                            finish();
+                        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            //当前用户是当前订单的接单者，则修改MyOrderRead表
+                            if (LoginActivity.uid==Integer.parseInt(mapList.get(i).get("id"))){
+                                BmobQuery<MyOrderRead> bmobQuery=new BmobQuery<>();
+                                String bql="select * from MyOrderRead where tid = ?";
+                                bmobQuery.setSQL(bql);
+                                bmobQuery.setPreparedParams(new Object[]{Integer.parseInt(mapList.get(i).get("tid"))});
+                                bmobQuery.doSQLQuery(new SQLQueryListener<MyOrderRead>(){
+
+                                    @Override
+                                    public void done(BmobQueryResult<MyOrderRead> bmobQueryResult, BmobException e) {
+                                        List<MyOrderRead> list = (List<MyOrderRead>) bmobQueryResult.getResults();//查询结果
+                                        if (e==null){
+                                            Objectid=list.get(0).getObjectId();//获取bmob中默认的ObjectId值
+                                            myOrderRead.setTid(list.get(0).getTid());
+                                            myOrderRead.setId(list.get(0).getId());
+                                            myOrderRead.setTname(list.get(0).getTname());
+                                            myOrderRead.setTorderreaddetails(list.get(0).getTorderreaddetails());
+                                            myOrderRead.setTorderread(0);//表示消息已读
+                                            //更新MyOrderRead表
+                                            myOrderRead.update(Objectid, new UpdateListener() {
+                                                @Override
+                                                public void done(BmobException e) {
+                                                    if (e==null){
+                                                        Toast.makeText(MyOrderNotificitionActivity.this,"已删除一条消息",Toast.LENGTH_SHORT).show();
+                                                        System.out.println("已删除一条消息");
+                                                        //刷新界面
+                                                        Intent intent = new Intent(MyOrderNotificitionActivity.this,MyOrderNotificitionActivity.class);
+                                                        startActivity(intent);
+                                                        finish();
+                                                    }
+                                                }
+                                            });
+
+                                        }
+
+                                    }
+                                });
+
+                            }
+                            else {//那么此时用户是该订单的发单者，修改MyTask表
+                                BmobQuery<MyTask> bmobQuery=new BmobQuery<MyTask>();
+                                String bql = "select * from MyTask where tid = ?";
+                                bmobQuery.setSQL(bql);
+                                bmobQuery.setPreparedParams(new Object[]{Integer.parseInt(mapList.get(i).get("tid"))});
+                                bmobQuery.doSQLQuery(new SQLQueryListener<MyTask>(){
+
+                                    @Override
+                                    public void done(BmobQueryResult<MyTask> bmobQueryResult, BmobException e) {
+                                        List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
+                                        if (e==null){
+                                            Objectid=list.get(0).getObjectId();//获取bmob中默认的ObjectId值
+                                            myTask.setUid(list.get(0).getUid());
+                                            myTask.setTid(list.get(0).getTid());
+                                            myTask.setId(list.get(0).getId());
+                                            myTask.setTname(list.get(0).getTname());
+                                            myTask.setTkind(list.get(0).getTkind());
+                                            myTask.setTphone(list.get(0).getTphone());
+                                            myTask.setTprice(list.get(0).getTprice());
+                                            myTask.setTdetail(list.get(0).getTdetail());
+                                            myTask.setMyaddress(list.get(0).getMyaddress());
+                                            myTask.setTargetaddress(list.get(0).getTargetaddress());
+                                            myTask.setTcheck(1);//任务审核
+                                            myTask.setTorder(list.get(0).getTorder());
+                                            myTask.setTordercheck(0);//置0
+
+
+                                            myTask.update(Objectid,new UpdateListener(){
+                                                @Override
+                                                public void done(BmobException e) {
+
+                                                    if (e == null) {
+                                                        Toast.makeText(MyOrderNotificitionActivity.this,"已删除一条消息",Toast.LENGTH_SHORT).show();
+                                                        System.out.println("已删除一条消息");
+                                                        //刷新界面
+                                                        Intent intent = new Intent(MyOrderNotificitionActivity.this,MyOrderNotificitionActivity.class);
+                                                        startActivity(intent);
+                                                        finish();
+
+                                                    }
+
+                                                }
+                                            });
+                                        }
+                                    }
+                                });
+
+                            }
+
+                            return true;
                         }
                     });
-
 
                 }
             }
@@ -131,60 +276,6 @@ public class MyOrderNotificitionActivity extends AppCompatActivity {
             }
         });
 
-        //一键已读
-        readbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                bmobQuery.doSQLQuery(new SQLQueryListener<MyTask>() {
-                    @Override
-                    public void done(BmobQueryResult<MyTask> bmobQueryResult, BmobException e) {
-                        int temp=0;
-                        if (e==null){
-                            for (MyTask myTask:readList){
-
-                                Objectid=readList.get(temp).getObjectId();//获取bmob中默认的ObjectId值
-                                myTask.setUid(readList.get(temp).getUid());
-                                myTask.setTid(readList.get(temp).getTid());
-                                myTask.setId(readList.get(temp).getId());
-                                myTask.setTname(readList.get(temp).getTname());
-                                myTask.setTkind(readList.get(temp).getTkind());
-                                myTask.setTphone(readList.get(temp).getTphone());
-                                myTask.setTprice(readList.get(temp).getTprice());
-                                myTask.setTdetail(readList.get(temp).getTdetail());
-                                myTask.setMyaddress(readList.get(temp).getMyaddress());
-                                myTask.setTargetaddress(readList.get(temp).getTargetaddress());
-                                myTask.setTcheck(1);//任务审核
-                                myTask.setTorder(readList.get(temp).getTorder());
-                                myTask.setTordercheck(0);//置0
-
-                                temp++;
-
-                                myTask.update(Objectid,new UpdateListener(){
-                                    @Override
-                                    public void done(BmobException e) {
-
-                                        if (e == null) {
-                                            System.out.println("已读一条信息");
-                                        }
-
-                                    }
-                                });
-
-                                //刷新界面
-                                Intent intent = new Intent(MyOrderNotificitionActivity.this,MyOrderNotificitionActivity.class);
-                                startActivity(intent);
-                                finish();
-
-                            }
-                            System.out.println("最后已读消息temp="+temp);
-
-                        }
-
-                    }
-                });
-
-            }
-        });
 
     }
 }

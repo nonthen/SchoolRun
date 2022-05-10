@@ -24,20 +24,13 @@
 
             <TextView
                 android:id="@+id/jiefinish_tname"
-                android:layout_width="289dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="任务标题:"
                 android:textColor="#FA403934"
                 android:textSize="27dp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkbox1"
-                android:layout_width="58dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:visibility="invisible" />
 
         </LinearLayout>
 

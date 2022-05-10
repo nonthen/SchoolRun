@@ -82,6 +82,9 @@ public class Judgetask extends AppCompatActivity implements View.OnClickListener
                             public void done(BmobException e) {
                                 if (e == null) {
                                     Snackbar.make(button1, "删除成功", Snackbar.LENGTH_LONG).show();
+                                    Intent button1 = new Intent(Judgetask.this,MainActivity.class);
+                                    startActivity(button1);
+                                    finish();
                                 } else {
                                     Snackbar.make(button1, "删除失败", Snackbar.LENGTH_LONG).show();
                                 }
