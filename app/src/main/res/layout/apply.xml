@@ -165,40 +165,6 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints">
-
-        <RadioButton
-            android:id="@+id/rb_home"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:button="@null"
-            android:checked="true"
-            android:drawableTop="@drawable/shouye"
-            android:gravity="center"
-            android:paddingLeft="0dp"
-            android:text="任务" />
-
-        <RadioButton
-            android:id="@+id/rb_task"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableTop="@drawable/fabu"
-            android:gravity="center"
-            android:paddingLeft="0dp"
-            android:text="发布任务" />
-
-        <RadioButton
-            android:id="@+id/rb_me"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableTop="@drawable/person"
-            android:gravity="center"
-            android:paddingLeft="0dp"
-            android:text="我" />
     </RadioGroup>
 
 

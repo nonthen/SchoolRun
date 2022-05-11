@@ -25,6 +25,8 @@ public class Mymessage extends AppCompatActivity{
     private String useruid, temptid;
     private Button button,back;
     private String uname, sex, qq, phone;
+    String xinyu;
+    float xinyuzhi;
     private RadioGroup mRadioGroup;
     private RadioButton tab1,tab2,tab3;  //3个单选按钮
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class Mymessage extends AppCompatActivity{
         TextView textView2 = (TextView) findViewById(R.id.showsex);
         TextView textView3 = (TextView) findViewById(R.id.showqq);
         TextView textView4 = (TextView) findViewById(R.id.showphone);
+        TextView textView5 = (TextView) findViewById(R.id.showxinyuzhi);
         button = findViewById(R.id.messagebutton);
         back = findViewById(R.id.fanhui);
         BmobQuery<MyUser> bmobQuery = new BmobQuery<>();
@@ -55,6 +58,7 @@ public class Mymessage extends AppCompatActivity{
                         sex = list.get(i).getSex();
                         qq = list.get(i).getQq();
                         phone = list.get(i).getPhone();
+                        xinyuzhi = list.get(i).getUreputation();
                         System.out.println("uname为" + uname + "phone为" + phone + "qq为" + qq);
                     }
                 } else {
@@ -62,11 +66,12 @@ public class Mymessage extends AppCompatActivity{
                 }
                 //sphone =String.valueOf(iphone);
                 //sprice =String.valueOf(iprice);
-                //storder =String.valueOf(torder);
+                 xinyu =String.valueOf(xinyuzhi);
                 textView1.setText(uname);
                 textView2.setText(sex);
                 textView3.setText(qq);
                 textView4.setText(phone);
+                textView5.setText(xinyu);
             }
         });
         button.setOnClickListener(new View.OnClickListener() {//跳转界面

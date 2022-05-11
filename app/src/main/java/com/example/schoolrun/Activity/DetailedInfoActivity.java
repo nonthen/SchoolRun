@@ -126,7 +126,7 @@ public class DetailedInfoActivity extends AppCompatActivity {
                             AlertDialog alertDialog2 = new AlertDialog.Builder(DetailedInfoActivity.this)
                                     .setTitle("确认接单")
                                     .setMessage("您确定接此单吗？")
-                                    .setIcon(R.mipmap.ic_launcher)
+                                    .setIcon(R.mipmap.ic_launcher1)
                                     .setPositiveButton("确定", new DialogInterface.OnClickListener() {//添加"Yes"按钮
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
