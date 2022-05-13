@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.schoolrun.Activity.MainActivity;
 import com.example.schoolrun.Activity.ReleaseTask;
 import com.example.schoolrun.Activity.TestMeAc;
+import com.example.schoolrun.Entity.MyOrderRead;
 import com.example.schoolrun.Entity.MyTask;
 import com.example.schoolrun.R;
 import com.google.android.material.snackbar.Snackbar;
@@ -30,6 +31,7 @@ public class Judgetask extends AppCompatActivity implements View.OnClickListener
     private RadioGroup mRadioGroup;
     private RadioButton tab1, tab2, tab3;  //3个单选按钮
     String objecttidd;
+    private String myOrderReadobjecttidd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,29 @@ public class Judgetask extends AppCompatActivity implements View.OnClickListener
                 button2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        BmobQuery<MyOrderRead> bmobQuery = new BmobQuery<>();
+                        bmobQuery.addWhereEqualTo("tid",temptid);
+                        MyOrderRead myOrderRead=new MyOrderRead();
+                        bmobQuery.findObjects(new FindListener<MyOrderRead>() {
+                            @Override
+                            public void done(List<MyOrderRead> list, BmobException e) {
+                                if (e==null){
+                                    myOrderRead.delete(list.get(0).getObjectId(), new UpdateListener() {
+                                        @Override
+                                        public void done(BmobException e) {
+                                            if (e==null){
+                                                Snackbar.make(button1, "删除成功", Snackbar.LENGTH_LONG).show();
+
+                                            }
+                                            else {
+                                                Snackbar.make(button1, "删除失败", Snackbar.LENGTH_LONG).show();
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        });
+
                         MyTask p2 = new MyTask();
                         p2.setObjectId(objecttidd);
                         p2.delete(new UpdateListener() {
@@ -91,6 +116,9 @@ public class Judgetask extends AppCompatActivity implements View.OnClickListener
                             }
 
                         });
+
+
+
                     }
                 });
                 button1.setOnClickListener(new View.OnClickListener() {
