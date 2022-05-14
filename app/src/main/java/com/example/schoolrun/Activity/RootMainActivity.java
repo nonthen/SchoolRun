@@ -225,6 +225,7 @@ public class RootMainActivity extends AppCompatActivity implements View.OnClickL
                         myTask.setTfinish(list.get(0).getTfinish());
                         myTask.setTappfinsh(list.get(0).getTappfinsh());
                         myTask.setTasknotify(list.get(0).getTasknotify());
+                        myTask.setTphone(list.get(0).getTphone());
                         myTask.setTcheck(1);//审核合格将tcheck从0改为1
                         System.out.println("ObjectId为"+ ObjectId);
                         myTask.update(ObjectId, new UpdateListener() {
@@ -330,6 +331,7 @@ public class RootMainActivity extends AppCompatActivity implements View.OnClickL
                                 myTask.setId(list.get(0).getId());
                                 myTask.setTcheck(2);//审核不合格将tcheck从0改为2
                                 myTask.setTorder(list.get(0).getTorder());
+                                myTask.setTphone(list.get(0).getTphone());
                                 myTask.setTordercheck(list.get(0).getTordercheck());
                                 myTask.setTfinish(list.get(0).getTfinish());
                                 myTask.setTappfinsh(list.get(0).getTappfinsh());

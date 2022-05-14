@@ -158,7 +158,7 @@ public class Looktask extends AppCompatActivity implements View.OnClickListener{
                 startActivity(button2);
                 break;
             case R.id.rb_nocheck:
-                Intent button3 = new Intent(this, Looknotask.class);
+                Intent button3 = new Intent(this, Lookcheckingtask.class);
                 String uid2=intent.getStringExtra("uid");
                 objectId=intent.getStringExtra("objectId");
                 button3.putExtra("uid", uid2);

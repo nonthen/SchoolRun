@@ -101,7 +101,7 @@ public class ViewOrderlistActivity extends AppCompatActivity implements View.OnC
                     //获取数据显示在列表中
                     ListView listView=findViewById(R.id.listView);
                     simpleAdapter=new SimpleAdapter(ViewOrderlistActivity.this,mapList,R.layout.view_order_item_info,
-                            new String[]{"tname","myadress","targetaddress","tphone"},
+                            new String[]{"tname","myaddress","targetaddress","tphone"},
                             new int[]{R.id.jiefinish_tname,R.id.item_myaddress,R.id.item_targetaddress,R.id.item_tphone});
                     listView.setAdapter(simpleAdapter);
                     simpleAdapter.notifyDataSetChanged();
@@ -211,8 +211,9 @@ public class ViewOrderlistActivity extends AppCompatActivity implements View.OnC
                                 }
                             });
 
+
                         }
-                        else {//当前用户是发单者
+                        else {//当前用户只是发单者
                             if (list.get(i).getUid()== LoginActivity.uid){
                                 if (list.get(i).getTorder()==0&&list.get(i).getTordercheck()==2){
                                     temp[0] =1;

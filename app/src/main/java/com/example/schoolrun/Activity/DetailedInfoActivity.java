@@ -146,6 +146,7 @@ public class DetailedInfoActivity extends AppCompatActivity {
                                                         myTask.setUid(list.get(0).getUid());
                                                         System.out.println("LoginActivity.uid=" + LoginActivity.uid);
                                                         myTask.setId(LoginActivity.uid);//接单人变成当前登录用户
+                                                        myTask.setTphone(list.get(0).getTphone());
                                                         System.out.println("myTask.getId()=" + myTask.getId());
                                                         myTask.setTcheck(list.get(0).getTcheck());
                                                         myTask.setTorder(1);//接单成功torder=1

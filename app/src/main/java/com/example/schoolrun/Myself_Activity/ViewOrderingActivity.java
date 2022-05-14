@@ -181,7 +181,7 @@ public class ViewOrderingActivity extends AppCompatActivity implements View.OnCl
                     //获取数据显示在列表中
                     ListView listView=findViewById(R.id.listView);
                     simpleAdapter=new SimpleAdapter(ViewOrderingActivity.this,mapList,R.layout.view_order_item_info,
-                            new String[]{"tname","myadress","targetaddress","tphone"},
+                            new String[]{"tname","myaddress","targetaddress","tphone"},
                             new int[]{R.id.jiefinish_tname,R.id.item_myaddress,R.id.item_targetaddress,R.id.item_tphone});
                     listView.setAdapter(simpleAdapter);
                     simpleAdapter.notifyDataSetChanged();

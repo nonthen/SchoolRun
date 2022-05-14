@@ -204,6 +204,7 @@ public class ReleaseTask extends AppCompatActivity {
                                 myTask.setTkind(kind);
                                 myTask.setTprice(Double.valueOf(etprice.getText().toString()));
                                 myTask.setTphone(Long.valueOf(etphone.getText().toString()));
+//                                System.out.println("Long.valueOf(etphone.getText().toString())="+Long.valueOf(etphone.getText().toString()));
                                 myTask.setTdetail(etdetails.getText().toString());
                                 myTask.setMyaddress(etmyadress.getText().toString());
                                 myTask.setTargetaddress(ettargetadress.getText().toString());

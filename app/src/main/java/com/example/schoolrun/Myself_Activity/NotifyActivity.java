@@ -229,6 +229,7 @@ public class NotifyActivity  extends AppCompatActivity {
                         myTask.setTorder(list.get(0).getTorder());
                         myTask.setTfinish(list.get(0).getTfinish());
                         myTask.setTappfinsh(list.get(0).getTappfinsh());
+                        myTask.setTphone(list.get(0).getTphone());
                         myTask.setObjectId(ObjectId);
                         myTask.setTasknotify(1);//将tasknotify从0改为1
                         System.out.println("ObjectId为"+ ObjectId);

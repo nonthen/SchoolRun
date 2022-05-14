@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +43,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
     private String Objectid;//bmob中默认的id值
     private Map<String, String> mHashMap;
     private List<Map<String,String>> mapList;
-//    private SimpleAdapter simpleAdapter;
+    private SimpleAdapter simpleAdapter;
     private MyTask myTask;
     private MyOrderRead myOrderRead;
 
@@ -139,6 +140,13 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                                 checkedIndexList = new ArrayList<Integer>();
                                 checkBoxList = new ArrayList<CheckBox>();
 
+                                ListView listView1=findViewById(R.id.listView);
+                                simpleAdapter=new SimpleAdapter(ViewOrderAbnormalActivity.this,mapList,R.layout.view_order_abnormalitem_info,
+                                        new String[]{"tname","torderabnormaledetails"},
+                                        new int[]{R.id.jiefinish_tname,R.id.item_abnormaltext});
+                                listView1.setAdapter(simpleAdapter);
+                                simpleAdapter.notifyDataSetChanged();
+
 //                                //短按某个订单，就会跳转到订单详细界面
 //                                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //                                    @Override
@@ -172,10 +180,14 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                     checkedIndexList = new ArrayList<Integer>();
                     checkBoxList = new ArrayList<CheckBox>();
 
-
-
+                    ListView listView1=findViewById(R.id.listView);
+                    simpleAdapter=new SimpleAdapter(ViewOrderAbnormalActivity.this,mapList,R.layout.view_order_abnormalitem_info,
+                            new String[]{"tname","torderabnormaledetails"},
+                            new int[]{R.id.jiefinish_tname,R.id.item_abnormaltext});
+                    listView1.setAdapter(simpleAdapter);
+                    simpleAdapter.notifyDataSetChanged();
                     //短按某个订单，就会跳转到订单详细界面
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                             //Bmob获取listview中某一行数据
@@ -340,7 +352,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                 });
 
             }
-            else {//那么此时用户是该订单的发单者，修改MyTask表
+            else {//那么此时用户是该订单的发单者并且没有接单者权限，修改MyTask表
                 BmobQuery<MyTask> bmobQuery=new BmobQuery<MyTask>();
                 String bql = "select * from MyTask where tid = ?";
                 bmobQuery.setSQL(bql);
