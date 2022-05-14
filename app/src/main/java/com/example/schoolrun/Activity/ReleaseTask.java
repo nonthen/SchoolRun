@@ -171,12 +171,19 @@ public class ReleaseTask extends AppCompatActivity {
                         @Override
                         public void done(List<MyTask> list, BmobException e) {//统计任务总数
                             if (e == null){
-                                sum = list.size();
+                                int tidend=0;
 //                                System.out.println("任务总数："+sum);
 
                                 //插入一条任务数据,如果将插入数据放到外面，就会先执行插入数据，不会先查询，那么tid就永远为0
-                                myTask.setTid(sum+1);
-                                myOrderRead.setTid(sum+1);
+                                //获得最后一条数据的id值
+                                for (int i=0;i<list.size();i++){
+                                    tidend=list.get(i).getTid();
+                                }
+                                int sum=tidend+1;
+                                System.out.println("tidend="+tidend+1);
+
+                                myTask.setTid(sum);
+                                myOrderRead.setTid(sum);
 
                                 //通过用户的账号查找到用户的uid
                                 BmobQuery<MyUser> bmobQuery = new BmobQuery<>();
