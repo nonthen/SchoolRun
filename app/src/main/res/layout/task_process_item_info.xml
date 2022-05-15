@@ -34,20 +34,14 @@
                 android:text=": "
                 android:textSize="30dp"
                 android:layout_height="match_parent" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/item_torder"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/black"
-                    android:text="任务完成情况~"
-                    android:textSize="30dp"
-                    android:layout_height="match_parent" />
-
-            </LinearLayout>
         </LinearLayout>
+        <TextView
+            android:id="@+id/item_torder"
+            android:layout_width="wrap_content"
+            android:textColor="@color/black"
+            android:text="任务完成情况~"
+            android:textSize="30dp"
+            android:layout_height="match_parent" />
+
     </LinearLayout>
 </FrameLayout>
