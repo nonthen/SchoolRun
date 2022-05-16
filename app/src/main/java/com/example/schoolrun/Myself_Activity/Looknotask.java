@@ -32,7 +32,10 @@ public class Looknotask extends AppCompatActivity implements View.OnClickListene
     private RadioGroup mRadioGroup;
     private RadioButton tab1,tab2,tab3;  //3个单选按钮
     private ImageButton button1;
+    private String temp0,temp1,temp2,temp3;
     String objecttid;
+    private String errorTcheck;
+    public static String result,tempcheckdetail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -60,7 +63,7 @@ public class Looknotask extends AppCompatActivity implements View.OnClickListene
                     SimpleAdapter simpleAdapter = null;
                     Log.d("path", "查询成功");
                     Map<String, String> mHashMap;
-                    String tempTprice, tempTid, tempTphone, tempTkind,tempUid,tempcheckdetail;
+                    String tempTprice, tempTid, tempTphone, tempTkind,tempUid;
                     Toast.makeText(Looknotask.this, "成功，共" + list.size() + "条数据", Toast.LENGTH_SHORT).show();
                     List<Map<String, String>> mapList = new ArrayList<>();
                     List<Map<String, String>> mapList1 = new ArrayList<>();
@@ -70,22 +73,42 @@ public class Looknotask extends AppCompatActivity implements View.OnClickListene
 
                     for (MyTask myTask : list) {
                         tempUid = String.valueOf(myTask.getUid());
+                        result =" ";
+                        String check = String.valueOf(myTask.getTcheck());
                         System.out.println("tempUid:"+tempUid);
                         if (tempUid.equals(uid)) {
                             id =tempUid;
                         }
-                        if(tempUid.equals(id)) {
-                            String check = String.valueOf(myTask.getTcheck());
+                        if(tempUid.equals(id)&&check.equals("2")) {
                             tempUid = String.valueOf(myTask.getTid());
                             System.out.println("tempUid:" + tempUid);
                             tempTprice = String.valueOf(myTask.getTprice());
                             tempTid = String.valueOf(myTask.getTid());
                             tempTphone = String.valueOf(myTask.getTphone());
                             tempTkind = String.valueOf(myTask.getTkind());
-                            tempcheckdetail = String.valueOf(myTask.getTcheckerrordetails());
+                            System.out.println("tempTid="+tempTid+"   tempTkind="+tempTkind);
+                            String[] items = {"任务标题违规", "任务详情违规", "任务目标地址不合理", "任务本人地址不合理"};
+                            errorTcheck =myTask.getTcheckerrordetails();
+                            System.out.println("错误消息的值为errorTcheck="+errorTcheck);
+                            String[] split = errorTcheck.split(" ");
+                            temp0 = temp1 = temp2 = temp3 = " ";
+                            if (!split[0].equals(items[0])) {
+                                temp0 =items[0];
+                            }
+                            if (!split[1].equals(items[1])) {
+                                temp1 = items[1];
+                            }
+                            if (!split[2].equals(items[2])) {
+                                temp2 =items[2];
+                            }
+                            if (!split[3].equals(items[3])) {
+                                temp3 = items[3];
+                            }
+                            result =temp0 + temp1 + temp2 + temp3;
+                            System.out.println("错误消息的值为result="+result);
                             mHashMap = new HashMap<>();
                             mHashMap.put("tname", myTask.getTname());
-                            mHashMap.put("terrordetail", myTask.getTcheckerrordetails());
+                            mHashMap.put("terrordetail", result);
                             mHashMap.put("targetaddress", myTask.getTargetaddress());
                             mHashMap.put("tprice", tempTprice);
                             mHashMap.put("tid", tempTid);
@@ -93,10 +116,9 @@ public class Looknotask extends AppCompatActivity implements View.OnClickListene
                             mHashMap.put("myaddress", myTask.getMyaddress());
                             mHashMap.put("tphone", tempTphone);
                             mHashMap.put("tkind", tempTkind);
-                            if(check.equals("2")){
-                                mapList1.add(mHashMap);
-                                System.out.println("标题：" + myTask.getTname() + "目标地址：" + myTask.getTargetaddress() + "价格：" + myTask.getTprice());
-                            }
+                            mapList1.add(mHashMap);
+                            System.out.println("标题：" + myTask.getTname() + "目标地址：" + myTask.getTargetaddress() + "价格：" + myTask.getTprice());
+
                         }
                     }
                     ListView listView = findViewById(R.id.listView);

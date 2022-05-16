@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -140,12 +139,12 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                                 checkedIndexList = new ArrayList<Integer>();
                                 checkBoxList = new ArrayList<CheckBox>();
 
-                                ListView listView1=findViewById(R.id.listView);
-                                simpleAdapter=new SimpleAdapter(ViewOrderAbnormalActivity.this,mapList,R.layout.view_order_abnormalitem_info,
-                                        new String[]{"tname","torderabnormaledetails"},
-                                        new int[]{R.id.jiefinish_tname,R.id.item_abnormaltext});
-                                listView1.setAdapter(simpleAdapter);
-                                simpleAdapter.notifyDataSetChanged();
+//                                ListView listView1=findViewById(R.id.listView);
+//                                simpleAdapter=new SimpleAdapter(ViewOrderAbnormalActivity.this,mapList,R.layout.view_order_abnormalitem_info,
+//                                        new String[]{"tname","torderabnormaledetails"},
+//                                        new int[]{R.id.jiefinish_tname,R.id.item_abnormaltext});
+//                                listView1.setAdapter(simpleAdapter);
+//                                simpleAdapter.notifyDataSetChanged();
 
 //                                //短按某个订单，就会跳转到订单详细界面
 //                                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -180,27 +179,27 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                     checkedIndexList = new ArrayList<Integer>();
                     checkBoxList = new ArrayList<CheckBox>();
 
-                    ListView listView1=findViewById(R.id.listView);
-                    simpleAdapter=new SimpleAdapter(ViewOrderAbnormalActivity.this,mapList,R.layout.view_order_abnormalitem_info,
-                            new String[]{"tname","torderabnormaledetails"},
-                            new int[]{R.id.jiefinish_tname,R.id.item_abnormaltext});
-                    listView1.setAdapter(simpleAdapter);
-                    simpleAdapter.notifyDataSetChanged();
+//                    ListView listView1=findViewById(R.id.listView);
+//                    simpleAdapter=new SimpleAdapter(ViewOrderAbnormalActivity.this,mapList,R.layout.view_order_abnormalitem_info,
+//                            new String[]{"tname","torderabnormaledetails"},
+//                            new int[]{R.id.jiefinish_tname,R.id.item_abnormaltext});
+//                    listView1.setAdapter(simpleAdapter);
+//                    simpleAdapter.notifyDataSetChanged();
                     //短按某个订单，就会跳转到订单详细界面
-                    listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                            //Bmob获取listview中某一行数据
-                            System.out.println("跳转到异常订单详情");
-                            Intent intent = new Intent();
-                            intent.setClass(ViewOrderAbnormalActivity.this, ViewOrderAbnormalDetails.class);
-                            // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
-                            intent.putExtra("tid", mapList.get(position).get("tid"));
-                            intent.putExtra("tdingdanabnormal",mapList.get(position).get("torderabnormaledetails"));
-                            startActivity(intent);
-                            finish();
-                        }
-                    });
+//                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                        @Override
+//                        public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+//                            //Bmob获取listview中某一行数据
+//                            System.out.println("跳转到异常订单详情");
+//                            Intent intent = new Intent();
+//                            intent.setClass(ViewOrderAbnormalActivity.this, ViewOrderAbnormalDetails.class);
+//                            // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
+//                            intent.putExtra("tid", mapList.get(position).get("tid"));
+//                            intent.putExtra("tdingdanabnormal",mapList.get(position).get("torderabnormaledetails"));
+//                            startActivity(intent);
+//                            finish();
+//                        }
+//                    });
 
 
 
