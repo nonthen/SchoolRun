@@ -9,7 +9,6 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -83,7 +82,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             System.out.println("清单已被其他同学接走~");
                         }
                     }
-                    Toast.makeText(MainActivity.this, "成功，共" + mapList.size() + "条数据", Toast.LENGTH_SHORT).show();
                     ListView listView = findViewById(R.id.listView);
 
                     listView.addHeaderView(new View(MainActivity.this));//实现卡片listview

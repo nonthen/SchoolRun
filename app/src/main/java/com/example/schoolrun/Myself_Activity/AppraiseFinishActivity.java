@@ -58,7 +58,7 @@ public class AppraiseFinishActivity extends AppCompatActivity {
                     SimpleAdapter simpleAdapter;
                     Map<String, String> mHashMap;
                     String tempTprice,tempTid,tempTphone,tempTkind;
-                    Toast.makeText(AppraiseFinishActivity.this,"评价成功的任务查询成功",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(AppraiseFinishActivity.this,"评价成功的任务查询成功",Toast.LENGTH_SHORT).show();
                     List<Map<String,String>> mapList=new ArrayList<>();
 
                     List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
@@ -135,7 +135,7 @@ public class AppraiseFinishActivity extends AppCompatActivity {
                         if (e==null){
                             List<MyUser> list = (List<MyUser>) bmobQueryResult.getResults();//查询结果
                             if (list.get(0).getUcheck()==1){//具有接单员资格，可以查看自己接的订单，并进行派送
-                                System.out.println("具有接单员资格，可以查看他人对自己的评价");
+//                                System.out.println("具有接单员资格，可以查看他人对自己的评价");
 
                                 Intent intent=new Intent(AppraiseFinishActivity.this,AppraiseJieFinishActivity.class);
                                 startActivity(intent);

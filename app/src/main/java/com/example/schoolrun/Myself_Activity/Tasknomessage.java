@@ -76,7 +76,6 @@ public class Tasknomessage extends AppCompatActivity {
         String tasktid=intent.getStringExtra("tid");
         Integer temptid;
         temptid=Double.valueOf(tasktid).intValue();//带小数点的字符串是不能直接转成整数的，应该先将它转成double类型再转int整数。
-        System.out.println("tasktid是："+tasktid+"temptid是"+temptid);
 
         //下拉框功能实现
         String[] ctype = new String[]{"代取快递或外卖", "代排队", "代购", "代送"};//下拉框数据

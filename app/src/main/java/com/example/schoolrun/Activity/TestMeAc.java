@@ -10,7 +10,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -50,7 +49,7 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
     private Button button7;
     private RadioGroup mRadioGroup;
     private RadioButton tab1, tab2, tab3;  //3个单选按钮
-    public static String check;
+    public static String check,Ureputation;
 
     private Button backProcess;
     String uid;
@@ -106,12 +105,13 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
                     Log.d("path", "查询成功");
                     Map<String, String> mHashMap;
                     String tempTprice, tempTid, tempTphone, tempTkind;
-                    Toast.makeText(TestMeAc.this, "成功，共" + list.size() + "条数据", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(TestMeAc.this, "成功，共" + list.size() + "条数据", Toast.LENGTH_SHORT).show();
                     List<Map<String, String>> mapList = new ArrayList<>();
                     for (MyUser myuser : list) {
                         String Uid = String.valueOf(myuser.getUid());
                         if (Uid.equals(uid)) {
                             check = String.valueOf(myuser.getUcheck());
+                            Ureputation = String.valueOf(myuser.getUreputation());
                             System.out.println("check:" + check);
                             uidview.setText("uid:" + LoginActivity.uid);
                             String i = "1";
@@ -131,7 +131,9 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
                         Intent a = new Intent();
                         a.setClass(TestMeAc.this, Mymessage.class);
                         a.putExtra("uid", uid);
+                        a.putExtra("check", check);
                         a.putExtra("objectId", objectId);
+                        a.putExtra("Ureputation", Ureputation);
                         startActivity(a);
                         finish();
                     }

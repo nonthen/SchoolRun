@@ -54,8 +54,6 @@ public class Judgetask extends AppCompatActivity implements View.OnClickListener
         String position = intent.getStringExtra("tid");
         Integer temptid;
         temptid=Double.valueOf(position).intValue();//带小数点的字符串是不能直接转成整数的，应该先将它转成double类型再转int整数。
-        System.out.println("tasktid是："+position+"temptid是"+temptid);
-
 
         BmobQuery<MyTask> bmobQuery = new BmobQuery<>();
         bmobQuery.addWhereEqualTo("tid",temptid);
@@ -65,7 +63,6 @@ public class Judgetask extends AppCompatActivity implements View.OnClickListener
                 if (e == null) {
                     for (int i = 0; i < list.size(); i++) {
                         objecttidd = list.get(i).getObjectId();
-                        System.out.println("objecttidd:"+objecttidd);
                     }
                 } else {
                     System.out.println("查询失败");
@@ -153,7 +150,6 @@ public class Judgetask extends AppCompatActivity implements View.OnClickListener
                         String objectId = intent.getStringExtra("objectId");
                         button3.putExtra("uid", uid);
                         button3.putExtra("objectId", objectId);
-                        System.out.println("uid:" + uid + "objectId:" + objectId);
                         startActivity(button3);
                         break;
                 }

@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -44,10 +43,8 @@ public class Lookincome extends AppCompatActivity {
 
                 if (e == null) {
                     SimpleAdapter simpleAdapter;
-                    Log.d("path", "查询成功");
                     Map<String, String> mHashMap;
                     String tempTprice, tempTid, tempTphone, tempTkind,tempUid;
-                    Toast.makeText(Lookincome.this, "成功，共" + list.size() + "条数据", Toast.LENGTH_SHORT).show();
                     List<Map<String, String>> mapList = new ArrayList<>();
 
                     System.out.println("uid:"+uid);
@@ -56,7 +53,6 @@ public class Lookincome extends AppCompatActivity {
 
                     for (MyTask myTask : list) {
                         tempUid = String.valueOf(myTask.getId());
-                        System.out.println("tempUid:"+tempUid);
                         if (tempUid.equals(uid)) {
                             id =tempUid;
                         }
@@ -79,7 +75,6 @@ public class Lookincome extends AppCompatActivity {
                                 mHashMap.put("tkind", tempTkind);
                                 mapList.add(mHashMap);
                                 sum = sum + (price * 0.97);
-                                System.out.println("标题：" + myTask.getTname() + "目标地址：" + myTask.getTargetaddress() + "价格：" + myTask.getTprice());
                             }
                         }
                     }
@@ -95,7 +90,6 @@ public class Lookincome extends AppCompatActivity {
                             //Bmob获取listview中某一行数据
                             intent.setClass(Lookincome.this, DetailedInfoActivity.class);
                             intent.putExtra("tid", mapList.get(position).get("tid").toString()); // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
-                            System.out.println(position);
                             startActivity(intent);
                         }
                     });

@@ -14,7 +14,6 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -277,14 +276,14 @@ public class RootMainActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onClick(DialogInterface dialogInterface, int i, boolean isChecked) {
                 if (isChecked){//通知发布任务用户,选择审核失败原因
-                    Toast.makeText(RootMainActivity.this, "选择" + items[i], Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(RootMainActivity.this, "选择" + items[i], Toast.LENGTH_SHORT).show();
                     items[i]="已选择";
                     System.out.println("items[i]的值为"+items);
-                    Toast.makeText(RootMainActivity.this, "选择变成" + items[i], Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(RootMainActivity.this, "选择变成" + items[i], Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(RootMainActivity.this, "取消选择" + items[i], Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(RootMainActivity.this, "取消选择" + items[i], Toast.LENGTH_SHORT).show();
                     items[i]=items2[i];
-                    Toast.makeText(RootMainActivity.this, "取消选择变成" + items[i], Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(RootMainActivity.this, "取消选择变成" + items[i], Toast.LENGTH_SHORT).show();
                     System.out.println("取消选择后items[i]的值为"+items);
                 }
 

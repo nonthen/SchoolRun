@@ -10,7 +10,6 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -49,7 +48,6 @@ public class Looktask extends AppCompatActivity implements View.OnClickListener{
         Intent intent = getIntent();
         String uid=intent.getStringExtra("uid");
         String objectId=intent.getStringExtra("objectId");
-        System.out.println("uid:"+uid);
         //这里获取了任务主页
         BmobQuery<MyTask> bmobQuery = new BmobQuery<MyTask>();
         bmobQuery.findObjects(new FindListener<MyTask>() {
@@ -57,24 +55,19 @@ public class Looktask extends AppCompatActivity implements View.OnClickListener{
             public void done(List<MyTask> list, BmobException e) {
 
                 if (e == null) {
-                    Log.d("path", "查询成功");
                     Map<String, String> mHashMap;
                     String tempTprice, tempTid, tempTphone, tempTkind,tempUid;
-                    Toast.makeText(Looktask.this, "成功，共" + list.size() + "条数据", Toast.LENGTH_SHORT).show();
                     List<Map<String, String>> mapList = new ArrayList<>();
 
                     String id = null;
                         for (MyTask myTask : list) {
                             tempUid = String.valueOf(myTask.getUid());
-                            System.out.println("tempUid:"+tempUid);
                             if (tempUid.equals(uid)) {
                                 id =tempUid;
                             }
                             if(tempUid.equals(id)) {
                                 String check = String.valueOf(myTask.getTcheck());
-                                System.out.println("check:"+check);
                                     tempUid = String.valueOf(myTask.getTid());
-                                    System.out.println("tempUid:" + tempUid);
                                     tempTprice = String.valueOf(myTask.getTprice());
                                     tempTid = String.valueOf(myTask.getTid());
                                     tempTphone = String.valueOf(myTask.getTphone());
@@ -90,7 +83,6 @@ public class Looktask extends AppCompatActivity implements View.OnClickListener{
                                     mHashMap.put("tkind", tempTkind);
                                     if (check.equals("1")) {
                                         mapList.add(mHashMap);
-                                        System.out.println("标题：" + myTask.getTname() + "目标地址：" + myTask.getTargetaddress() + "价格：" + myTask.getTprice());
                                     }
                                 }
                             }
@@ -104,10 +96,8 @@ public class Looktask extends AppCompatActivity implements View.OnClickListener{
                                 //Bmob获取listview中某一行数据
                                 intent.setClass(Looktask.this, Taskmessage.class);
                                 intent.putExtra("tid", mapList.get(position).get("tid").toString()); // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
-                                System.out.println(position);
                                 intent.putExtra("uid", uid);
                                 intent.putExtra("objectId", objectId);
-                                System.out.println("uid:"+uid+"objectId:"+objectId);
                                 startActivity(intent);
                             }
                         });
@@ -125,7 +115,6 @@ public class Looktask extends AppCompatActivity implements View.OnClickListener{
                 Intent a = new Intent(Looktask.this, TestMeAc.class);
                 String uid=intent.getStringExtra("uid");
                 String objectId=intent.getStringExtra("objectId");
-                System.out.println("id是："+uid+"objectId是："+objectId);
                 a.putExtra("uid", uid);
                 a.putExtra("objectId", objectId);
                 startActivity(a);
@@ -145,7 +134,6 @@ public class Looktask extends AppCompatActivity implements View.OnClickListener{
                 String objectId=intent.getStringExtra("objectId");
                 button1.putExtra("objectId", objectId);
                 button1.putExtra("uid", uid);
-                System.out.println("==========uid:"+uid);
                 startActivity(button1);
                 break;
             case R.id.rb_task:
@@ -154,7 +142,6 @@ public class Looktask extends AppCompatActivity implements View.OnClickListener{
                 objectId=intent.getStringExtra("objectId");
                 button2.putExtra("uid", uid1);
                 button2.putExtra("objectId", objectId);
-                System.out.println("uid:"+uid1);
                 startActivity(button2);
                 break;
             case R.id.rb_nocheck:
@@ -163,7 +150,6 @@ public class Looktask extends AppCompatActivity implements View.OnClickListener{
                 objectId=intent.getStringExtra("objectId");
                 button3.putExtra("uid", uid2);
                 button3.putExtra("objectId", objectId);
-                System.out.println("uid:"+uid2);
                 startActivity(button3);
                 break;
         }

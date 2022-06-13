@@ -270,6 +270,9 @@ public class user_activity extends AppCompatActivity implements View.OnClickList
                                 if (e == null) {
                                     Log.i("bmob", "删除成功");
                                     Snackbar.make( delete,"删除成功", Snackbar.LENGTH_LONG).show();
+                                    Intent button = new Intent(user_activity.this, user_activity.class);
+                                    startActivity(button);
+                                    finish();
                                 } else {
                                     Log.i("bmob", "删除失败");
                                 }

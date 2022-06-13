@@ -180,7 +180,7 @@ public class ReleaseTask extends AppCompatActivity {
                                     tidend=list.get(i).getTid();
                                 }
                                 int sum=tidend+1;
-                                System.out.println("tidend="+tidend+1);
+//                                System.out.println("tidend="+tidend+1);
 
                                 myTask.setTid(sum);
                                 myOrderRead.setTid(sum);
@@ -197,9 +197,9 @@ public class ReleaseTask extends AppCompatActivity {
                                         if (list != null && list.size() > 0) {//存在一个匹配的用户
                                             uid = list.get(0).getUid();//获得当前用户的uid
                                             myTask.setUid(uid);
-                                            System.out.println("当前用户的uid:" + uid);
+//                                            System.out.println("当前用户的uid:" + uid);
                                         } else {
-                                            System.out.println("不存在当前用户的uid");
+//                                            System.out.println("不存在当前用户的uid");
                                         }
 
                                     }
@@ -222,7 +222,7 @@ public class ReleaseTask extends AppCompatActivity {
                                 myOrderRead.setTorderread(0);
                                 //此时数据还没有存入接单者消息表
 
-                                System.out.println("弹出支付方式");
+//                                System.out.println("弹出支付方式");
                                 payTypesDialog.show();
 
                             }

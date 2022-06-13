@@ -7,7 +7,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -55,7 +54,7 @@ public class RootOrderActivity extends AppCompatActivity implements View.OnClick
                     SimpleAdapter simpleAdapter;
                     Map<String, String> mHashMap;
                     String tempTid,tempId;
-                    Toast.makeText(RootOrderActivity.this,"异常订单，查询成功",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(RootOrderActivity.this,"异常订单，查询成功",Toast.LENGTH_SHORT).show();
                     List<Map<String,String>> mapList=new ArrayList<>();
 
                     List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
@@ -98,7 +97,7 @@ public class RootOrderActivity extends AppCompatActivity implements View.OnClick
 
                 }
                 else {
-                    Toast.makeText(RootOrderActivity.this,"订单异常，读取失败",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(RootOrderActivity.this,"订单异常，读取失败",Toast.LENGTH_SHORT).show();
                 }
             }
         });

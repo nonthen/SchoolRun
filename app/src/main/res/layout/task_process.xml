@@ -16,7 +16,7 @@
             android:id="@+id/returnMe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="#11FFFFFF"
             android:src="@drawable/back" />
         <TextView
             android:layout_width="wrap_content"

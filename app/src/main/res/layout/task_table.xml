@@ -14,10 +14,11 @@
         android:layout_alignParentBottom="true" >
 
         <ImageButton
+            android:id="@+id/returnRootBt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/returnRootBt"
-            android:src="@drawable/back"/>
+            android:background="#8DFFFFFF"
+            android:src="@drawable/back" />
 
         <TextView
             android:layout_width="wrap_content"

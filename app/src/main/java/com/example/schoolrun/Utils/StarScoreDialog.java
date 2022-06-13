@@ -75,7 +75,7 @@ public class StarScoreDialog extends Dialog {
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                Snackbar.make(ratingBar, "分数是"+rating+"星", Snackbar.LENGTH_LONG).show();
+//                Snackbar.make(ratingBar, "分数是"+rating+"星", Snackbar.LENGTH_LONG).show();
                 ratingscore=rating;
             }
         });
@@ -95,7 +95,7 @@ public class StarScoreDialog extends Dialog {
 
                     List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();
                     Objectid=list.get(0).getObjectId();//获取bmob中默认的ObjectId值
-                    System.out.println("获取当前要评价的任务Objectid"+Objectid);
+//                    System.out.println("获取当前要评价的任务Objectid"+Objectid);
                     id=list.get(0).getId();
 
                     myTask.setUid(list.get(0).getUid());
@@ -126,7 +126,7 @@ public class StarScoreDialog extends Dialog {
             @Override
             public void onClick(View view) {
 
-                System.out.println("评价完成,分数是"+ratingscore+"任务id"+tasktid);
+//                System.out.println("评价完成,分数是"+ratingscore+"任务id"+tasktid);
                 myTask.setTappraise(ratingscore);
                 myTask.setTappraisetext(appraisedetails.getText().toString());
                 myTask.update(Objectid,new UpdateListener(){
@@ -156,7 +156,7 @@ public class StarScoreDialog extends Dialog {
     }
 
     public void SetTaskid(String taskid){
-        System.out.println("评分弹窗对应的任务的taskid="+taskid);
+//        System.out.println("评分弹窗对应的任务的taskid="+taskid);
         this.tasktid=taskid;
     }
 
@@ -168,7 +168,7 @@ public class StarScoreDialog extends Dialog {
         BmobQuery<MyUser> bmobQuery=new BmobQuery<MyUser>();
         String bql = "select * from MyUser where uid = ?";//当前接单者个人信息
         bmobQuery.setSQL(bql);
-        System.out.println("接单者id="+id);
+//        System.out.println("接单者id="+id);
         bmobQuery.setPreparedParams(new Object[]{id});
         bmobQuery.doSQLQuery(new SQLQueryListener<MyUser>() {
 

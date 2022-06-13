@@ -10,7 +10,6 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -61,21 +60,17 @@ public class Looknotask extends AppCompatActivity implements View.OnClickListene
 
                 if (e == null) {
                     SimpleAdapter simpleAdapter = null;
-                    Log.d("path", "查询成功");
                     Map<String, String> mHashMap;
                     String tempTprice, tempTid, tempTphone, tempTkind,tempUid;
-                    Toast.makeText(Looknotask.this, "成功，共" + list.size() + "条数据", Toast.LENGTH_SHORT).show();
                     List<Map<String, String>> mapList = new ArrayList<>();
                     List<Map<String, String>> mapList1 = new ArrayList<>();
 
                     String id = null;
-                    System.out.println("uid:"+uid);
 
                     for (MyTask myTask : list) {
                         tempUid = String.valueOf(myTask.getUid());
                         result =" ";
                         String check = String.valueOf(myTask.getTcheck());
-                        System.out.println("tempUid:"+tempUid);
                         if (tempUid.equals(uid)) {
                             id =tempUid;
                         }
@@ -86,10 +81,8 @@ public class Looknotask extends AppCompatActivity implements View.OnClickListene
                             tempTid = String.valueOf(myTask.getTid());
                             tempTphone = String.valueOf(myTask.getTphone());
                             tempTkind = String.valueOf(myTask.getTkind());
-                            System.out.println("tempTid="+tempTid+"   tempTkind="+tempTkind);
                             String[] items = {"任务标题违规", "任务详情违规", "任务目标地址不合理", "任务本人地址不合理"};
                             errorTcheck =myTask.getTcheckerrordetails();
-                            System.out.println("错误消息的值为errorTcheck="+errorTcheck);
                             String[] split = errorTcheck.split(" ");
                             temp0 = temp1 = temp2 = temp3 = " ";
                             if (!split[0].equals(items[0])) {
@@ -135,7 +128,6 @@ public class Looknotask extends AppCompatActivity implements View.OnClickListene
                             System.out.println(position);
                             intent.putExtra("uid", uid);
                             intent.putExtra("objectId", objectId);
-                            System.out.println("uid:"+uid+"objectId:"+objectId);
                             startActivity(intent);
                         }
                     });
@@ -152,7 +144,6 @@ public class Looknotask extends AppCompatActivity implements View.OnClickListene
                 Intent a = new Intent(Looknotask.this, TestMeAc.class);
                 String uid=intent.getStringExtra("uid");
                 String objectId=intent.getStringExtra("objectId");
-                System.out.println("id是："+uid+"objectId是："+objectId);
                 a.putExtra("uid", uid);
                 a.putExtra("objectId", objectId);
                 startActivity(a);
@@ -170,21 +161,18 @@ public class Looknotask extends AppCompatActivity implements View.OnClickListene
                 Intent button1 = new Intent(this,Looktask.class);
                 String uid=intent.getStringExtra("uid");
                 button1.putExtra("uid", uid);
-                System.out.println("uid:"+uid);
                 startActivity(button1);
                 break;
             case R.id.rb_task:
                 Intent button2 = new Intent(this, Looknotask.class);
                 String uid1=intent.getStringExtra("uid");
                 button2.putExtra("uid", uid1);
-                System.out.println("uid:"+uid1);
                 startActivity(button2);
                 break;
             case R.id.rb_nocheck:
                 Intent button3 = new Intent(this, Lookcheckingtask.class);
                 String uid2=intent.getStringExtra("uid");
                 button3.putExtra("uid", uid2);
-                System.out.println("uid:"+uid2);
                 startActivity(button3);
                 break;
         }

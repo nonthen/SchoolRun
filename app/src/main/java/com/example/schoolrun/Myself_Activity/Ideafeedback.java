@@ -57,7 +57,6 @@ public class Ideafeedback extends AppCompatActivity implements View.OnClickListe
                 Intent a = new Intent(Ideafeedback.this,TestMeAc.class);
                 String uid=intent.getStringExtra("uid");
                 String objectId=intent.getStringExtra("objectId");
-                System.out.println("id是："+uid+"objectId是："+objectId);
                 a.putExtra("uid", uid);
                 a.putExtra("objectId", objectId);
                 startActivity(a);
@@ -84,7 +83,6 @@ public class Ideafeedback extends AppCompatActivity implements View.OnClickListe
                 String objectId=intent.getStringExtra("objectId");
                 button3.putExtra("uid", uid);
                 button3.putExtra("objectId", objectId);
-                System.out.println("uid:"+uid+"objectId:"+objectId);
                 startActivity(button3);
                 break;
         }

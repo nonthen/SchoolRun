@@ -37,7 +37,6 @@ public class Mymessage extends AppCompatActivity{
         String objectId = intent.getStringExtra("objectId");
         Integer temptid;
         temptid = Double.valueOf(useruid).intValue();//带小数点的字符串是不能直接转成整数的，应该先将它转成double类型再转int整数。
-        System.out.println("useruid是：" + useruid + "temptid是" + temptid+"objectId是" + objectId);
         TextView textView1 = (TextView) findViewById(R.id.showuname);
         TextView textView2 = (TextView) findViewById(R.id.showsex);
         TextView textView3 = (TextView) findViewById(R.id.showqq);

@@ -62,8 +62,6 @@ public class Changepassword extends AppCompatActivity implements View.OnClickLis
                 BmobQuery<MyUser> bmobQuery = new BmobQuery<>();
                 String useruid = intent.getStringExtra("uid");
                 String objectId = intent.getStringExtra("objectId");
-                System.out.println(objectId + useruid + oldpassword + newpassword);
-
                 String bql = "select * from MyUser where uid = ? and upassword = ?";
                 bmobQuery.setSQL(bql);
                 bmobQuery.setPreparedParams(new Object[]{useruid, oldpassword});
@@ -134,7 +132,6 @@ public class Changepassword extends AppCompatActivity implements View.OnClickLis
                 String objectId=intent.getStringExtra("objectId");
                 button3.putExtra("uid", uid);
                 button3.putExtra("objectId", objectId);
-                System.out.println("uid:"+uid+"objectId:"+objectId);
                 startActivity(button3);
                 break;
         }

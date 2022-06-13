@@ -2,14 +2,12 @@ package com.example.schoolrun.Myself_Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,8 +29,10 @@ public class Changemessage extends AppCompatActivity {
     private Button button,back;
     private RadioGroup mRadioGroup;
     private RadioButton tab1,tab2,tab3;  //3个单选按钮
-    String uid,uname,sex,qq,phone;
+    String uid,uname,sex,qq,phone,Income;
     String newuid,newuname,newsex,newqq,newphone;
+    int check,Goodappraisecount,Badappraisecount;
+    float Ureputation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -57,21 +57,19 @@ public class Changemessage extends AppCompatActivity {
 
                 if (e == null) {
                     SimpleAdapter simpleAdapter;
-                    Log.d("path", "查询成功");
-
-                    Toast.makeText(Changemessage.this, "成功，共" + list.size() + "条数据", Toast.LENGTH_SHORT).show();
-
                     String id = null;
                     for (MyUser myuser : list) {
                         uid = String.valueOf(myuser.getUid());
-                        System.out.println("===uid:" + uid);
                         if (uid.equals(useruid)) {
                             uname = String.valueOf(myuser.getUname());
                             qq = String.valueOf(myuser.getQq());
                             sex = String.valueOf(myuser.getSex());
                             phone = String.valueOf(myuser.getPhone());
-                            System.out.println("uname" + uname + "qq" + qq + "sex" + sex);
-
+                            check = myuser.getUcheck();
+                            Ureputation = myuser.getUreputation();
+                            Goodappraisecount = myuser.getGoodappraisecount();
+                            Badappraisecount = myuser.getBadappraisecount();
+                            Income = myuser.getIncome();
                             if (uname.equals("")) {
                                 uname = null;
                             } else if (qq.equals("")) {
@@ -107,11 +105,16 @@ public class Changemessage extends AppCompatActivity {
                             int id = Integer.parseInt(useruid);
                             MyUser p2 = new MyUser();
                             p2.setUid(id);
+                            System.out.println("id:"+id);
                             p2.setUname(newuname);
                             p2.setSex(newsex);
                             p2.setQq(newqq);
                             p2.setPhone(newphone);
-
+                            p2.setIncome(Income);
+                            p2.setUcheck(check);
+                            p2.setGoodappraisecount(Goodappraisecount);
+                            p2.setBadappraisecount(Badappraisecount);
+                            p2.setUreputation(Ureputation);
                             p2.update(objectId, new UpdateListener() {
                                 @Override
                                 public void done(BmobException e) {
@@ -136,7 +139,6 @@ public class Changemessage extends AppCompatActivity {
                 Intent a = new Intent(Changemessage.this, TestMeAc.class);
                 String uid=intent.getStringExtra("uid");
                 String objectId=intent.getStringExtra("objectId");
-                System.out.println("id是："+uid+"objectId是："+objectId);
                 a.putExtra("uid", uid);
                 a.putExtra("objectId", objectId);
                 startActivity(a);

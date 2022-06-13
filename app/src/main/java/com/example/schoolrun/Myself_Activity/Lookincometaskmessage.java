@@ -34,7 +34,6 @@ public class Lookincometaskmessage extends AppCompatActivity  {
         tasktid = intent.getStringExtra("tid");
         Integer temptid;
         temptid = Double.valueOf(tasktid).intValue();//带小数点的字符串是不能直接转成整数的，应该先将它转成double类型再转int整数。
-        System.out.println("tasktid是：" + tasktid + "temptid是" + temptid);
         TextView textView1 = (TextView) findViewById(R.id.item_tname);
         TextView textView2 = findViewById(R.id.item_tkind);
         TextView textView3 = (TextView) findViewById(R.id.item_tdetail);
@@ -108,7 +107,6 @@ public class Lookincometaskmessage extends AppCompatActivity  {
                 Intent a = new Intent();
                 String uid=intent.getStringExtra("uid");
                 String objectId=intent.getStringExtra("objectId");
-                System.out.println("id是："+uid+"objectId是："+objectId);
                 a.putExtra("uid", uid);
                 a.putExtra("objectId", objectId);
                 startActivity(a);

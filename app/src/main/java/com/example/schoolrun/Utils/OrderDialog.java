@@ -79,7 +79,7 @@ public class OrderDialog extends Dialog {
                 if (e==null){
                     List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();
                     Objectid=list.get(0).getObjectId();//获取bmob中默认的ObjectId值
-                    System.out.println("获取当前要评价的任务Objectid"+Objectid);
+//                    System.out.println("获取当前要评价的任务Objectid"+Objectid);
 
                     myTask.setUid(list.get(0).getUid());
                     myTask.setTid(list.get(0).getTid());

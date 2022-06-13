@@ -12,16 +12,34 @@
         android:layout_height="55dp"
         android:orientation="horizontal">
 
+        <ImageButton
+            android:id="@+id/button3"
+            android:layout_width="118dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#40FFFFFF"
+            android:src="@drawable/fanhui"
+            android:text="返回" />
+
+        <LinearLayout
+            android:layout_width="141dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+        </LinearLayout>
         <TextView
             android:id="@+id/money"
             android:textColor="#070707"
             android:textSize="25sp"
+            android:layout_marginTop="8dp"
             android:layout_width="104dp"
             android:layout_height="match_parent"
             android:text="总收益：" />
 
         <TextView
             android:id="@+id/showmoney"
+            android:layout_marginTop="8dp"
             android:layout_width="126dp"
             android:layout_height="40dp"
             android:ems="10"

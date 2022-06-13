@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -62,7 +61,6 @@ public class AppraiseActivity extends AppCompatActivity {
                     SimpleAdapter simpleAdapter;
                     Map<String, String> mHashMap;
                     String tempTprice,tempTid,tempTphone,tempTkind;
-                    Toast.makeText(AppraiseActivity.this,"任务完成，查询成功",Toast.LENGTH_SHORT).show();
                     List<Map<String,String>> mapList=new ArrayList<>();
 
                     List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
@@ -95,7 +93,7 @@ public class AppraiseActivity extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                             //Bmob获取listview中某一行数据
-                            System.out.println("弹出任务评分");
+//                            System.out.println("弹出任务评分");
                             //传入当前准备评分的任务的tid
                             starScoreDialog.SetTaskid(mapList.get(position).get("tid"));
                             starScoreDialog.show();

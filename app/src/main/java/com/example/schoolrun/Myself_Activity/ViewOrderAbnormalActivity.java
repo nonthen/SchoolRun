@@ -114,7 +114,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                                 for (MyOrderRead myOrderRead:myorderreadlist){
                                     mHashMap=new HashMap<>();
                                     if (myorderreadlist.get(i).getTorderread()==1){//获取接单者未读的消息
-                                        System.out.println("接单者是否运行");
+//                                        System.out.println("接单者是否运行");
                                         mHashMap.put("tid",String.valueOf(myOrderRead.getTid()));
                                         mHashMap.put("id",String.valueOf(myOrderRead.getId()));//接单者编号
                                         mHashMap.put("tname",myOrderRead.getTname());
@@ -336,7 +336,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
                                 public void done(BmobException e) {
                                     if (e==null){
                                         Toast.makeText(ViewOrderAbnormalActivity.this,"已删除一条消息",Toast.LENGTH_SHORT).show();
-                                        System.out.println("已删除一条消息");
+//                                        System.out.println("已删除一条消息");
                                         //刷新界面
                                         Intent intent = new Intent(ViewOrderAbnormalActivity.this,ViewOrderAbnormalActivity.class);
                                         startActivity(intent);
@@ -384,7 +384,7 @@ public class ViewOrderAbnormalActivity extends AppCompatActivity {
 
                                     if (e == null) {
                                         Toast.makeText(ViewOrderAbnormalActivity.this,"已删除一条消息",Toast.LENGTH_SHORT).show();
-                                        System.out.println("已删除一条消息");
+//                                        System.out.println("已删除一条消息");
                                         //刷新界面
                                         Intent intent = new Intent(ViewOrderAbnormalActivity.this,ViewOrderAbnormalActivity.class);
                                         startActivity(intent);

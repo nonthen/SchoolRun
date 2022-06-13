@@ -10,7 +10,6 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -58,25 +57,20 @@ public class Lookcheckingtask  extends AppCompatActivity implements View.OnClick
 
                 if (e == null) {
                     SimpleAdapter simpleAdapter = null;
-                    Log.d("path", "查询成功");
                     Map<String, String> mHashMap;
                     String tempTprice, tempTid, tempTphone, tempTkind,tempUid,tempcheckdetail;
-                    Toast.makeText(Lookcheckingtask.this, "成功，共" + list.size() + "条数据", Toast.LENGTH_SHORT).show();
                     List<Map<String, String>> mapList2 = new ArrayList<>();
 
                     String id = null;
-                    System.out.println("uid:"+uid);
 
                     for (MyTask myTask : list) {
                         tempUid = String.valueOf(myTask.getUid());
-                        System.out.println("tempUid:"+tempUid);
                         if (tempUid.equals(uid)) {
                             id =tempUid;
                         }
                         if(tempUid.equals(id)) {
                             String check = String.valueOf(myTask.getTcheck());
                             tempUid = String.valueOf(myTask.getTid());
-                            System.out.println("tempUid:" + tempUid);
                             tempTprice = String.valueOf(myTask.getTprice());
                             tempTid = String.valueOf(myTask.getTid());
                             tempTphone = String.valueOf(myTask.getTphone());
@@ -93,7 +87,6 @@ public class Lookcheckingtask  extends AppCompatActivity implements View.OnClick
                             mHashMap.put("tkind", tempTkind);
                             if(check.equals("0")){
                                 mapList2.add(mHashMap);
-                                System.out.println("标题：" + myTask.getTname() + "目标地址：" + myTask.getTargetaddress() + "价格：" + myTask.getTprice());
                             }
                         }
                     }
@@ -107,11 +100,8 @@ public class Lookcheckingtask  extends AppCompatActivity implements View.OnClick
                             //Bmob获取listview中某一行数据
                             intent.setClass(Lookcheckingtask.this,Taskmessage.class);
                             intent.putExtra("tid", mapList2.get(position).get("tid").toString()); // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
-                            System.out.println(position);
-                            System.out.println(position);
                             intent.putExtra("uid", uid);
                             intent.putExtra("objectId", objectId);
-                            System.out.println("uid:"+uid+"objectId:"+objectId);
                             startActivity(intent);
                         }
                     });
@@ -128,7 +118,6 @@ public class Lookcheckingtask  extends AppCompatActivity implements View.OnClick
                 Intent a = new Intent(Lookcheckingtask.this, TestMeAc.class);
                 String uid=intent.getStringExtra("uid");
                 String objectId=intent.getStringExtra("objectId");
-                System.out.println("id是："+uid+"objectId是："+objectId);
                 a.putExtra("uid", uid);
                 a.putExtra("objectId", objectId);
                 startActivity(a);
@@ -146,21 +135,18 @@ public class Lookcheckingtask  extends AppCompatActivity implements View.OnClick
                 Intent button1 = new Intent(this,Looktask.class);
                 String uid=intent.getStringExtra("uid");
                 button1.putExtra("uid", uid);
-                System.out.println("uid:"+uid);
                 startActivity(button1);
                 break;
             case R.id.rb_task:
                 Intent button2 = new Intent(this, Looknotask.class);
                 String uid1=intent.getStringExtra("uid");
                 button2.putExtra("uid", uid1);
-                System.out.println("uid:"+uid1);
                 startActivity(button2);
                 break;
             case R.id.rb_nocheck:
                 Intent button3 = new Intent(this, Lookcheckingtask.class);
                 String uid2=intent.getStringExtra("uid");
                 button3.putExtra("uid", uid2);
-                System.out.println("uid:"+uid2);
                 startActivity(button3);
                 break;
         }

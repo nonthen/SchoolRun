@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -54,7 +53,6 @@ public class AppraiseJieFinishActivity extends AppCompatActivity {
                     SimpleAdapter simpleAdapter;
                     Map<String, String> mHashMap;
                     String tempTprice,tempTid;
-                    Toast.makeText(AppraiseJieFinishActivity.this,"他人评价成功的任务查询成功",Toast.LENGTH_SHORT).show();
                     List<Map<String,String>> mapList=new ArrayList<>();
 
                     List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
@@ -85,7 +83,7 @@ public class AppraiseJieFinishActivity extends AppCompatActivity {
                             //跳转到已完成评价的任务详细信息
                             intent.setClass(AppraiseJieFinishActivity.this, AppraiseFinshDetailsActivity.class);
                             intent.putExtra("tid", mapList.get(position).get("tid")); // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
-                            System.out.println(position);
+//                            System.out.println(position);
                             startActivity(intent);
 
                         }

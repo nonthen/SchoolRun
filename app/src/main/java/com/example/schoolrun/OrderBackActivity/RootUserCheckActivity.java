@@ -7,7 +7,6 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -74,7 +73,7 @@ public class RootUserCheckActivity extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                             //Bmob获取listview中某一行数据
-                            System.out.println("跳转到审核用户信息详情");
+//                            System.out.println("跳转到审核用户信息详情");
                             Intent intent = new Intent();
                             intent.setClass(RootUserCheckActivity.this, RootUserCheckDetailsActivity.class);
                             // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
@@ -87,7 +86,7 @@ public class RootUserCheckActivity extends AppCompatActivity {
 
                 }
                 else {
-                    Toast.makeText(RootUserCheckActivity.this,"用户审核列表，读取失败",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(RootUserCheckActivity.this,"用户审核列表，读取失败",Toast.LENGTH_SHORT).show();
                 }
 
             }

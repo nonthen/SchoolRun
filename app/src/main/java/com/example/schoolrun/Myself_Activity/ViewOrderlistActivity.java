@@ -12,7 +12,6 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -76,7 +75,7 @@ public class ViewOrderlistActivity extends AppCompatActivity implements View.OnC
                     SimpleAdapter simpleAdapter;
                     Map<String, String> mHashMap;
                     String tempTprice,tempTid,tempTphone,tempTkind;
-                    Toast.makeText(ViewOrderlistActivity.this,"已接单查询成功",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ViewOrderlistActivity.this,"已接单查询成功",Toast.LENGTH_SHORT).show();
                     List<Map<String,String>> mapList=new ArrayList<>();
 
                     List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
@@ -109,7 +108,7 @@ public class ViewOrderlistActivity extends AppCompatActivity implements View.OnC
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                             //Bmob获取listview中某一行数据
-                            System.out.println("跳转到订单详情");
+//                            System.out.println("跳转到订单详情");
                             Intent intent = new Intent();
                             intent.setClass(ViewOrderlistActivity.this, ViewOrderDetailsActivity.class);
                             // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面

@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,11 +26,15 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 
-public class Register extends AppCompatActivity{
+public class Register extends AppCompatActivity {
 
     private Button button;
     private ImageButton imageButton;
     private boolean isHideFirst = true;// 输入框密码是否是隐藏的，默认为true
+    int max, uid;
+    String accoun;
+    int check;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -45,26 +48,38 @@ public class Register extends AppCompatActivity{
         imageButton = findViewById(R.id.iv_pwd_switch);
 
         //这里获取了任务主页
-        BmobQuery<MyUser> bmobQuery=new BmobQuery<MyUser>();
-        bmobQuery.findObjects(new FindListener<MyUser>() {
+
+        //当前登陆活动设置一个监听事件
+        button.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void done(List<MyUser> list, BmobException e) {
-                if (e == null) {
+            public void onClick(View view) {
+                String account = textView1.getText().toString().trim();//获取文本框的数据
+                String password = textView2.getText().toString().trim();
+                //Intent intent = getIntent();
+                //BmobQuery<MyUser> bmobQuery = new BmobQuery<>();
 
-                    Toast.makeText(Register.this,"成功，共"+list.size()+"条数据",Toast.LENGTH_SHORT).show();
-                    int size=list.size();
-                    //当前登陆活动设置一个监听事件
-                    button.setOnClickListener(new View.OnClickListener() {
+                MyUser p1 = new MyUser();
 
-                        @Override
-                        public void onClick(View view) {
-                            String account = textView1.getText().toString().trim();//获取文本框的数据
-                            String password = textView2.getText().toString().trim();
-                            //Intent intent = getIntent();
-                            //BmobQuery<MyUser> bmobQuery = new BmobQuery<>();
+                BmobQuery<MyUser> bmobQuery = new BmobQuery<MyUser>();
+                bmobQuery.findObjects(new FindListener<MyUser>() {
 
-                            MyUser p1 = new MyUser();
+                    @Override
+                    public void done(List<MyUser> list, BmobException e) {
+                        if (e == null) {
+                            for (MyUser myuser : list) {
+                                uid = Integer.valueOf(myuser.getUid()).intValue();
+                                accoun = String.valueOf(myuser.getAccount());
+                                System.out.println("===uid:" + uid);
+                                System.out.println("accoun" + accoun);
+                                if (max < uid) {
+                                    max = uid;
+                                }
+                                if (accoun.equals(account)){
+                                    check=1;
+                                    Snackbar.make(button, "账号已有，请更改", Snackbar.LENGTH_LONG).show();
+                            }
+                        }
                             p1.setAccount(account);
                             p1.setUpassword(password);
                             p1.setUname(null);
@@ -72,30 +87,39 @@ public class Register extends AppCompatActivity{
                             p1.setQq(null);
                             p1.setIncome(null);
                             p1.setUcheck(0);
-                            p1.setUid(size+1);
+                            p1.setGoodappraisecount(0);
+                            p1.setBadappraisecount(0);
                             p1.setUreputation(6);
                             System.out.println("账号：" + account + "密码：" + password);
+                            p1.setUid(max+1);
+                            System.out.println("max:"+max);
 
-                            p1.save(new SaveListener<String>() {
-                                @Override
-                                public void done(String objectId, BmobException e) {
-                                    if (e == null) {
-                                        Snackbar.make(button, "注册成功", Snackbar.LENGTH_LONG).show();
-                                        intent.setClass(Register.this, LoginActivity.class);
-                                        startActivity(intent);
-                                        finish();
+                            System.out.println("x:"+check);
+                            if(check!=1) {
+                                p1.save(new SaveListener<String>() {
+                                    @Override
+                                    public void done(String objectId, BmobException e) {
+                                        System.out.println("e:"+e);
+                                        if (e == null) {
+                                            Snackbar.make(button, "注册成功", Snackbar.LENGTH_LONG).show();
+                                            intent.setClass(Register.this, LoginActivity.class);
+                                            startActivity(intent);
+                                            finish();
 
-                                    } else {
-                                        Snackbar.make(button, "注册失败", Snackbar.LENGTH_LONG).show();
+                                        } else {
+                                            Snackbar.make(button, "注册失败", Snackbar.LENGTH_LONG).show();
+                                        }
                                     }
-                                }
-                            });
-                        }
-                    });
-                }
-            }
-        });
+                                });
+                            }
 
+
+                    }
+                }
+            });
+
+        }
+        });
 
         imageButton.setOnClickListener(new View.OnClickListener() {//密码隐藏与显现
             @Override
@@ -120,5 +144,6 @@ public class Register extends AppCompatActivity{
 
             }
         });
-    }
-}
+        }
+        }
+

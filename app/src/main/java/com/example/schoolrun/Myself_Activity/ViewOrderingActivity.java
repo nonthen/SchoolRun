@@ -78,7 +78,7 @@ public class ViewOrderingActivity extends AppCompatActivity implements View.OnCl
                 if (e==null){
                     List<MyUser> list = (List<MyUser>) bmobQueryResult.getResults();//查询结果
                     if (list.get(0).getUcheck()==1){//具有接单员资格，可以查看自己接的订单，并进行派送
-                        System.out.println("具有接单员资格，可以查看正在进行的订单，并查看订单");
+//                        System.out.println("具有接单员资格，可以查看正在进行的订单，并查看订单");
                         Havezige();
                     }
                     else {
@@ -156,7 +156,7 @@ public class ViewOrderingActivity extends AppCompatActivity implements View.OnCl
                     SimpleAdapter simpleAdapter;
                     Map<String, String> mHashMap;
                     String tempTprice,tempTid,tempTphone,tempTkind;
-                    Toast.makeText(ViewOrderingActivity.this,"进行中订单，查询成功",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ViewOrderingActivity.this,"进行中订单，查询成功",Toast.LENGTH_SHORT).show();
                     List<Map<String,String>> mapList=new ArrayList<>();
 
                     List<MyTask> list = (List<MyTask>) bmobQueryResult.getResults();//查询结果
@@ -191,7 +191,7 @@ public class ViewOrderingActivity extends AppCompatActivity implements View.OnCl
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                             //Bmob获取listview中某一行数据
-                            System.out.println("跳转到订单详情");
+//                            System.out.println("跳转到订单详情");
                             Intent intent = new Intent();
                             intent.setClass(ViewOrderingActivity.this, ViewOrderDetailsActivity.class);
                             // 获取该列表项的key为id的键值，即商品的id，将其储存在Bundle传递给打开的页面
@@ -207,7 +207,7 @@ public class ViewOrderingActivity extends AppCompatActivity implements View.OnCl
                         @Override
                         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                             //Bmob获取listview中某一行数据
-                            System.out.println("弹窗显示订单选择详情");
+//                            System.out.println("弹窗显示订单选择详情");
                             //传入当前准备评分的任务的tid
                             orderDialog.SetTaskid(mapList.get(i).get("tid"));
                             orderDialog.show();

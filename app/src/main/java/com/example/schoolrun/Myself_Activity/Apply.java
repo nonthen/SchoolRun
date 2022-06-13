@@ -2,14 +2,12 @@ package com.example.schoolrun.Myself_Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -61,10 +59,8 @@ public class Apply extends AppCompatActivity {
             public void done(List<MyUser> list, BmobException e) {
                 if (e == null) {
                     SimpleAdapter simpleAdapter;
-                    Log.d("path", "查询成功");
                     Map<String, String> mHashMap;
                     String tempTprice, tempTid, tempTphone, tempTkind;
-                    Toast.makeText(Apply.this, "成功，共" + list.size() + "条数据", Toast.LENGTH_SHORT).show();
                     List<Map<String, String>> mapList = new ArrayList<>();
                     for (MyUser myuser : list) {
                         String Uid = String.valueOf(myuser.getUid());
@@ -74,7 +70,6 @@ public class Apply extends AppCompatActivity {
                             Badappraisecount = myuser.getBadappraisecount();
                             Goodappraisecount = myuser.getGoodappraisecount();
                             reputation = myuser.getUreputation();
-                            System.out.println("=========Goodappraisecount:" + Goodappraisecount);
                         }
 
 
@@ -91,7 +86,6 @@ public class Apply extends AppCompatActivity {
                         BmobQuery<MyUser> bmobQuery = new BmobQuery<>();
                         String useruid = intent.getStringExtra("uid");
                         String objectId = intent.getStringExtra("objectId");
-                        System.out.println("============:" + objectId + useruid);
 
                         MyUser p2 = new MyUser();
                         int id = Integer.parseInt(useruid);
@@ -124,7 +118,6 @@ public class Apply extends AppCompatActivity {
                         Intent a = new Intent(Apply.this, TestMeAc.class);
                         String uid = intent.getStringExtra("uid");
                         String objectId = intent.getStringExtra("objectId");
-                        System.out.println("id是：" + uid + "objectId是：" + objectId);
                         a.putExtra("uid", uid);
                         a.putExtra("objectId", objectId);
                         startActivity(a);

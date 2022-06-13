@@ -86,7 +86,7 @@ public class RootOrderDetailsActivity extends AppCompatActivity{
 
                     //一些共有属性的设置
                     Objectid=list.get(0).getObjectId();//获取bmob中默认的ObjectId值
-                    System.out.println("获取当前任务的Objectid="+Objectid);
+//                    System.out.println("获取当前任务的Objectid="+Objectid);
 
                     myTask.setUid(list.get(0).getUid());
                     myTask.setTid(list.get(0).getTid());
@@ -196,7 +196,7 @@ public class RootOrderDetailsActivity extends AppCompatActivity{
                                         @Override
                                         public void done(BmobException e) {
                                             if (e==null){
-                                                System.out.println("已同意取消订单="+Objectreadid);
+//                                                System.out.println("已同意取消订单="+Objectreadid);
                                                 Toast.makeText(RootOrderDetailsActivity.this,"已同意取消订单",Toast.LENGTH_SHORT).show();
                                                 returnlist();
                                             }
