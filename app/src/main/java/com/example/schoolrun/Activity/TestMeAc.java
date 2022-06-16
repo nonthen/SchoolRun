@@ -53,6 +53,7 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
 
     private Button backProcess;
     String uid;
+    int subapplicate;
 
     private Button appraisebutton;//评价服务
     private Button view_order;//查看订单
@@ -111,7 +112,7 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
                         String Uid = String.valueOf(myuser.getUid());
                         if (Uid.equals(uid)) {
                             check = String.valueOf(myuser.getUcheck());
-                            Ureputation = String.valueOf(myuser.getUreputation());
+                            subapplicate = myuser.getUsubapplicate();
                             System.out.println("check:" + check);
                             uidview.setText("uid:" + LoginActivity.uid);
                             String i = "1";
@@ -196,7 +197,11 @@ public class TestMeAc extends AppCompatActivity implements View.OnClickListener 
                     public void onClick(View view) {
                         if (check.equals("1")) {
                             Snackbar.make(button7, "您已经是接单者了，无需重复申请", Snackbar.LENGTH_LONG).show();
-                        } else {
+                        }
+                        if(subapplicate==1){
+                            Snackbar.make(button7, "您已经申请了，请稍等", Snackbar.LENGTH_LONG).show();
+                        }
+                        if(check.equals("0")&&subapplicate==0) {
                             Intent g = new Intent();
                             g.setClass(TestMeAc.this, Apply.class);
                             g.putExtra("uid", uid);

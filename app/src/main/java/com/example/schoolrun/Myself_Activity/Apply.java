@@ -70,6 +70,7 @@ public class Apply extends AppCompatActivity {
                             Badappraisecount = myuser.getBadappraisecount();
                             Goodappraisecount = myuser.getGoodappraisecount();
                             reputation = myuser.getUreputation();
+
                         }
 
 

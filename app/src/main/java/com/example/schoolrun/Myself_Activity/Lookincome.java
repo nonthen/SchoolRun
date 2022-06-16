@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.schoolrun.Activity.DetailedInfoActivity;
+import com.example.schoolrun.Activity.TestMeAc;
 import com.example.schoolrun.Entity.MyTask;
 import com.example.schoolrun.R;
 
@@ -26,6 +28,7 @@ import cn.bmob.v3.listener.FindListener;
 
 //用户查看收益
 public class Lookincome extends AppCompatActivity {
+    private ImageButton back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -35,6 +38,7 @@ public class Lookincome extends AppCompatActivity {
         Intent intent = getIntent();
         String uid=intent.getStringExtra("uid");
         String objectId=intent.getStringExtra("objectId");
+        back = findViewById(R.id.button3);
         //这里获取了任务主页
         BmobQuery<MyTask> bmobQuery = new BmobQuery<MyTask>();
         bmobQuery.findObjects(new FindListener<MyTask>() {
@@ -98,6 +102,18 @@ public class Lookincome extends AppCompatActivity {
                 else {
                     Log.d("path","查询不成功");
                 }
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {//返回
+            @Override
+            public void onClick(View view) {
+                Intent a = new Intent(Lookincome.this, TestMeAc.class);
+                String uid = intent.getStringExtra("uid");
+                String objectId = intent.getStringExtra("objectId");
+                a.putExtra("uid", uid);
+                a.putExtra("objectId", objectId);
+                startActivity(a);
+                finish();
             }
         });
     }

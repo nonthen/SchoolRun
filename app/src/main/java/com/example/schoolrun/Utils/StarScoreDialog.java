@@ -187,6 +187,7 @@ public class StarScoreDialog extends Dialog {
                 if (ratingscore>=4){//评分4分以上为好评
 
                     myUser.setGoodappraisecount(list.get(0).getGoodappraisecount()+1);
+                    myUser.setBadappraisecount(list.get(0).getBadappraisecount());
 
                     if (list.get(0).getUreputation()<10){
                         //因为0.1是double类型
@@ -201,6 +202,7 @@ public class StarScoreDialog extends Dialog {
 
                 }
                 else if (ratingscore<=2){//评分2分以下为差评
+                    myUser.setGoodappraisecount(list.get(0).getGoodappraisecount());
                     myUser.setBadappraisecount(list.get(0).getBadappraisecount()+1);
 
                     if (list.get(0).getUreputation()>0&&list.get(0).getUreputation()<=10){
